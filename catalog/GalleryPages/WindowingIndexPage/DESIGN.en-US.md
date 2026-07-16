@@ -1,0 +1,95 @@
+# WindowingIndexPage Design
+
+## Visual principles
+
+- Fluent Modern is the default visual language.
+- Historical/media styling appears only in labeled preview regions.
+- Heading, description, primary action, and status form fixed hierarchy.
+- All visual values come from semantic ThemeResource tokens.
+- Explanatory text is constrained to readable measure.
+- State badges combine text with icon or shape.
+- Decorative imagery carries no unique information.
+- Cards use content-driven height.
+
+## Responsive layout
+
+- Narrow 320–639 epx: one column and filter sheet.
+- Medium 640–1023 epx: one or two columns by minimum card width.
+- Wide 1024+ epx: bounded content with optional side rail.
+- 200% text scale selects the next narrower layout before clipping.
+- 400% display scale preserves every primary action.
+- Height below 480 epx keeps heading readable while body scrolls.
+- DPI/orientation change preserves stable selection and anchor.
+- Required status and legal text is never hidden at narrow width.
+- Minimum hit target is 40×40 epx; preferred touch target is 44×44.
+
+## Visual tree and components
+
+- Root has one page scroll owner unless a workbench explicitly owns nested scrolling.
+- H1 precedes filters, result summary, content, and footer.
+- Loading skeletons approximate final card geometry.
+- Empty/error states reuse the content region rather than dialogs.
+- Every card has localized title, description, status, and one command.
+- Secondary metadata is a semantic list.
+- Inline help follows its control in reading order.
+- Preview assets resolve through the manifest only.
+- Missing assets use a themed semantic placeholder.
+
+## Focus and interaction
+
+- Primary activation will open detail first and let detail request window operations.
+- Keyboard/deep-link arrival focuses H1; pointer arrival preserves pointer semantics.
+- Focus order follows visual/document order.
+- Refresh never steals focus.
+- Removed focused content transfers focus to nearest surviving item.
+- Transient surfaces restore focus to their invoking button.
+- Disabled actions have adjacent visible explanations.
+- Shift+F10 exposes the same secondary actions as pointer context menus.
+- Double click/tap never executes twice.
+
+## Input matrix
+
+- Mouse click activates; wheel scrolls nearest eligible container.
+- Hover never reveals required-only information.
+- Tab traverses logical order; Enter/Space activate; Escape dismisses.
+- Arrow keys follow active list/grid semantics.
+- Touch tap activates and pan scrolls; no edge-only gesture is required.
+- Touchpad precision scrolling follows system settings.
+- Gamepad XY focus has explicit overrides at region boundaries.
+- Pen tap matches touch; barrel actions have keyboard alternatives.
+- Unconsumed input bubbles to the shell.
+
+## Automation and accessibility
+
+- Root Automation name includes WindowingIndexPage.
+- H1 and sections expose Heading semantics.
+- Cards expose Name, Description, Status, PositionInSet, and Invoke.
+- Skeletons are excluded from the accessibility tree.
+- Loaded result count is announced once with polite priority.
+- Error is announced once; correlation ID is selectable.
+- Filter announcements coalesce for 300 ms.
+- Focus visuals use system resources and remain visible.
+- Color, position, material, and motion are never sole information channels.
+- Reduced Motion exposes identical commands and state.
+
+## Theme, High Contrast, and RTL
+
+- Light and Dark share semantic hierarchy.
+- High Contrast removes Acrylic/Mica dependency and shadows.
+- Selected/error states retain visible system-color boundaries.
+- RTL mirrors layout, chevrons, and navigation order.
+- IDs, code, versions, and product names preserve semantic direction.
+- Historical imagery is not mechanically mirrored.
+- Missing theme tokens fall back to WinUI system resources.
+- Live theme changes preserve page instance and selection.
+
+## Motion and transitions
+
+- Loading-to-content uses opacity without moving reading position.
+- Reduced Motion removes translation, parallax, and shimmer.
+- Animation never gates command completion.
+- Interrupted transitions settle on the latest state.
+- Error changes never flash more than three times per second.
+- High Contrast disables skeleton shimmer.
+- Unload cancels composition callbacks.
+- Automation state updates are independent of visual duration.

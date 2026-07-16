@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Page
+    x:Class="WinUI3_Senior_Gallery.Pages.ControlsIndexPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ScrollViewer>
+        <StackPanel MaxWidth="1200" Padding="32,24,32,40" Spacing="20">
+            <StackPanel Spacing="6">
+                <TextBlock Text="Controls" Style="{StaticResource TitleTextBlockStyle}" />
+                <TextBlock Text="高级复合控件目录" Style="{StaticResource SubtitleTextBlockStyle}" />
+                <TextBlock Text="Catalog route: /controls" Opacity="0.68" />
+            </StackPanel>
+
+            <InfoBar IsOpen="True" IsClosable="False" Severity="Informational"
+                     Title="规格驱动的控件入口"
+                     Message="只有处于实施阶段的工作单元会在此提供可运行的 Gallery 实验台；其余卡片保持为目录，不伪装为正式组件。" />
+
+            <Button HorizontalAlignment="Left" Click="OnOpenCarouselViewClick">
+                <StackPanel Orientation="Horizontal" Spacing="12">
+                    <SymbolIcon Symbol="Switch" />
+                    <StackPanel>
+                        <TextBlock Text="Open CarouselView lab" />
+                        <TextBlock Text="P0 · in-progress · /controls/carousel-view" Opacity="0.68" Style="{StaticResource CaptionTextBlockStyle}" />
+                    </StackPanel>
+                </StackPanel>
+            </Button>
+
+            <Grid ColumnSpacing="16" RowSpacing="16">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Border Padding="20" CornerRadius="12" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                    <StackPanel Spacing="8">
+                        <TextBlock Text="Collections" Style="{StaticResource SubtitleTextBlockStyle}" />
+                        <TextBlock Text="CarouselView、PivotView、SemanticZoomView 与 ContentRail。" TextWrapping="Wrap" />
+                        <TextBlock Text="CarouselView is the current P0 implementation." Opacity="0.68" />
+                    </StackPanel>
+                </Border>
+                <Border Grid.Column="1" Padding="20" CornerRadius="12" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                    <StackPanel Spacing="8">
+                        <TextBlock Text="Layout &amp; overlays" Style="{StaticResource SubtitleTextBlockStyle}" />
+                        <TextBlock Text="AdaptiveGrid、WidgetCard、BottomSheet、SnackbarHost 与 DragOverlay。" TextWrapping="Wrap" />
+                        <TextBlock Text="Catalog status · backlog" Opacity="0.68" />
+                    </StackPanel>
+                </Border>
+                <Border Grid.Row="1" Padding="20" CornerRadius="12" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                    <StackPanel Spacing="8">
+                        <TextBlock Text="Navigation &amp; commands" Style="{StaticResource SubtitleTextBlockStyle}" />
+                        <TextBlock Text="BreadcrumbBarEx、SearchBoxEx、WizardStepper、ExpandableCommandBar 与 CommandRibbon。" TextWrapping="Wrap" />
+                    </StackPanel>
+                </Border>
+                <Border Grid.Row="1" Grid.Column="1" Padding="20" CornerRadius="12" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                    <StackPanel Spacing="8">
+                        <TextBlock Text="Input &amp; data" Style="{StaticResource SubtitleTextBlockStyle}" />
+                        <TextBlock Text="ColorPickerEx、FontPicker、IconPicker、PropertyGrid 与 TreeDataGrid。" TextWrapping="Wrap" />
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

@@ -1,0 +1,26 @@
+﻿{
+    "schema_version":  1,
+    "id":  "experiences.quick-resume",
+    "display_name":  "QuickResumeExperience",
+    "kind":  "experience",
+    "status":  "proposed",
+    "maturity":  "lab",
+    "priority":  "P2",
+    "package":  "WinUI3.Senior.Archaeology",
+    "namespace":  "WinUI3.Senior.Archaeology",
+    "gallery_route":  "/experiences/quick-resume",
+    "source_language":  "zh-CN",
+    "owned_paths":  [
+                        "catalog/Experiences/QuickResumeExperience"
+                    ],
+    "depends_on":  [
+                       "controls.content-rail"
+                   ],
+    "provides":  [
+                     "experience:experiences.quick-resume"
+                 ],
+    "archaeology_refs":  [
+
+                         ],
+    "license_review":  "not-required"
+}

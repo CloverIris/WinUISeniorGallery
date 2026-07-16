@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://winui3seniorgallery.dev/schemas/feature.schema.json",
+  "title": "WinUI 3 Senior Gallery feature work item",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "id", "display_name", "kind", "status", "maturity",
+    "priority", "package", "namespace", "gallery_route", "source_language",
+    "owned_paths", "depends_on", "provides", "archaeology_refs", "license_review"
+  ],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "id": { "type": "string", "pattern": "^[a-z0-9]+(?:[.-][a-z0-9]+)*$" },
+    "display_name": { "type": "string", "minLength": 1 },
+    "kind": { "enum": ["foundation", "control", "behavior", "service", "experience", "archaeology", "page"] },
+    "status": { "enum": ["proposed", "specified", "ready", "in-progress", "blocked", "review", "done"] },
+    "maturity": { "enum": ["lab", "preview", "stable"] },
+    "priority": { "enum": ["P0", "P1", "P2", "P3"] },
+    "package": { "type": "string" },
+    "namespace": { "type": "string" },
+    "gallery_route": { "type": "string", "pattern": "^$|^/" },
+    "source_language": { "const": "zh-CN" },
+    "owned_paths": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+    "depends_on": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+    "provides": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+    "archaeology_refs": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+    "historical_label": { "type": ["string", "null"] },
+    "public_api_name": { "type": ["string", "null"] },
+    "license_review": { "enum": ["not-required", "pending", "passed", "blocked"] }
+  }
+}
+

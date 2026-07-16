@@ -1,0 +1,26 @@
+﻿{
+    "schema_version":  1,
+    "id":  "future.translation-provider",
+    "display_name":  "Translation Provider",
+    "kind":  "service",
+    "status":  "proposed",
+    "maturity":  "lab",
+    "priority":  "P3",
+    "package":  "WinUI3.Senior.Core",
+    "namespace":  "WinUI3.Senior.Core",
+    "gallery_route":  "",
+    "source_language":  "zh-CN",
+    "owned_paths":  [
+                        "catalog/Experiences/Future/TranslationProvider"
+                    ],
+    "depends_on":  [
+                       "future.captions-abstractions"
+                   ],
+    "provides":  [
+                     "service:future.translation-provider"
+                 ],
+    "archaeology_refs":  [
+
+                         ],
+    "license_review":  "not-required"
+}

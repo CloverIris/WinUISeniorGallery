@@ -1,0 +1,26 @@
+﻿{
+    "schema_version":  1,
+    "id":  "windowing.tab-tear-out-behavior",
+    "display_name":  "TabTearOutBehavior",
+    "kind":  "behavior",
+    "status":  "proposed",
+    "maturity":  "lab",
+    "priority":  "P2",
+    "package":  "WinUI3.Senior.Windowing",
+    "namespace":  "WinUI3.Senior.Windowing",
+    "gallery_route":  "/windowing/tab-tear-out-behavior",
+    "source_language":  "zh-CN",
+    "owned_paths":  [
+                        "catalog/Windowing/TabTearOutBehavior"
+                    ],
+    "depends_on":  [
+                       "contracts.windowing"
+                   ],
+    "provides":  [
+                     "behavior:windowing.tab-tear-out-behavior"
+                 ],
+    "archaeology_refs":  [
+
+                         ],
+    "license_review":  "not-required"
+}

@@ -1,0 +1,27 @@
+﻿{
+    "schema_version":  1,
+    "id":  "experiences.captions-translation",
+    "display_name":  "CaptionsTranslationExperience",
+    "kind":  "experience",
+    "status":  "proposed",
+    "maturity":  "lab",
+    "priority":  "P2",
+    "package":  "WinUI3.Senior.Archaeology",
+    "namespace":  "WinUI3.Senior.Archaeology",
+    "gallery_route":  "/experiences/captions-translation",
+    "source_language":  "zh-CN",
+    "owned_paths":  [
+                        "catalog/Experiences/CaptionsTranslationExperience"
+                    ],
+    "depends_on":  [
+                       "media.timed-text-view",
+                       "future.captions-abstractions"
+                   ],
+    "provides":  [
+                     "experience:experiences.captions-translation"
+                 ],
+    "archaeology_refs":  [
+
+                         ],
+    "license_review":  "not-required"
+}

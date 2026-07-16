@@ -1,0 +1,26 @@
+﻿{
+    "schema_version":  1,
+    "id":  "media.media-center-grid",
+    "display_name":  "MediaCenterGrid",
+    "kind":  "control",
+    "status":  "proposed",
+    "maturity":  "lab",
+    "priority":  "P1",
+    "package":  "WinUI3.Senior.Media",
+    "namespace":  "WinUI3.Senior.Media",
+    "gallery_route":  "/media/media-center-grid",
+    "source_language":  "zh-CN",
+    "owned_paths":  [
+                        "catalog/Media/MediaCenterGrid"
+                    ],
+    "depends_on":  [
+                       "controls.content-rail"
+                   ],
+    "provides":  [
+                     "control:media.media-center-grid"
+                 ],
+    "archaeology_refs":  [
+
+                         ],
+    "license_review":  "not-required"
+}

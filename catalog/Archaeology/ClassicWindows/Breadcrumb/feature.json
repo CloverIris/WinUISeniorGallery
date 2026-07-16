@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "id": "archaeology.classic-windows.breadcrumb",
+  "display_name": "Editable Breadcrumb",
+  "kind": "archaeology",
+  "status": "specified",
+  "maturity": "lab",
+  "priority": "P1",
+  "package": "WinUI3.Senior.Archaeology",
+  "namespace": "WinUI3.Senior.Archaeology.ClassicWindows",
+  "gallery_route": "/archaeology/classic-windows/breadcrumb",
+  "source_language": "zh-CN",
+  "owned_paths": [
+    "catalog/Archaeology/ClassicWindows/Breadcrumb/**"
+  ],
+  "depends_on": [
+    "controls.breadcrumb-bar-ex"
+  ],
+  "provides": [
+    "exhibit.classic-windows.breadcrumb"
+  ],
+  "archaeology_refs": [
+    "controls.breadcrumb-bar-ex"
+  ],
+  "historical_label": "Windows Explorer breadcrumb/address bar (Windows Vista, 2006–present)",
+  "public_api_name": "BreadcrumbBarEx",
+  "license_review": "pending"
+}
+

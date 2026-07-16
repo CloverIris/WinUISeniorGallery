@@ -1,0 +1,26 @@
+﻿{
+    "schema_version":  1,
+    "id":  "foundation.motion-system",
+    "display_name":  "MotionSystem",
+    "kind":  "foundation",
+    "status":  "proposed",
+    "maturity":  "lab",
+    "priority":  "P0",
+    "package":  "WinUI3.Senior.Core",
+    "namespace":  "WinUI3.Senior.Core",
+    "gallery_route":  "",
+    "source_language":  "zh-CN",
+    "owned_paths":  [
+                        "catalog/Foundation/MotionSystem"
+                    ],
+    "depends_on":  [
+                       "contracts.motion"
+                   ],
+    "provides":  [
+                     "foundation:foundation.motion-system"
+                 ],
+    "archaeology_refs":  [
+
+                         ],
+    "license_review":  "not-required"
+}

@@ -1,0 +1,26 @@
+﻿{
+    "schema_version":  1,
+    "id":  "controls.overlay-menu",
+    "display_name":  "OverlayMenu",
+    "kind":  "control",
+    "status":  "proposed",
+    "maturity":  "lab",
+    "priority":  "P2",
+    "package":  "WinUI3.Senior.Controls",
+    "namespace":  "WinUI3.Senior.Controls",
+    "gallery_route":  "/controls/overlay-menu",
+    "source_language":  "zh-CN",
+    "owned_paths":  [
+                        "catalog/Controls/Overlays/OverlayMenu"
+                    ],
+    "depends_on":  [
+                       "foundation.accessibility-system"
+                   ],
+    "provides":  [
+                     "control:controls.overlay-menu"
+                 ],
+    "archaeology_refs":  [
+
+                         ],
+    "license_review":  "not-required"
+}

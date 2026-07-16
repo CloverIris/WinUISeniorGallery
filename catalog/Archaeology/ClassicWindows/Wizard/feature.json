@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "id": "archaeology.classic-windows.wizard",
+  "display_name": "Wizard / Stepper",
+  "kind": "archaeology",
+  "status": "specified",
+  "maturity": "lab",
+  "priority": "P1",
+  "package": "WinUI3.Senior.Archaeology",
+  "namespace": "WinUI3.Senior.Archaeology.ClassicWindows",
+  "gallery_route": "/archaeology/classic-windows/wizard",
+  "source_language": "zh-CN",
+  "owned_paths": [
+    "catalog/Archaeology/ClassicWindows/Wizard/**"
+  ],
+  "depends_on": [
+    "controls.wizard-stepper"
+  ],
+  "provides": [
+    "exhibit.classic-windows.wizard"
+  ],
+  "archaeology_refs": [
+    "controls.wizard-stepper"
+  ],
+  "historical_label": "Windows multi-step wizards (Windows 95 era–present)",
+  "public_api_name": "WizardStepper",
+  "license_review": "pending"
+}
+

@@ -1,0 +1,26 @@
+﻿{
+    "schema_version":  1,
+    "id":  "windowing.window-chrome",
+    "display_name":  "WindowChrome",
+    "kind":  "control",
+    "status":  "proposed",
+    "maturity":  "lab",
+    "priority":  "P1",
+    "package":  "WinUI3.Senior.Windowing",
+    "namespace":  "WinUI3.Senior.Windowing",
+    "gallery_route":  "/windowing/window-chrome",
+    "source_language":  "zh-CN",
+    "owned_paths":  [
+                        "catalog/Windowing/WindowChrome"
+                    ],
+    "depends_on":  [
+                       "contracts.windowing"
+                   ],
+    "provides":  [
+                     "control:windowing.window-chrome"
+                 ],
+    "archaeology_refs":  [
+
+                         ],
+    "license_review":  "not-required"
+}

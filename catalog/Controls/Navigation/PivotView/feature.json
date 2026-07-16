@@ -1,0 +1,27 @@
+﻿{
+    "schema_version":  1,
+    "id":  "controls.pivot-view",
+    "display_name":  "PivotView",
+    "kind":  "control",
+    "status":  "proposed",
+    "maturity":  "lab",
+    "priority":  "P1",
+    "package":  "WinUI3.Senior.Controls",
+    "namespace":  "WinUI3.Senior.Controls",
+    "gallery_route":  "/controls/pivot-view",
+    "source_language":  "zh-CN",
+    "owned_paths":  [
+                        "catalog/Controls/Navigation/PivotView"
+                    ],
+    "depends_on":  [
+                       "foundation.input-system",
+                       "foundation.motion-system"
+                   ],
+    "provides":  [
+                     "control:controls.pivot-view"
+                 ],
+    "archaeology_refs":  [
+
+                         ],
+    "license_review":  "not-required"
+}

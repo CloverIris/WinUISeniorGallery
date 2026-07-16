@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "id": "media.media-timeline",
+  "display_name": "MediaTimeline",
+  "kind": "control",
+  "status": "ready",
+  "maturity": "lab",
+  "priority": "P0",
+  "package": "WinUI3.Senior.Media",
+  "namespace": "WinUI3.Senior.Media",
+  "gallery_route": "/media/media-timeline",
+  "source_language": "zh-CN",
+  "owned_paths": [
+    "catalog/Media/MediaTimeline/**",
+    "src/WinUI3.Senior.Media/MediaTimeline/**",
+    "tests/WinUI3.Senior.Media.Tests/MediaTimeline/**"
+  ],
+  "depends_on": [
+    "contracts.media-playback",
+    "contracts.theme",
+    "contracts.motion",
+    "contracts.input",
+    "contracts.accessibility"
+  ],
+  "provides": [
+    "WinUI3.Senior.Media.MediaTimeline",
+    "WinUI3.Senior.Media.MediaTimeRange",
+    "WinUI3.Senior.Media.MediaTimelineMarker"
+  ],
+  "archaeology_refs": [
+    "archaeology.zune.now-playing",
+    "archaeology.windows-media-center.overlay-menu"
+  ],
+  "license_review": "not-required"
+}

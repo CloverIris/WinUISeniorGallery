@@ -1,0 +1,26 @@
+﻿{
+    "schema_version":  1,
+    "id":  "controls.font-picker",
+    "display_name":  "FontPicker",
+    "kind":  "control",
+    "status":  "proposed",
+    "maturity":  "lab",
+    "priority":  "P2",
+    "package":  "WinUI3.Senior.Controls",
+    "namespace":  "WinUI3.Senior.Controls",
+    "gallery_route":  "/controls/font-picker",
+    "source_language":  "zh-CN",
+    "owned_paths":  [
+                        "catalog/Controls/Input/FontPicker"
+                    ],
+    "depends_on":  [
+                       "foundation.localization-service"
+                   ],
+    "provides":  [
+                     "control:controls.font-picker"
+                 ],
+    "archaeology_refs":  [
+
+                         ],
+    "license_review":  "not-required"
+}

@@ -1,0 +1,26 @@
+﻿{
+    "schema_version":  1,
+    "id":  "controls.search-box-ex",
+    "display_name":  "SearchBoxEx",
+    "kind":  "control",
+    "status":  "proposed",
+    "maturity":  "lab",
+    "priority":  "P2",
+    "package":  "WinUI3.Senior.Controls",
+    "namespace":  "WinUI3.Senior.Controls",
+    "gallery_route":  "/controls/search-box-ex",
+    "source_language":  "zh-CN",
+    "owned_paths":  [
+                        "catalog/Controls/Input/SearchBoxEx"
+                    ],
+    "depends_on":  [
+                       "foundation.accessibility-system"
+                   ],
+    "provides":  [
+                     "control:controls.search-box-ex"
+                 ],
+    "archaeology_refs":  [
+
+                         ],
+    "license_review":  "not-required"
+}

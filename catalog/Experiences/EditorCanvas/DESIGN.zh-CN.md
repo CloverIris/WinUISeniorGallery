@@ -1,0 +1,20 @@
+﻿# EditorCanvas Design
+
+## Visuals and interaction
+
+设计必须覆盖响应式布局、Light/Dark/High Contrast、Reduced Motion、键盘、鼠标、触摸、Narrator、文本缩放、中文、英文和 RTL。历史来源由对应考古工作单元维护，不复制受版权保护素材。
+
+## Responsiveness
+
+Narrow, regular, and wide layouts require review.
+
+## Theme, motion, input, and accessibility
+
+Follow global contracts.
+
+## Modernization tradeoffs
+
+Archaeology owns historical provenance.
+
+## 响应式、输入与无障碍
+鼠标/触摸/笔/键盘、压感与框选需等价命令；RTL影响UI不反转画布坐标，高对比度参考线可见，Reduced Motion无惯性。

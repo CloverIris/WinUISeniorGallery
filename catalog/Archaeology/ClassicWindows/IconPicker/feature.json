@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "id": "archaeology.classic-windows.icon-picker",
+  "display_name": "Icon Picker",
+  "kind": "archaeology",
+  "status": "specified",
+  "maturity": "lab",
+  "priority": "P2",
+  "package": "WinUI3.Senior.Archaeology",
+  "namespace": "WinUI3.Senior.Archaeology.ClassicWindows",
+  "gallery_route": "/archaeology/classic-windows/icon-picker",
+  "source_language": "zh-CN",
+  "owned_paths": [
+    "catalog/Archaeology/ClassicWindows/IconPicker/**"
+  ],
+  "depends_on": [
+    "controls.icon-picker"
+  ],
+  "provides": [
+    "exhibit.classic-windows.icon-picker"
+  ],
+  "archaeology_refs": [
+    "controls.icon-picker"
+  ],
+  "historical_label": "Windows Shell Change Icon and symbol pickers (Windows 95–present)",
+  "public_api_name": "IconPicker",
+  "license_review": "pending"
+}
+

@@ -1,0 +1,27 @@
+﻿{
+    "schema_version":  1,
+    "id":  "experiences.immersive-now-playing",
+    "display_name":  "ImmersiveNowPlaying",
+    "kind":  "experience",
+    "status":  "proposed",
+    "maturity":  "lab",
+    "priority":  "P1",
+    "package":  "WinUI3.Senior.Archaeology",
+    "namespace":  "WinUI3.Senior.Archaeology",
+    "gallery_route":  "/experiences/immersive-now-playing",
+    "source_language":  "zh-CN",
+    "owned_paths":  [
+                        "catalog/Experiences/ImmersiveNowPlaying"
+                    ],
+    "depends_on":  [
+                       "media.media-player-chrome",
+                       "media.timed-text-view"
+                   ],
+    "provides":  [
+                     "experience:experiences.immersive-now-playing"
+                 ],
+    "archaeology_refs":  [
+
+                         ],
+    "license_review":  "not-required"
+}

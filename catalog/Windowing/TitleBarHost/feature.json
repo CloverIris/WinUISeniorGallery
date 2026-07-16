@@ -1,0 +1,26 @@
+﻿{
+    "schema_version":  1,
+    "id":  "windowing.title-bar-host",
+    "display_name":  "TitleBarHost",
+    "kind":  "control",
+    "status":  "proposed",
+    "maturity":  "lab",
+    "priority":  "P1",
+    "package":  "WinUI3.Senior.Windowing",
+    "namespace":  "WinUI3.Senior.Windowing",
+    "gallery_route":  "/windowing/title-bar-host",
+    "source_language":  "zh-CN",
+    "owned_paths":  [
+                        "catalog/Windowing/TitleBarHost"
+                    ],
+    "depends_on":  [
+                       "contracts.windowing"
+                   ],
+    "provides":  [
+                     "control:windowing.title-bar-host"
+                 ],
+    "archaeology_refs":  [
+
+                         ],
+    "license_review":  "not-required"
+}

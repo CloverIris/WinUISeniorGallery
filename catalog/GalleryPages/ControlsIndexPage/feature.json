@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "id": "pages.controls-index-page",
+  "display_name": "ControlsIndexPage",
+  "kind": "page",
+  "status": "proposed",
+  "maturity": "lab",
+  "priority": "P1",
+  "package": "WinUI3.Senior.Gallery",
+  "namespace": "WinUI3.Senior.Gallery.Pages",
+  "gallery_route": "/controls",
+  "source_language": "zh-CN",
+  "owned_paths": ["catalog/GalleryPages/ControlsIndexPage/**"],
+  "depends_on": ["contract.navigation.v1", "contract.resources.v1", "contract.localization.v1"],
+  "provides": ["route.gallery.controls"],
+  "archaeology_refs": [],
+  "license_review": "not-required"
+}

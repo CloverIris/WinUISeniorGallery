@@ -1,0 +1,26 @@
+﻿{
+    "schema_version":  1,
+    "id":  "controls.big-title",
+    "display_name":  "BigTitle",
+    "kind":  "control",
+    "status":  "proposed",
+    "maturity":  "lab",
+    "priority":  "P2",
+    "package":  "WinUI3.Senior.Controls",
+    "namespace":  "WinUI3.Senior.Controls",
+    "gallery_route":  "/controls/big-title",
+    "source_language":  "zh-CN",
+    "owned_paths":  [
+                        "catalog/Controls/Layout/BigTitle"
+                    ],
+    "depends_on":  [
+                       "foundation.theme-system"
+                   ],
+    "provides":  [
+                     "control:controls.big-title"
+                 ],
+    "archaeology_refs":  [
+
+                         ],
+    "license_review":  "not-required"
+}

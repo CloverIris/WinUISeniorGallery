@@ -1,0 +1,21 @@
+<Page
+    x:Class="WinUI3_Senior_Gallery.Pages.AboutPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <ScrollViewer Padding="32">
+        <StackPanel Spacing="12">
+            <TextBlock Style="{StaticResource TitleTextBlockStyle}" Text="About" />
+            <TextBlock TextWrapping="Wrap" Text="Development placeholder for WinUI 3 Senior Gallery project information, licenses, contribution links, and the non-Microsoft-official-project statement." />
+            <InfoBar
+                IsOpen="True"
+                IsClosable="False"
+                Severity="Informational"
+                Title="Catalog route"
+                Message="/pages/about" />
+        </StackPanel>
+    </ScrollViewer>
+</Page>

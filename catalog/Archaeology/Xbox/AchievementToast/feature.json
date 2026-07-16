@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "id": "archaeology.xbox.achievement-toast",
+  "display_name": "Achievement Toast",
+  "kind": "archaeology",
+  "status": "specified",
+  "maturity": "lab",
+  "priority": "P1",
+  "package": "WinUI3.Senior.Archaeology",
+  "namespace": "WinUI3.Senior.Archaeology.Xbox",
+  "gallery_route": "/archaeology/xbox/achievement-toast",
+  "source_language": "zh-CN",
+  "owned_paths": [
+    "catalog/Archaeology/Xbox/AchievementToast/**"
+  ],
+  "depends_on": [
+    "controls.achievement-toast"
+  ],
+  "provides": [
+    "exhibit.xbox.achievement-toast"
+  ],
+  "archaeology_refs": [
+    "controls.achievement-toast"
+  ],
+  "historical_label": "Xbox achievements and unlock notifications (Xbox 360, 2005–present)",
+  "public_api_name": "AchievementToast",
+  "license_review": "pending"
+}
+

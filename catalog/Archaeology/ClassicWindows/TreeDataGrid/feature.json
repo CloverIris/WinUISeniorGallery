@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "id": "archaeology.classic-windows.tree-data-grid",
+  "display_name": "Tree Data Grid",
+  "kind": "archaeology",
+  "status": "specified",
+  "maturity": "lab",
+  "priority": "P1",
+  "package": "WinUI3.Senior.Archaeology",
+  "namespace": "WinUI3.Senior.Archaeology.ClassicWindows",
+  "gallery_route": "/archaeology/classic-windows/tree-data-grid",
+  "source_language": "zh-CN",
+  "owned_paths": [
+    "catalog/Archaeology/ClassicWindows/TreeDataGrid/**"
+  ],
+  "depends_on": [
+    "controls.tree-data-grid"
+  ],
+  "provides": [
+    "exhibit.classic-windows.tree-data-grid"
+  ],
+  "archaeology_refs": [
+    "controls.tree-data-grid"
+  ],
+  "historical_label": "Hierarchical report/tree-grid pattern in Windows management and developer tools (1990s–present)",
+  "public_api_name": "TreeDataGrid",
+  "license_review": "pending"
+}
+

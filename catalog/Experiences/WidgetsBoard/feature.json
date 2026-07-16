@@ -1,0 +1,27 @@
+﻿{
+    "schema_version":  1,
+    "id":  "experiences.widgets-board",
+    "display_name":  "WidgetsBoard",
+    "kind":  "experience",
+    "status":  "proposed",
+    "maturity":  "lab",
+    "priority":  "P1",
+    "package":  "WinUI3.Senior.Archaeology",
+    "namespace":  "WinUI3.Senior.Archaeology",
+    "gallery_route":  "/experiences/widgets-board",
+    "source_language":  "zh-CN",
+    "owned_paths":  [
+                        "catalog/Experiences/WidgetsBoard"
+                    ],
+    "depends_on":  [
+                       "controls.widget-card",
+                       "controls.adaptive-grid"
+                   ],
+    "provides":  [
+                     "experience:experiences.widgets-board"
+                 ],
+    "archaeology_refs":  [
+
+                         ],
+    "license_review":  "not-required"
+}

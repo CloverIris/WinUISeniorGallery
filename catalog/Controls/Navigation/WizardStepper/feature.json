@@ -1,0 +1,26 @@
+﻿{
+    "schema_version":  1,
+    "id":  "controls.wizard-stepper",
+    "display_name":  "WizardStepper",
+    "kind":  "control",
+    "status":  "proposed",
+    "maturity":  "lab",
+    "priority":  "P2",
+    "package":  "WinUI3.Senior.Controls",
+    "namespace":  "WinUI3.Senior.Controls",
+    "gallery_route":  "/controls/wizard-stepper",
+    "source_language":  "zh-CN",
+    "owned_paths":  [
+                        "catalog/Controls/Navigation/WizardStepper"
+                    ],
+    "depends_on":  [
+                       "foundation.navigation-catalog"
+                   ],
+    "provides":  [
+                     "control:controls.wizard-stepper"
+                 ],
+    "archaeology_refs":  [
+
+                         ],
+    "license_review":  "not-required"
+}

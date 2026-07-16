@@ -1,0 +1,27 @@
+﻿{
+    "schema_version":  1,
+    "id":  "future.canvas-winui",
+    "display_name":  "Canvas.WinUI",
+    "kind":  "control",
+    "status":  "proposed",
+    "maturity":  "lab",
+    "priority":  "P3",
+    "package":  "WinUI3.Senior.Controls",
+    "namespace":  "WinUI3.Senior.Controls",
+    "gallery_route":  "",
+    "source_language":  "zh-CN",
+    "owned_paths":  [
+                        "catalog/Experiences/Future/CanvasWinUI"
+                    ],
+    "depends_on":  [
+                       "future.canvas-abstractions",
+                       "future.canvas-native"
+                   ],
+    "provides":  [
+                     "control:future.canvas-winui"
+                 ],
+    "archaeology_refs":  [
+
+                         ],
+    "license_review":  "not-required"
+}

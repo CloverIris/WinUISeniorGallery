@@ -1,0 +1,26 @@
+﻿{
+    "schema_version":  1,
+    "id":  "foundation.theme-system",
+    "display_name":  "ThemeSystem",
+    "kind":  "foundation",
+    "status":  "proposed",
+    "maturity":  "lab",
+    "priority":  "P0",
+    "package":  "WinUI3.Senior.Core",
+    "namespace":  "WinUI3.Senior.Core",
+    "gallery_route":  "",
+    "source_language":  "zh-CN",
+    "owned_paths":  [
+                        "catalog/Foundation/ThemeSystem"
+                    ],
+    "depends_on":  [
+                       "contracts.theme"
+                   ],
+    "provides":  [
+                     "foundation:foundation.theme-system"
+                 ],
+    "archaeology_refs":  [
+
+                         ],
+    "license_review":  "not-required"
+}

@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "id": "archaeology.classic-windows.search-suggestions",
+  "display_name": "Search Suggestions",
+  "kind": "archaeology",
+  "status": "specified",
+  "maturity": "lab",
+  "priority": "P1",
+  "package": "WinUI3.Senior.Archaeology",
+  "namespace": "WinUI3.Senior.Archaeology.ClassicWindows",
+  "gallery_route": "/archaeology/classic-windows/search-suggestions",
+  "source_language": "zh-CN",
+  "owned_paths": [
+    "catalog/Archaeology/ClassicWindows/SearchSuggestions/**"
+  ],
+  "depends_on": [
+    "controls.search-box-ex"
+  ],
+  "provides": [
+    "exhibit.classic-windows.search-suggestions"
+  ],
+  "archaeology_refs": [
+    "controls.search-box-ex"
+  ],
+  "historical_label": "Windows search suggestions (Windows Vista/7 through Windows 10/11)",
+  "public_api_name": "SearchBoxEx",
+  "license_review": "pending"
+}
+

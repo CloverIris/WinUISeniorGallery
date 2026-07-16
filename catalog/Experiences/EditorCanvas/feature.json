@@ -1,0 +1,26 @@
+﻿{
+    "schema_version":  1,
+    "id":  "experiences.editor-canvas",
+    "display_name":  "EditorCanvas",
+    "kind":  "experience",
+    "status":  "proposed",
+    "maturity":  "lab",
+    "priority":  "P2",
+    "package":  "WinUI3.Senior.Archaeology",
+    "namespace":  "WinUI3.Senior.Archaeology",
+    "gallery_route":  "/experiences/editor-canvas",
+    "source_language":  "zh-CN",
+    "owned_paths":  [
+                        "catalog/Experiences/EditorCanvas"
+                    ],
+    "depends_on":  [
+                       "future.canvas-winui"
+                   ],
+    "provides":  [
+                     "experience:experiences.editor-canvas"
+                 ],
+    "archaeology_refs":  [
+
+                         ],
+    "license_review":  "not-required"
+}

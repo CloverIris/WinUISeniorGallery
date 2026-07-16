@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "id": "media.media-player-chrome",
+  "display_name": "MediaPlayerChrome",
+  "kind": "control",
+  "status": "ready",
+  "maturity": "lab",
+  "priority": "P0",
+  "package": "WinUI3.Senior.Media",
+  "namespace": "WinUI3.Senior.Media",
+  "gallery_route": "/media/media-player-chrome",
+  "source_language": "zh-CN",
+  "owned_paths": [
+    "catalog/Media/MediaPlayerChrome/**",
+    "src/WinUI3.Senior.Media/MediaPlayerChrome/**",
+    "tests/WinUI3.Senior.Media.Tests/MediaPlayerChrome/**"
+  ],
+  "depends_on": [
+    "contracts.media-playback",
+    "contracts.theme",
+    "contracts.motion",
+    "contracts.input",
+    "contracts.accessibility",
+    "media.media-timeline"
+  ],
+  "provides": [
+    "WinUI3.Senior.Media.MediaPlayerChrome",
+    "WinUI3.Senior.Media.MediaPlayerElementPlaybackSessionAdapter"
+  ],
+  "archaeology_refs": [
+    "archaeology.zune.now-playing",
+    "archaeology.windows-media-center.overlay-menu"
+  ],
+  "license_review": "not-required"
+}

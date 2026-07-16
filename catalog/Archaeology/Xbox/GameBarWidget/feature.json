@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "id": "archaeology.xbox.game-bar-widget",
+  "display_name": "Game Bar Widget",
+  "kind": "archaeology",
+  "status": "specified",
+  "maturity": "lab",
+  "priority": "P1",
+  "package": "WinUI3.Senior.Archaeology",
+  "namespace": "WinUI3.Senior.Archaeology.Xbox",
+  "gallery_route": "/archaeology/xbox/game-bar-widget",
+  "source_language": "zh-CN",
+  "owned_paths": [
+    "catalog/Archaeology/Xbox/GameBarWidget/**"
+  ],
+  "depends_on": [
+    "experiences.game-bar-widget"
+  ],
+  "provides": [
+    "exhibit.xbox.game-bar-widget"
+  ],
+  "archaeology_refs": [
+    "experiences.game-bar-widget"
+  ],
+  "historical_label": "Xbox Game Bar widgets (Windows 10, 2019–present)",
+  "public_api_name": "GameBarWidgetExperience",
+  "license_review": "pending"
+}

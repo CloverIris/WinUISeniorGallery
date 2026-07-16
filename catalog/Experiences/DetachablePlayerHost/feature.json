@@ -1,0 +1,27 @@
+﻿{
+    "schema_version":  1,
+    "id":  "experiences.detachable-player-host",
+    "display_name":  "DetachablePlayerHost",
+    "kind":  "experience",
+    "status":  "proposed",
+    "maturity":  "lab",
+    "priority":  "P1",
+    "package":  "WinUI3.Senior.Archaeology",
+    "namespace":  "WinUI3.Senior.Archaeology",
+    "gallery_route":  "/experiences/detachable-player-host",
+    "source_language":  "zh-CN",
+    "owned_paths":  [
+                        "catalog/Experiences/DetachablePlayerHost"
+                    ],
+    "depends_on":  [
+                       "media.media-player-chrome",
+                       "windowing.compact-overlay-host"
+                   ],
+    "provides":  [
+                     "experience:experiences.detachable-player-host"
+                 ],
+    "archaeology_refs":  [
+
+                         ],
+    "license_review":  "not-required"
+}

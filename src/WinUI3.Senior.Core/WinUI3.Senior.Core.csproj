@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>WinUI3.Senior.Core</RootNamespace>
+    <AssemblyName>WinUI3.Senior.Core</AssemblyName>
+    <Description>Shared contracts and foundations for WinUI 3 Senior Gallery.</Description>
+    <IsPackable>true</IsPackable>
+  </PropertyGroup>
+</Project>

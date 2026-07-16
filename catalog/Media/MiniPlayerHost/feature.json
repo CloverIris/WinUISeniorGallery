@@ -1,0 +1,26 @@
+﻿{
+    "schema_version":  1,
+    "id":  "media.mini-player-host",
+    "display_name":  "MiniPlayerHost",
+    "kind":  "control",
+    "status":  "proposed",
+    "maturity":  "lab",
+    "priority":  "P1",
+    "package":  "WinUI3.Senior.Media",
+    "namespace":  "WinUI3.Senior.Media",
+    "gallery_route":  "/media/mini-player-host",
+    "source_language":  "zh-CN",
+    "owned_paths":  [
+                        "catalog/Media/MiniPlayerHost"
+                    ],
+    "depends_on":  [
+                       "media.media-player-chrome"
+                   ],
+    "provides":  [
+                     "control:media.mini-player-host"
+                 ],
+    "archaeology_refs":  [
+
+                         ],
+    "license_review":  "not-required"
+}

@@ -1,0 +1,26 @@
+﻿{
+    "schema_version":  1,
+    "id":  "controls.expandable-command-bar",
+    "display_name":  "ExpandableCommandBar",
+    "kind":  "control",
+    "status":  "proposed",
+    "maturity":  "lab",
+    "priority":  "P2",
+    "package":  "WinUI3.Senior.Controls",
+    "namespace":  "WinUI3.Senior.Controls",
+    "gallery_route":  "/controls/expandable-command-bar",
+    "source_language":  "zh-CN",
+    "owned_paths":  [
+                        "catalog/Controls/Commands/ExpandableCommandBar"
+                    ],
+    "depends_on":  [
+                       "foundation.input-system"
+                   ],
+    "provides":  [
+                     "control:controls.expandable-command-bar"
+                 ],
+    "archaeology_refs":  [
+
+                         ],
+    "license_review":  "not-required"
+}

@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "id": "archaeology.microsoft365.editor-canvas",
+  "display_name": "Editor Canvas",
+  "kind": "archaeology",
+  "status": "specified",
+  "maturity": "lab",
+  "priority": "P2",
+  "package": "WinUI3.Senior.Archaeology",
+  "namespace": "WinUI3.Senior.Archaeology.Microsoft365",
+  "gallery_route": "/archaeology/microsoft-365/editor-canvas",
+  "source_language": "zh-CN",
+  "owned_paths": [
+    "catalog/Archaeology/Microsoft365/EditorCanvas/**"
+  ],
+  "depends_on": [
+    "experiences.editor-canvas"
+  ],
+  "provides": [
+    "exhibit.microsoft365.editor-canvas"
+  ],
+  "archaeology_refs": [
+    "experiences.editor-canvas"
+  ],
+  "historical_label": "Microsoft Word and PowerPoint editing canvases (1990s–present)",
+  "public_api_name": "EditorCanvasExperience",
+  "license_review": "pending"
+}
+

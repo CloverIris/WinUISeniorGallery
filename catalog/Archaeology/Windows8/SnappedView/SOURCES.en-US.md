@@ -1,0 +1,3 @@
+# Snapped View Sources and Asset Record
+
+Product: Windows 8, era 2012–2015, subject: Snap view and narrow-width app layout. Before release add contemporary Microsoft product/design sources with URL, access date, and the exact fact supported; screenshots cannot establish rules. Retain spatial preview and information-density switching; reject system-forced layout and fixed ratios. Modern owner: `windowing.dock-layout-preview`. License is `pending`: do not commit Microsoft screenshots, wallpaper, icons, fonts, audio, binaries, or copied markup; use text and self-made/explicitly licensed placeholders only.

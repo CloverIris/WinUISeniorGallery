@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "id": "archaeology.microsoft365.immersive-reader",
+  "display_name": "Immersive Reader",
+  "kind": "archaeology",
+  "status": "specified",
+  "maturity": "lab",
+  "priority": "P1",
+  "package": "WinUI3.Senior.Archaeology",
+  "namespace": "WinUI3.Senior.Archaeology.Microsoft365",
+  "gallery_route": "/archaeology/microsoft-365/immersive-reader",
+  "source_language": "zh-CN",
+  "owned_paths": [
+    "catalog/Archaeology/Microsoft365/ImmersiveReader/**"
+  ],
+  "depends_on": [
+    "experiences.immersive-reader"
+  ],
+  "provides": [
+    "exhibit.microsoft365.immersive-reader"
+  ],
+  "archaeology_refs": [
+    "experiences.immersive-reader"
+  ],
+  "historical_label": "OneNote Learning Tools / Immersive Reader (2016–present)",
+  "public_api_name": "ImmersiveReaderExperience",
+  "license_review": "pending"
+}
+

@@ -1,0 +1,26 @@
+﻿{
+    "schema_version":  1,
+    "id":  "controls.breadcrumb-bar-ex",
+    "display_name":  "BreadcrumbBarEx",
+    "kind":  "control",
+    "status":  "proposed",
+    "maturity":  "lab",
+    "priority":  "P2",
+    "package":  "WinUI3.Senior.Controls",
+    "namespace":  "WinUI3.Senior.Controls",
+    "gallery_route":  "/controls/breadcrumb-bar-ex",
+    "source_language":  "zh-CN",
+    "owned_paths":  [
+                        "catalog/Controls/Navigation/BreadcrumbBarEx"
+                    ],
+    "depends_on":  [
+                       "foundation.navigation-catalog"
+                   ],
+    "provides":  [
+                     "control:controls.breadcrumb-bar-ex"
+                 ],
+    "archaeology_refs":  [
+
+                         ],
+    "license_review":  "not-required"
+}

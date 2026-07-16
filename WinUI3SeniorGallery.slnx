@@ -1,0 +1,25 @@
+<Solution>
+  <Folder Name="/samples/">
+    <Project Path="samples/ControlsMinimal/ControlsMinimal.csproj">
+      <Platform Project="x86" />
+    </Project>
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/WinUI3.Senior.Archaeology/WinUI3.Senior.Archaeology.csproj" />
+    <Project Path="src/WinUI3.Senior.Controls/WinUI3.Senior.Controls.csproj" />
+    <Project Path="src/WinUI3.Senior.Core/WinUI3.Senior.Core.csproj" />
+    <Project Path="src/WinUI3.Senior.Gallery/WinUI3.Senior.Gallery.csproj" />
+    <Project Path="src/WinUI3.Senior.Media/WinUI3.Senior.Media.csproj" />
+    <Project Path="src/WinUI3.Senior.Windowing/WinUI3.Senior.Windowing.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/WinUI3.Senior.Archaeology.Tests/WinUI3.Senior.Archaeology.Tests.csproj" />
+    <Project Path="tests/WinUI3.Senior.Architecture.Tests/WinUI3.Senior.Architecture.Tests.csproj" />
+    <Project Path="tests/WinUI3.Senior.Controls.Tests/WinUI3.Senior.Controls.Tests.csproj" />
+    <Project Path="tests/WinUI3.Senior.Core.Tests/WinUI3.Senior.Core.Tests.csproj" />
+    <Project Path="tests/WinUI3.Senior.Gallery.UITests/WinUI3.Senior.Gallery.UITests.csproj" />
+    <Project Path="tests/WinUI3.Senior.Media.Tests/WinUI3.Senior.Media.Tests.csproj" />
+    <Project Path="tests/WinUI3.Senior.Visual.Tests/WinUI3.Senior.Visual.Tests.csproj" />
+    <Project Path="tests/WinUI3.Senior.Windowing.Tests/WinUI3.Senior.Windowing.Tests.csproj" />
+  </Folder>
+</Solution>

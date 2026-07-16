@@ -1,0 +1,26 @@
+﻿{
+    "schema_version":  1,
+    "id":  "experiences.guide-menu",
+    "display_name":  "GuideMenuExperience",
+    "kind":  "experience",
+    "status":  "proposed",
+    "maturity":  "lab",
+    "priority":  "P2",
+    "package":  "WinUI3.Senior.Archaeology",
+    "namespace":  "WinUI3.Senior.Archaeology",
+    "gallery_route":  "/experiences/guide-menu",
+    "source_language":  "zh-CN",
+    "owned_paths":  [
+                        "catalog/Experiences/GuideMenuExperience"
+                    ],
+    "depends_on":  [
+                       "windowing.edge-command-panel"
+                   ],
+    "provides":  [
+                     "experience:experiences.guide-menu"
+                 ],
+    "archaeology_refs":  [
+
+                         ],
+    "license_review":  "not-required"
+}

@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>WinUI3.Senior.Media</RootNamespace>
+    <AssemblyName>WinUI3.Senior.Media</AssemblyName>
+    <Description>Engine-neutral media UI for WinUI 3 Senior Gallery.</Description>
+    <UseWinUI>true</UseWinUI>
+    <WinUISDKReferences>false</WinUISDKReferences>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+    <IsPackable>true</IsPackable>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" />
+    <PackageReference Include="Microsoft.WindowsAppSDK" />
+    <ProjectReference Include="..\WinUI3.Senior.Core\WinUI3.Senior.Core.csproj" />
+    <ProjectReference Include="..\WinUI3.Senior.Controls\WinUI3.Senior.Controls.csproj" />
+  </ItemGroup>
+</Project>

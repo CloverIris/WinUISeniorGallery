@@ -1,0 +1,26 @@
+﻿{
+    "schema_version":  1,
+    "id":  "windowing.compact-overlay-host",
+    "display_name":  "CompactOverlayHost",
+    "kind":  "service",
+    "status":  "proposed",
+    "maturity":  "lab",
+    "priority":  "P1",
+    "package":  "WinUI3.Senior.Windowing",
+    "namespace":  "WinUI3.Senior.Windowing",
+    "gallery_route":  "/windowing/compact-overlay-host",
+    "source_language":  "zh-CN",
+    "owned_paths":  [
+                        "catalog/Windowing/CompactOverlayHost"
+                    ],
+    "depends_on":  [
+                       "contracts.windowing"
+                   ],
+    "provides":  [
+                     "service:windowing.compact-overlay-host"
+                 ],
+    "archaeology_refs":  [
+
+                         ],
+    "license_review":  "not-required"
+}

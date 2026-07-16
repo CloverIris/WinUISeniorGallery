@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "id": "archaeology.xbox.quick-resume",
+  "display_name": "Quick Resume",
+  "kind": "archaeology",
+  "status": "specified",
+  "maturity": "lab",
+  "priority": "P2",
+  "package": "WinUI3.Senior.Archaeology",
+  "namespace": "WinUI3.Senior.Archaeology.Xbox",
+  "gallery_route": "/archaeology/xbox/quick-resume",
+  "source_language": "zh-CN",
+  "owned_paths": [
+    "catalog/Archaeology/Xbox/QuickResume/**"
+  ],
+  "depends_on": [
+    "experiences.quick-resume"
+  ],
+  "provides": [
+    "exhibit.xbox.quick-resume"
+  ],
+  "archaeology_refs": [
+    "experiences.quick-resume"
+  ],
+  "historical_label": "Quick Resume (Xbox Series X|S, 2020–present)",
+  "public_api_name": "QuickResumeExperience",
+  "license_review": "pending"
+}

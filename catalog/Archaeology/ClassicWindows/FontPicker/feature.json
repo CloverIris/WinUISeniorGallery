@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "id": "archaeology.classic-windows.font-picker",
+  "display_name": "Font Picker",
+  "kind": "archaeology",
+  "status": "specified",
+  "maturity": "lab",
+  "priority": "P2",
+  "package": "WinUI3.Senior.Archaeology",
+  "namespace": "WinUI3.Senior.Archaeology.ClassicWindows",
+  "gallery_route": "/archaeology/classic-windows/font-picker",
+  "source_language": "zh-CN",
+  "owned_paths": [
+    "catalog/Archaeology/ClassicWindows/FontPicker/**"
+  ],
+  "depends_on": [
+    "controls.font-picker"
+  ],
+  "provides": [
+    "exhibit.classic-windows.font-picker"
+  ],
+  "archaeology_refs": [
+    "controls.font-picker"
+  ],
+  "historical_label": "Windows ChooseFont and Office font pickers (Windows 3.x/Win32–present)",
+  "public_api_name": "FontPicker",
+  "license_review": "pending"
+}
+

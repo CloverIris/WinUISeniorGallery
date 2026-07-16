@@ -1,0 +1,26 @@
+﻿{
+    "schema_version":  1,
+    "id":  "controls.command-ribbon",
+    "display_name":  "CommandRibbon",
+    "kind":  "control",
+    "status":  "proposed",
+    "maturity":  "lab",
+    "priority":  "P2",
+    "package":  "WinUI3.Senior.Controls",
+    "namespace":  "WinUI3.Senior.Controls",
+    "gallery_route":  "/controls/command-ribbon",
+    "source_language":  "zh-CN",
+    "owned_paths":  [
+                        "catalog/Controls/Commands/CommandRibbon"
+                    ],
+    "depends_on":  [
+                       "foundation.accessibility-system"
+                   ],
+    "provides":  [
+                     "control:controls.command-ribbon"
+                 ],
+    "archaeology_refs":  [
+
+                         ],
+    "license_review":  "not-required"
+}

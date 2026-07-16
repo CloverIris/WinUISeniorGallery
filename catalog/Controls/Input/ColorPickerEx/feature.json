@@ -1,0 +1,26 @@
+﻿{
+    "schema_version":  1,
+    "id":  "controls.color-picker-ex",
+    "display_name":  "ColorPickerEx",
+    "kind":  "control",
+    "status":  "proposed",
+    "maturity":  "lab",
+    "priority":  "P2",
+    "package":  "WinUI3.Senior.Controls",
+    "namespace":  "WinUI3.Senior.Controls",
+    "gallery_route":  "/controls/color-picker-ex",
+    "source_language":  "zh-CN",
+    "owned_paths":  [
+                        "catalog/Controls/Input/ColorPickerEx"
+                    ],
+    "depends_on":  [
+                       "foundation.accessibility-system"
+                   ],
+    "provides":  [
+                     "control:controls.color-picker-ex"
+                 ],
+    "archaeology_refs":  [
+
+                         ],
+    "license_review":  "not-required"
+}

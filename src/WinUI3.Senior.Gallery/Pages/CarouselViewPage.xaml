@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Page
+    x:Class="WinUI3_Senior_Gallery.Pages.CarouselViewPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:WinUI3.Senior.Controls">
+    <ScrollViewer>
+        <StackPanel x:Name="PageRoot" MaxWidth="1200" Padding="32,24,32,40" Spacing="16">
+            <StackPanel Spacing="6">
+                <TextBlock Text="CarouselView" Style="{StaticResource TitleTextBlockStyle}" />
+                <TextBlock Text="虚拟化轮播图 P0 实验台" Style="{StaticResource SubtitleTextBlockStyle}" />
+                <TextBlock Text="Gallery route: /controls/carousel-view" Opacity="0.68" />
+            </StackPanel>
+
+            <InfoBar IsOpen="True" IsClosable="False" Severity="Informational"
+                     Title="本地确定性数据"
+                     Message="此页面不请求网络、不缓存图像；1000 项用于观察有限实现窗口与连续导航行为。系统“减少动画”和高对比度请通过 Windows 设置启用。" />
+
+            <StackPanel Orientation="Horizontal" Spacing="12">
+                <ComboBox x:Name="ItemCountBox" Header="Items" Width="130" SelectionChanged="OnSettingsChanged">
+                    <ComboBoxItem Content="5" />
+                    <ComboBoxItem Content="20" />
+                    <ComboBoxItem Content="1000" />
+                </ComboBox>
+                <ComboBox x:Name="NavigationModeBox" Header="Navigation" Width="150" SelectionChanged="OnSettingsChanged">
+                    <ComboBoxItem Content="Bounded" />
+                    <ComboBoxItem Content="Loop" />
+                </ComboBox>
+                <ComboBox x:Name="TransitionBox" Header="Transition" Width="150" SelectionChanged="OnSettingsChanged">
+                    <ComboBoxItem Content="Slide" />
+                    <ComboBoxItem Content="Fade" />
+                    <ComboBoxItem Content="CoverFlow" />
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Spacing="16">
+                <ToggleSwitch x:Name="AutoplayToggle" Header="Autoplay" Toggled="OnSettingsChanged" />
+                <ToggleSwitch x:Name="PreviewToggle" Header="Adjacent preview" Toggled="OnSettingsChanged" />
+                <ToggleSwitch x:Name="RtlToggle" Header="RTL" Toggled="OnSettingsChanged" />
+                <ToggleSwitch x:Name="ReducedMotionPreviewToggle" Header="Reduced motion preview" Toggled="OnSettingsChanged" />
+                <ToggleSwitch x:Name="HostWindowActiveToggle" Header="Host window active" IsOn="True" Toggled="OnHostWindowActiveToggled" />
+            </StackPanel>
+
+            <Grid ColumnSpacing="12">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" VerticalAlignment="Center" Click="OnPreviousClick" Content="Previous" />
+                <Border Grid.Column="1" MinHeight="300" Padding="12" CornerRadius="12" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                    <controls:CarouselView x:Name="Carousel"
+                                           SelectionChanged="OnCarouselSelectionChanged"
+                                           ItemInvoked="OnCarouselItemInvoked"
+                                           HorizontalContentAlignment="Stretch"
+                                           VerticalContentAlignment="Stretch"
+                                           IsTabStop="True">
+                        <controls:CarouselView.ItemTemplate>
+                            <DataTemplate>
+                                <Border MinHeight="260" Margin="8" Padding="28" CornerRadius="12" Background="{ThemeResource AccentFillColorDefaultBrush}">
+                                    <StackPanel VerticalAlignment="Center" Spacing="8">
+                                        <TextBlock Text="{Binding Title}" Style="{StaticResource TitleTextBlockStyle}" />
+                                        <TextBlock Text="{Binding Description}" TextWrapping="Wrap" />
+                                        <StackPanel Orientation="Horizontal" Spacing="4">
+                                            <TextBlock Text="Source index:" Opacity="0.72" />
+                                            <TextBlock Text="{Binding Index}" Opacity="0.72" />
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </controls:CarouselView.ItemTemplate>
+                    </controls:CarouselView>
+                </Border>
+                <Button Grid.Column="2" VerticalAlignment="Center" Click="OnNextClick" Content="Next" />
+            </Grid>
+
+            <Border Padding="16" CornerRadius="12" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                <StackPanel Spacing="6">
+                    <TextBlock Text="Runtime diagnostics" Style="{StaticResource SubtitleTextBlockStyle}" />
+                    <TextBlock x:Name="SelectionStatusText" TextWrapping="Wrap" />
+                    <TextBlock x:Name="EnvironmentStatusText" TextWrapping="Wrap" />
+                    <TextBlock x:Name="InvocationStatusText" TextWrapping="Wrap" />
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

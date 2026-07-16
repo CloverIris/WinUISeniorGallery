@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "id": "pages.windowing-index-page",
+  "display_name": "WindowingIndexPage",
+  "kind": "page",
+  "status": "proposed",
+  "maturity": "lab",
+  "priority": "P1",
+  "package": "WinUI3.Senior.Gallery",
+  "namespace": "WinUI3.Senior.Gallery.Pages",
+  "gallery_route": "/windowing",
+  "source_language": "zh-CN",
+  "owned_paths": ["catalog/GalleryPages/WindowingIndexPage/**"],
+  "depends_on": ["contract.navigation.v1", "contract.windowing.v1", "contract.accessibility.v1"],
+  "provides": ["route.gallery.windowing"],
+  "archaeology_refs": [],
+  "license_review": "not-required"
+}

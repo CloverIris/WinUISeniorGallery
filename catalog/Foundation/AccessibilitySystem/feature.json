@@ -1,0 +1,26 @@
+﻿{
+    "schema_version":  1,
+    "id":  "foundation.accessibility-system",
+    "display_name":  "AccessibilitySystem",
+    "kind":  "foundation",
+    "status":  "proposed",
+    "maturity":  "lab",
+    "priority":  "P0",
+    "package":  "WinUI3.Senior.Core",
+    "namespace":  "WinUI3.Senior.Core",
+    "gallery_route":  "",
+    "source_language":  "zh-CN",
+    "owned_paths":  [
+                        "catalog/Foundation/AccessibilitySystem"
+                    ],
+    "depends_on":  [
+                       "contracts.accessibility"
+                   ],
+    "provides":  [
+                     "foundation:foundation.accessibility-system"
+                 ],
+    "archaeology_refs":  [
+
+                         ],
+    "license_review":  "not-required"
+}

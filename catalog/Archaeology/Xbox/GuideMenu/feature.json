@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "id": "archaeology.xbox.guide-menu",
+  "display_name": "Guide Menu",
+  "kind": "archaeology",
+  "status": "specified",
+  "maturity": "lab",
+  "priority": "P2",
+  "package": "WinUI3.Senior.Archaeology",
+  "namespace": "WinUI3.Senior.Archaeology.Xbox",
+  "gallery_route": "/archaeology/xbox/guide-menu",
+  "source_language": "zh-CN",
+  "owned_paths": [
+    "catalog/Archaeology/Xbox/GuideMenu/**"
+  ],
+  "depends_on": [
+    "experiences.guide-menu"
+  ],
+  "provides": [
+    "exhibit.xbox.guide-menu"
+  ],
+  "archaeology_refs": [
+    "experiences.guide-menu"
+  ],
+  "historical_label": "Xbox Guide (Xbox 360, 2005–present; Xbox One/Series evolution)",
+  "public_api_name": "GuideMenuExperience",
+  "license_review": "pending"
+}

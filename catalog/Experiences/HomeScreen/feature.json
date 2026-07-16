@@ -1,0 +1,27 @@
+﻿{
+    "schema_version":  1,
+    "id":  "experiences.home-screen",
+    "display_name":  "HomeScreen",
+    "kind":  "experience",
+    "status":  "proposed",
+    "maturity":  "lab",
+    "priority":  "P1",
+    "package":  "WinUI3.Senior.Archaeology",
+    "namespace":  "WinUI3.Senior.Archaeology",
+    "gallery_route":  "/experiences/home-screen",
+    "source_language":  "zh-CN",
+    "owned_paths":  [
+                        "catalog/Experiences/HomeScreen"
+                    ],
+    "depends_on":  [
+                       "controls.adaptive-grid",
+                       "controls.widget-card"
+                   ],
+    "provides":  [
+                     "experience:experiences.home-screen"
+                 ],
+    "archaeology_refs":  [
+
+                         ],
+    "license_review":  "not-required"
+}

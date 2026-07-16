@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "id": "controls.carousel-view",
+  "display_name": "CarouselView",
+  "kind": "control",
+  "status": "in-progress",
+  "maturity": "lab",
+  "priority": "P0",
+  "package": "WinUI3.Senior.Controls",
+  "namespace": "WinUI3.Senior.Controls",
+  "gallery_route": "/controls/carousel-view",
+  "source_language": "zh-CN",
+  "owned_paths": [
+    "catalog/Controls/Collections/CarouselView",
+    "src/WinUI3.Senior.Controls/Collections/CarouselView",
+    "src/WinUI3.Senior.Controls/Themes/Generic.xaml",
+    "tests/WinUI3.Senior.Controls.Tests",
+    "samples/ControlsMinimal"
+  ],
+  "depends_on": ["contracts.theme", "contracts.motion", "contracts.input", "contracts.accessibility"],
+  "provides": ["WinUI3.Senior.Controls.CarouselView", "WinUI3.Senior.Controls.CarouselItemInvokedEventArgs"],
+  "archaeology_refs": ["archaeology.media-software-history.cover-flow"],
+  "license_review": "not-required"
+}

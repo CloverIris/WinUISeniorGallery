@@ -1,0 +1,26 @@
+﻿{
+    "schema_version":  1,
+    "id":  "controls.icon-picker",
+    "display_name":  "IconPicker",
+    "kind":  "control",
+    "status":  "proposed",
+    "maturity":  "lab",
+    "priority":  "P2",
+    "package":  "WinUI3.Senior.Controls",
+    "namespace":  "WinUI3.Senior.Controls",
+    "gallery_route":  "/controls/icon-picker",
+    "source_language":  "zh-CN",
+    "owned_paths":  [
+                        "catalog/Controls/Input/IconPicker"
+                    ],
+    "depends_on":  [
+                       "foundation.resource-catalog"
+                   ],
+    "provides":  [
+                     "control:controls.icon-picker"
+                 ],
+    "archaeology_refs":  [
+
+                         ],
+    "license_review":  "not-required"
+}

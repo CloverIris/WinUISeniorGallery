@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "id": "pages.settings-page",
+  "display_name": "SettingsPage",
+  "kind": "page",
+  "status": "proposed",
+  "maturity": "lab",
+  "priority": "P2",
+  "package": "WinUI3.Senior.Gallery",
+  "namespace": "WinUI3.Senior.Gallery.Pages",
+  "gallery_route": "/settings",
+  "source_language": "zh-CN",
+  "owned_paths": ["catalog/GalleryPages/SettingsPage/**"],
+  "depends_on": ["contract.navigation.v1", "contract.theme.v1", "contract.localization.v1", "contract.accessibility.v1"],
+  "provides": ["route.gallery.settings"],
+  "archaeology_refs": [],
+  "license_review": "not-required"
+}

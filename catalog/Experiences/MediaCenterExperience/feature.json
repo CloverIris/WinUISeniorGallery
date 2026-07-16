@@ -1,0 +1,26 @@
+﻿{
+    "schema_version":  1,
+    "id":  "experiences.media-center-experience",
+    "display_name":  "MediaCenterExperience",
+    "kind":  "experience",
+    "status":  "proposed",
+    "maturity":  "lab",
+    "priority":  "P1",
+    "package":  "WinUI3.Senior.Archaeology",
+    "namespace":  "WinUI3.Senior.Archaeology",
+    "gallery_route":  "/experiences/media-center-experience",
+    "source_language":  "zh-CN",
+    "owned_paths":  [
+                        "catalog/Experiences/MediaCenterExperience"
+                    ],
+    "depends_on":  [
+                       "media.media-center-grid"
+                   ],
+    "provides":  [
+                     "experience:experiences.media-center-experience"
+                 ],
+    "archaeology_refs":  [
+
+                         ],
+    "license_review":  "not-required"
+}

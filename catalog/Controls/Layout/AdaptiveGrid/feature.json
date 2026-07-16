@@ -1,0 +1,26 @@
+﻿{
+    "schema_version":  1,
+    "id":  "controls.adaptive-grid",
+    "display_name":  "AdaptiveGrid",
+    "kind":  "control",
+    "status":  "proposed",
+    "maturity":  "lab",
+    "priority":  "P1",
+    "package":  "WinUI3.Senior.Controls",
+    "namespace":  "WinUI3.Senior.Controls",
+    "gallery_route":  "/controls/adaptive-grid",
+    "source_language":  "zh-CN",
+    "owned_paths":  [
+                        "catalog/Controls/Layout/AdaptiveGrid"
+                    ],
+    "depends_on":  [
+                       "foundation.accessibility-system"
+                   ],
+    "provides":  [
+                     "control:controls.adaptive-grid"
+                 ],
+    "archaeology_refs":  [
+
+                         ],
+    "license_review":  "not-required"
+}

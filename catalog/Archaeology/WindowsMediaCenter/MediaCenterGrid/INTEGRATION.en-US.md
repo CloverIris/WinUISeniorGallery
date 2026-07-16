@@ -1,0 +1,22 @@
+# Media Center Grid Integration
+
+## Modern Owner and Dependency
+
+The sole owner is media.media-center-grid (MediaCenterGrid); exhibit configures registered public surfaces only and stable modules never reference Archaeology.
+
+## Gallery Data and Platform
+
+Prototype/DNA/differences come from local Markdown and demo uses anonymous deterministic fake data. Access no historical service, account, media library, or system Shell; async assets are cancellable with license metadata.
+
+## Input, Window, and Lifecycle
+
+Demo belongs to current Gallery XamlRoot and creates/migrates no Window. D-pad/stick follows geometric neighbors, A/Enter invokes, B/Escape returns; mouse/touch/keyboard equal. Automation exposes row/column, title, selection, and details. Unload cancels animation/delay/Provider, ignores late results, and restores navigation focus.
+
+## Degradation and Resources
+
+Unavailable owner/effect retains diagram, input matrix, and Sources. Never duplicate MediaCenterGrid API/style keys; historical preset is Gallery configuration only.
+
+## Copyright and Privacy
+
+license_review remains pending; demo assets record author/license/provenance. Upload no user media/history and collect no exhibit telemetry.
+

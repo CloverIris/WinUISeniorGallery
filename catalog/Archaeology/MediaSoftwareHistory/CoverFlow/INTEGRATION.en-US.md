@@ -1,0 +1,23 @@
+# Cover Flow Integration
+
+Integration must retain attribution: Cover Flow maps to the official 2006 iTunes 7 release record and must not be labelled a Zune component or Zune invention.
+
+## Modern Owner and Dependency
+
+The sole owner is controls.carousel-view (CarouselView); exhibit configures registered public surfaces only and stable modules never reference Archaeology.
+
+## Gallery Data and Platform
+
+Prototype/DNA/differences come from local Markdown and demo uses anonymous deterministic fake data. Access no historical service, account, media library, or system Shell; async assets are cancellable with license metadata.
+
+## Input, Window, and Lifecycle
+
+Demo belongs to current Gallery XamlRoot and creates/migrates no Window. Keep wheel/drag/touch, arrows/gamepad change center, Enter/A invokes; Narrator uses linear list/selection semantics and does not describe perspective. Unload cancels animation/delay/Provider, ignores late results, and restores navigation focus.
+
+## Degradation and Resources
+
+Unavailable owner/effect retains diagram, input matrix, and Sources. Never duplicate CarouselView API/style keys; historical preset is Gallery configuration only.
+
+## Copyright and Privacy
+
+license_review remains pending; demo assets record author/license/provenance. Upload no user media/history and collect no exhibit telemetry.

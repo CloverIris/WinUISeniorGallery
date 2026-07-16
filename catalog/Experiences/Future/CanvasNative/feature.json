@@ -1,0 +1,26 @@
+﻿{
+    "schema_version":  1,
+    "id":  "future.canvas-native",
+    "display_name":  "Canvas.Native",
+    "kind":  "service",
+    "status":  "proposed",
+    "maturity":  "lab",
+    "priority":  "P3",
+    "package":  "WinUI3.Senior.Core",
+    "namespace":  "WinUI3.Senior.Core",
+    "gallery_route":  "",
+    "source_language":  "zh-CN",
+    "owned_paths":  [
+                        "catalog/Experiences/Future/CanvasNative"
+                    ],
+    "depends_on":  [
+                       "future.canvas-abstractions"
+                   ],
+    "provides":  [
+                     "service:future.canvas-native"
+                 ],
+    "archaeology_refs":  [
+
+                         ],
+    "license_review":  "not-required"
+}

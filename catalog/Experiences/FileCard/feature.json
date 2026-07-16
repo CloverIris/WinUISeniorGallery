@@ -1,0 +1,26 @@
+﻿{
+    "schema_version":  1,
+    "id":  "experiences.file-card",
+    "display_name":  "FileCard",
+    "kind":  "experience",
+    "status":  "proposed",
+    "maturity":  "lab",
+    "priority":  "P2",
+    "package":  "WinUI3.Senior.Archaeology",
+    "namespace":  "WinUI3.Senior.Archaeology",
+    "gallery_route":  "/experiences/file-card",
+    "source_language":  "zh-CN",
+    "owned_paths":  [
+                        "catalog/Experiences/FileCard"
+                    ],
+    "depends_on":  [
+                       "controls.widget-card"
+                   ],
+    "provides":  [
+                     "experience:experiences.file-card"
+                 ],
+    "archaeology_refs":  [
+
+                         ],
+    "license_review":  "not-required"
+}

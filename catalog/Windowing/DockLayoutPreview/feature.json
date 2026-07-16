@@ -1,0 +1,26 @@
+﻿{
+    "schema_version":  1,
+    "id":  "windowing.dock-layout-preview",
+    "display_name":  "DockLayoutPreview",
+    "kind":  "control",
+    "status":  "proposed",
+    "maturity":  "lab",
+    "priority":  "P2",
+    "package":  "WinUI3.Senior.Windowing",
+    "namespace":  "WinUI3.Senior.Windowing",
+    "gallery_route":  "/windowing/dock-layout-preview",
+    "source_language":  "zh-CN",
+    "owned_paths":  [
+                        "catalog/Windowing/DockLayoutPreview"
+                    ],
+    "depends_on":  [
+                       "contracts.windowing"
+                   ],
+    "provides":  [
+                     "control:windowing.dock-layout-preview"
+                 ],
+    "archaeology_refs":  [
+
+                         ],
+    "license_review":  "not-required"
+}

@@ -1,0 +1,26 @@
+﻿{
+    "schema_version":  1,
+    "id":  "experiences.dynamic-tile-board",
+    "display_name":  "DynamicTileBoard",
+    "kind":  "experience",
+    "status":  "proposed",
+    "maturity":  "lab",
+    "priority":  "P1",
+    "package":  "WinUI3.Senior.Archaeology",
+    "namespace":  "WinUI3.Senior.Archaeology",
+    "gallery_route":  "/experiences/dynamic-tile-board",
+    "source_language":  "zh-CN",
+    "owned_paths":  [
+                        "catalog/Experiences/DynamicTileBoard"
+                    ],
+    "depends_on":  [
+                       "controls.dynamic-tile"
+                   ],
+    "provides":  [
+                     "experience:experiences.dynamic-tile-board"
+                 ],
+    "archaeology_refs":  [
+
+                         ],
+    "license_review":  "not-required"
+}

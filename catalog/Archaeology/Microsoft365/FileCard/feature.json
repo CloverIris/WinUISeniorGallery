@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "id": "archaeology.microsoft365.file-card",
+  "display_name": "File Card",
+  "kind": "archaeology",
+  "status": "specified",
+  "maturity": "lab",
+  "priority": "P1",
+  "package": "WinUI3.Senior.Archaeology",
+  "namespace": "WinUI3.Senior.Archaeology.Microsoft365",
+  "gallery_route": "/archaeology/microsoft-365/file-card",
+  "source_language": "zh-CN",
+  "owned_paths": [
+    "catalog/Archaeology/Microsoft365/FileCard/**"
+  ],
+  "depends_on": [
+    "experiences.file-card"
+  ],
+  "provides": [
+    "exhibit.microsoft365.file-card"
+  ],
+  "archaeology_refs": [
+    "experiences.file-card"
+  ],
+  "historical_label": "OneDrive / SharePoint / Microsoft 365 file cards (2010s–present)",
+  "public_api_name": "FileCard",
+  "license_review": "pending"
+}
+

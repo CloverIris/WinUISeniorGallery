@@ -1,0 +1,26 @@
+﻿{
+    "schema_version":  1,
+    "id":  "experiences.mixview",
+    "display_name":  "MixviewExperience",
+    "kind":  "experience",
+    "status":  "proposed",
+    "maturity":  "lab",
+    "priority":  "P2",
+    "package":  "WinUI3.Senior.Archaeology",
+    "namespace":  "WinUI3.Senior.Archaeology",
+    "gallery_route":  "/experiences/mixview",
+    "source_language":  "zh-CN",
+    "owned_paths":  [
+                        "catalog/Experiences/MixviewExperience"
+                    ],
+    "depends_on":  [
+                       "foundation.motion-system"
+                   ],
+    "provides":  [
+                     "experience:experiences.mixview"
+                 ],
+    "archaeology_refs":  [
+
+                         ],
+    "license_review":  "not-required"
+}

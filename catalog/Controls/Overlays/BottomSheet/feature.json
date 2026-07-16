@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "id": "controls.bottom-sheet",
+  "display_name": "BottomSheet",
+  "kind": "control",
+  "status": "ready",
+  "maturity": "lab",
+  "priority": "P0",
+  "package": "WinUI3.Senior.Controls",
+  "namespace": "WinUI3.Senior.Controls",
+  "gallery_route": "/controls/bottom-sheet",
+  "source_language": "zh-CN",
+  "owned_paths": ["catalog/Controls/Overlays/BottomSheet", "src/WinUI3.Senior.Controls/Overlays/BottomSheet"],
+  "depends_on": ["contracts.theme", "contracts.motion", "contracts.input", "contracts.accessibility"],
+  "provides": ["WinUI3.Senior.Controls.BottomSheet", "WinUI3.Senior.Controls.BottomSheetSnapPoint"],
+  "archaeology_refs": [],
+  "license_review": "not-required"
+}

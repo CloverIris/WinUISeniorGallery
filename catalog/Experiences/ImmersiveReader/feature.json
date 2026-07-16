@@ -1,0 +1,26 @@
+﻿{
+    "schema_version":  1,
+    "id":  "experiences.immersive-reader",
+    "display_name":  "ImmersiveReader",
+    "kind":  "experience",
+    "status":  "proposed",
+    "maturity":  "lab",
+    "priority":  "P2",
+    "package":  "WinUI3.Senior.Archaeology",
+    "namespace":  "WinUI3.Senior.Archaeology",
+    "gallery_route":  "/experiences/immersive-reader",
+    "source_language":  "zh-CN",
+    "owned_paths":  [
+                        "catalog/Experiences/ImmersiveReader"
+                    ],
+    "depends_on":  [
+                       "media.timed-text-view"
+                   ],
+    "provides":  [
+                     "experience:experiences.immersive-reader"
+                 ],
+    "archaeology_refs":  [
+
+                         ],
+    "license_review":  "not-required"
+}

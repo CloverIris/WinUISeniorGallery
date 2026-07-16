@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "id": "archaeology.classic-windows.color-picker",
+  "display_name": "Advanced Color Picker",
+  "kind": "archaeology",
+  "status": "specified",
+  "maturity": "lab",
+  "priority": "P1",
+  "package": "WinUI3.Senior.Archaeology",
+  "namespace": "WinUI3.Senior.Archaeology.ClassicWindows",
+  "gallery_route": "/archaeology/classic-windows/color-picker",
+  "source_language": "zh-CN",
+  "owned_paths": [
+    "catalog/Archaeology/ClassicWindows/ColorPicker/**"
+  ],
+  "depends_on": [
+    "controls.color-picker-ex"
+  ],
+  "provides": [
+    "exhibit.classic-windows.color-picker"
+  ],
+  "archaeology_refs": [
+    "controls.color-picker-ex"
+  ],
+  "historical_label": "Windows color dialogs and pickers (Windows 3.x/Win32–present)",
+  "public_api_name": "ColorPickerEx",
+  "license_review": "pending"
+}
+

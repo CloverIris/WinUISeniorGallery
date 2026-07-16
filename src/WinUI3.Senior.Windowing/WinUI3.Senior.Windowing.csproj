@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>WinUI3.Senior.Windowing</RootNamespace>
+    <AssemblyName>WinUI3.Senior.Windowing</AssemblyName>
+    <Description>Windowing behaviors and hosts for WinUI 3 Senior Gallery.</Description>
+    <UseWinUI>true</UseWinUI>
+    <WinUISDKReferences>false</WinUISDKReferences>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+    <IsPackable>true</IsPackable>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" />
+    <PackageReference Include="Microsoft.WindowsAppSDK" />
+    <ProjectReference Include="..\WinUI3.Senior.Core\WinUI3.Senior.Core.csproj" />
+  </ItemGroup>
+</Project>

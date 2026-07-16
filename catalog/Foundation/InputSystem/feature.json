@@ -1,0 +1,26 @@
+﻿{
+    "schema_version":  1,
+    "id":  "foundation.input-system",
+    "display_name":  "InputSystem",
+    "kind":  "foundation",
+    "status":  "proposed",
+    "maturity":  "lab",
+    "priority":  "P0",
+    "package":  "WinUI3.Senior.Core",
+    "namespace":  "WinUI3.Senior.Core",
+    "gallery_route":  "",
+    "source_language":  "zh-CN",
+    "owned_paths":  [
+                        "catalog/Foundation/InputSystem"
+                    ],
+    "depends_on":  [
+                       "contracts.input"
+                   ],
+    "provides":  [
+                     "foundation:foundation.input-system"
+                 ],
+    "archaeology_refs":  [
+
+                         ],
+    "license_review":  "not-required"
+}

@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "id": "controls.snackbar-host",
+  "display_name": "SnackbarHost",
+  "kind": "control",
+  "status": "ready",
+  "maturity": "lab",
+  "priority": "P0",
+  "package": "WinUI3.Senior.Controls",
+  "namespace": "WinUI3.Senior.Controls",
+  "gallery_route": "/controls/snackbar-host",
+  "source_language": "zh-CN",
+  "owned_paths": ["catalog/Controls/Overlays/SnackbarHost", "src/WinUI3.Senior.Controls/Overlays/SnackbarHost"],
+  "depends_on": ["contracts.theme", "contracts.motion", "contracts.accessibility"],
+  "provides": ["WinUI3.Senior.Controls.SnackbarHost", "WinUI3.Senior.Controls.ISnackbarService", "WinUI3.Senior.Controls.SnackbarRequest"],
+  "archaeology_refs": [],
+  "license_review": "not-required"
+}

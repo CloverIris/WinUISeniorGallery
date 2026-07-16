@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "id": "archaeology.microsoft365.people-card",
+  "display_name": "People Card",
+  "kind": "archaeology",
+  "status": "specified",
+  "maturity": "lab",
+  "priority": "P1",
+  "package": "WinUI3.Senior.Archaeology",
+  "namespace": "WinUI3.Senior.Archaeology.Microsoft365",
+  "gallery_route": "/archaeology/microsoft-365/people-card",
+  "source_language": "zh-CN",
+  "owned_paths": [
+    "catalog/Archaeology/Microsoft365/PeopleCard/**"
+  ],
+  "depends_on": [
+    "experiences.people-card"
+  ],
+  "provides": [
+    "exhibit.microsoft365.people-card"
+  ],
+  "archaeology_refs": [
+    "experiences.people-card"
+  ],
+  "historical_label": "Outlook / Microsoft 365 profile cards (2010s–present)",
+  "public_api_name": "PeopleCard",
+  "license_review": "pending"
+}
+

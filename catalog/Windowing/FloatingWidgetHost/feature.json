@@ -1,0 +1,26 @@
+﻿{
+    "schema_version":  1,
+    "id":  "windowing.floating-widget-host",
+    "display_name":  "FloatingWidgetHost",
+    "kind":  "service",
+    "status":  "proposed",
+    "maturity":  "lab",
+    "priority":  "P1",
+    "package":  "WinUI3.Senior.Windowing",
+    "namespace":  "WinUI3.Senior.Windowing",
+    "gallery_route":  "/windowing/floating-widget-host",
+    "source_language":  "zh-CN",
+    "owned_paths":  [
+                        "catalog/Windowing/FloatingWidgetHost"
+                    ],
+    "depends_on":  [
+                       "contracts.windowing"
+                   ],
+    "provides":  [
+                     "service:windowing.floating-widget-host"
+                 ],
+    "archaeology_refs":  [
+
+                         ],
+    "license_review":  "not-required"
+}

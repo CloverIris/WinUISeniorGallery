@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>WinUI3.Senior.Archaeology</RootNamespace>
+    <AssemblyName>WinUI3.Senior.Archaeology</AssemblyName>
+    <Description>Modern reconstructions of historic Windows experiences.</Description>
+    <UseWinUI>true</UseWinUI>
+    <WinUISDKReferences>false</WinUISDKReferences>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+    <IsPackable>true</IsPackable>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" />
+    <PackageReference Include="Microsoft.WindowsAppSDK" />
+    <ProjectReference Include="..\WinUI3.Senior.Core\WinUI3.Senior.Core.csproj" />
+    <ProjectReference Include="..\WinUI3.Senior.Controls\WinUI3.Senior.Controls.csproj" />
+    <ProjectReference Include="..\WinUI3.Senior.Media\WinUI3.Senior.Media.csproj" />
+    <ProjectReference Include="..\WinUI3.Senior.Windowing\WinUI3.Senior.Windowing.csproj" />
+  </ItemGroup>
+</Project>

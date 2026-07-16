@@ -1,0 +1,26 @@
+﻿{
+    "schema_version":  1,
+    "id":  "windowing.connected-transition-behavior",
+    "display_name":  "ConnectedTransitionBehavior",
+    "kind":  "behavior",
+    "status":  "proposed",
+    "maturity":  "lab",
+    "priority":  "P2",
+    "package":  "WinUI3.Senior.Windowing",
+    "namespace":  "WinUI3.Senior.Windowing",
+    "gallery_route":  "/windowing/connected-transition-behavior",
+    "source_language":  "zh-CN",
+    "owned_paths":  [
+                        "catalog/Windowing/ConnectedTransitionBehavior"
+                    ],
+    "depends_on":  [
+                       "contracts.motion"
+                   ],
+    "provides":  [
+                     "behavior:windowing.connected-transition-behavior"
+                 ],
+    "archaeology_refs":  [
+
+                         ],
+    "license_review":  "not-required"
+}

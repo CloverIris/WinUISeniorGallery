@@ -1,0 +1,6 @@
+<Project>
+  <Target Name="ValidatePackageDependencyDirection" BeforeTargets="Build" Condition="'$(IsTestProject)' != 'true'">
+    <Message Importance="Low" Text="Package dependency direction is validated by WinUI3.Senior.Architecture.Tests." />
+  </Target>
+</Project>
+

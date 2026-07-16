@@ -1,0 +1,3 @@
+# App Contracts Research Specification
+
+Historical structure is `UserIntent → AppContext → ContractRequest → SystemBroker → Target/Result`; explanatory states are `Idle`, `Eligible`, `Invoked`, `AwaitingTarget`, `Completed`, `Cancelled`, and `Unavailable`. The goal is discoverable cross-app task handoff; non-goals are rebuilding a broker, enumerating apps, auto-sending content, requesting file/contact/network permission, or promising modern API. Gallery may switch explanation states only; cancellation, no target, permission denial, and absent platform must show explicit result, never simulated success.

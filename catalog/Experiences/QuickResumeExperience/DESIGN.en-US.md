@@ -1,0 +1,20 @@
+﻿# QuickResumeExperience Design
+
+## Visuals and interaction
+
+Use modern Fluent semantics without copying protected assets.
+
+## Responsiveness
+
+Narrow, regular, and wide layouts require review.
+
+## Theme, motion, input, and accessibility
+
+Follow global contracts.
+
+## Modernization tradeoffs
+
+Archaeology owns historical provenance.
+
+## Responsive input and accessibility
+Horizontal keyboard/gamepad/touch; privacy mode blurs snapshot with text alternative; RTL mirrors, Reduced Motion no card scale.

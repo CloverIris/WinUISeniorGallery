@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "WinUI3.Senior.Gallery (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "WinUI3.Senior.Gallery (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "id": "pages.media-index-page",
+  "display_name": "MediaIndexPage",
+  "kind": "page",
+  "status": "proposed",
+  "maturity": "lab",
+  "priority": "P1",
+  "package": "WinUI3.Senior.Gallery",
+  "namespace": "WinUI3.Senior.Gallery.Pages",
+  "gallery_route": "/media",
+  "source_language": "zh-CN",
+  "owned_paths": ["catalog/GalleryPages/MediaIndexPage/**"],
+  "depends_on": ["contract.navigation.v1", "contract.media-playback.v1", "contract.timed-text.v1"],
+  "provides": ["route.gallery.media"],
+  "archaeology_refs": [],
+  "license_review": "not-required"
+}

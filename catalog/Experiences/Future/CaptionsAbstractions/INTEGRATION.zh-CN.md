@@ -1,0 +1,20 @@
+﻿# Captions.Abstractions Integration
+
+## Dependencies
+
+contracts.timed-text
+
+## Global contracts and resources
+
+不得重复定义全局 Contract 或资源键。异步操作必须可取消；宿主销毁后不得继续回调。默认不声明额外权限，不收集遥测或用户内容。
+
+## Platform APIs and capabilities
+
+No extra capability by default.
+
+## Lifecycle and threading
+
+Cancellation and host destruction must be handled.
+
+## 宿主、隐私与生命周期
+宿主决定音频来源、同意、Provider、保留/删除和日志脱敏；抽象不得持有音频或文本历史。取消/背压必须端到端传播。
