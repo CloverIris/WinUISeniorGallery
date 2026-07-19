@@ -1,0 +1,267 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:media="using:WinUI3.Senior.Media">
+
+    <SolidColorBrush x:Key="MediaPlayerChromeBackgroundBrush" Color="{ThemeResource LayerFillColorDefault}" />
+    <SolidColorBrush x:Key="MediaPlayerChromeForegroundBrush" Color="{ThemeResource TextFillColorPrimary}" />
+    <SolidColorBrush x:Key="MediaPlayerChromeSecondaryForegroundBrush" Color="{ThemeResource TextFillColorSecondary}" />
+    <SolidColorBrush x:Key="MediaPlayerChromeControlFillBrush" Color="{ThemeResource ControlFillColorDefault}" />
+    <SolidColorBrush x:Key="MediaPlayerChromeErrorBrush" Color="{ThemeResource SystemFillColorCritical}" />
+    <CornerRadius x:Key="MediaPlayerChromeCornerRadius">8</CornerRadius>
+    <x:Double x:Key="MediaPlayerChromeControlSpacing">8</x:Double>
+    <Duration x:Key="MediaPlayerChromeAutoHideDuration">0:0:0.2</Duration>
+    <SolidColorBrush x:Key="MediaTimelineTrackBrush" Color="{ThemeResource ControlStrongFillColorDefault}" />
+    <SolidColorBrush x:Key="MediaTimelineProgressBrush" Color="{ThemeResource AccentFillColorDefault}" />
+    <SolidColorBrush x:Key="MediaTimelineBufferedBrush" Color="{ThemeResource ControlFillColorSecondary}" />
+    <SolidColorBrush x:Key="MediaTimelineDisabledBrush" Color="{ThemeResource ControlFillColorDisabled}" />
+    <SolidColorBrush x:Key="MediaTimelineThumbBrush" Color="{ThemeResource AccentFillColorDefault}" />
+    <SolidColorBrush x:Key="MediaTimelineMarkerBrush" Color="{ThemeResource TextFillColorSecondary}" />
+    <SolidColorBrush x:Key="MediaTimelineChapterBrush" Color="{ThemeResource TextFillColorPrimary}" />
+    <SolidColorBrush x:Key="MediaTimelineLiveBrush" Color="{ThemeResource SystemFillColorCritical}" />
+    <x:Double x:Key="MediaTimelineTrackHeight">4</x:Double>
+    <x:Double x:Key="MediaTimelineThumbSize">16</x:Double>
+    <SolidColorBrush x:Key="TimedTextPrimaryForegroundBrush" Color="{ThemeResource TextFillColorPrimary}" />
+    <SolidColorBrush x:Key="TimedTextSecondaryForegroundBrush" Color="{ThemeResource TextFillColorSecondary}" />
+    <SolidColorBrush x:Key="TimedTextInactiveForegroundBrush" Color="{ThemeResource TextFillColorTertiary}" />
+    <SolidColorBrush x:Key="TimedTextHighlightBrush" Color="{ThemeResource AccentFillColorDefault}" />
+    <SolidColorBrush x:Key="TimedTextCaptionBackgroundBrush" Color="{ThemeResource LayerFillColorDefault}" />
+    <CornerRadius x:Key="TimedTextCornerRadius">8</CornerRadius>
+    <x:Double x:Key="TimedTextMaxTextWidth">960</x:Double>
+
+    <Style TargetType="media:MediaTimeline">
+        <Setter Property="MinHeight" Value="44" />
+        <Setter Property="IsTabStop" Value="True" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="media:MediaTimeline">
+                    <Grid x:Name="PART_RootGrid" MinHeight="44">
+                        <Grid x:Name="PART_Track" Height="{ThemeResource MediaTimelineTrackHeight}" VerticalAlignment="Center" Background="{ThemeResource MediaTimelineTrackBrush}">
+                            <Canvas x:Name="PART_BufferedRangesPresenter" IsHitTestVisible="False" />
+                            <Canvas x:Name="PART_DisabledRangesPresenter" IsHitTestVisible="False" />
+                            <Rectangle x:Name="PART_Progress" HorizontalAlignment="Left" Fill="{ThemeResource MediaTimelineProgressBrush}" />
+                            <Canvas x:Name="PART_ChapterPresenter" IsHitTestVisible="False" />
+                            <Canvas x:Name="PART_MarkerPresenter" IsHitTestVisible="False" />
+                            <Thumb x:Name="PART_Thumb" Width="{ThemeResource MediaTimelineThumbSize}" Height="{ThemeResource MediaTimelineThumbSize}" HorizontalAlignment="Left" Background="{ThemeResource MediaTimelineThumbBrush}" />
+                        </Grid>
+                        <ToolTip x:Name="PART_ToolTip" />
+                        <TextBlock x:Name="PART_TimeText" HorizontalAlignment="Right" VerticalAlignment="Top" />
+                        <TextBlock x:Name="PART_PlaybackRateText" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                        <TextBlock x:Name="PART_LiveBadge" Text="Live" Foreground="{ThemeResource MediaTimelineLiveBrush}" HorizontalAlignment="Right" VerticalAlignment="Bottom" />
+                        <Button x:Name="PART_GoLiveButton" Content="Go live" HorizontalAlignment="Right" VerticalAlignment="Bottom" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="media:TimedTextView">
+        <Setter Property="Foreground" Value="{ThemeResource TimedTextPrimaryForegroundBrush}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="media:TimedTextView">
+                    <Grid x:Name="PART_RootGrid" MaxWidth="{ThemeResource TimedTextMaxTextWidth}">
+                        <Border Background="{ThemeResource TimedTextCaptionBackgroundBrush}" CornerRadius="{ThemeResource TimedTextCornerRadius}" Padding="16">
+                            <Grid>
+                                <TextBlock x:Name="PART_SingleLinePresenter" Foreground="{TemplateBinding Foreground}" TextAlignment="Center" TextWrapping="WrapWholeWords" />
+                                <TextBlock x:Name="PART_KaraokePresenter" Foreground="{ThemeResource TimedTextHighlightBrush}" TextAlignment="Center" TextWrapping="WrapWholeWords" Visibility="Collapsed" />
+                                <StackPanel x:Name="PART_BilingualPanel" Visibility="Collapsed" Spacing="6">
+                                    <TextBlock x:Name="PART_PrimaryTextPresenter" Foreground="{TemplateBinding Foreground}" TextAlignment="Center" TextWrapping="WrapWholeWords" />
+                                    <TextBlock x:Name="PART_TranslationTextPresenter" Foreground="{ThemeResource TimedTextSecondaryForegroundBrush}" TextAlignment="Center" TextWrapping="WrapWholeWords" />
+                                </StackPanel>
+                                <ScrollViewer x:Name="PART_ScrollViewer" Visibility="Collapsed" VerticalScrollBarVisibility="Auto">
+                                    <ItemsRepeater x:Name="PART_ItemsRepeater"><ItemsRepeater.ItemTemplate><DataTemplate><TextBlock Text="{Binding Text}" Margin="0,4" TextWrapping="WrapWholeWords" /></DataTemplate></ItemsRepeater.ItemTemplate></ItemsRepeater>
+                                </ScrollViewer>
+                                <TextBlock x:Name="PART_EmptyPresenter" Text="No timed text is available." Foreground="{ThemeResource TimedTextInactiveForegroundBrush}" TextAlignment="Center" />
+                                <TextBlock x:Name="PART_LiveRegion" AutomationProperties.LiveSetting="Polite" Opacity="0" IsHitTestVisible="False" />
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="media:MediaPlayerChrome">
+        <Setter Property="Foreground" Value="{ThemeResource MediaPlayerChromeForegroundBrush}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="media:MediaPlayerChrome">
+                    <Border x:Name="PART_RootGrid" Background="{ThemeResource MediaPlayerChromeBackgroundBrush}" CornerRadius="{ThemeResource MediaPlayerChromeCornerRadius}" Padding="12">
+                        <Grid RowSpacing="8"><Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /></Grid.RowDefinitions>
+                            <media:MediaTimeline x:Name="PART_Timeline" Grid.Row="0" />
+                            <StackPanel Grid.Row="1" Orientation="Horizontal" Spacing="{ThemeResource MediaPlayerChromeControlSpacing}">
+                                <Button x:Name="PART_PlayPauseButton" MinWidth="44" MinHeight="44" AutomationProperties.Name="Play" />
+                                <Button x:Name="PART_StopButton" Content="Stop" MinWidth="44" MinHeight="44" AutomationProperties.Name="Stop" />
+                                <Slider x:Name="PART_VolumeSlider" Minimum="0" Maximum="100" Width="120" AutomationProperties.Name="Volume" />
+                                <Button x:Name="PART_FullScreenButton" Content="Full screen" MinHeight="44" AutomationProperties.Name="Full screen" />
+                                <Button x:Name="PART_CompactOverlayButton" Content="Floating window" MinHeight="44" AutomationProperties.Name="Floating window" />
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="media:CaptionsTranslationExperience">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="media:CaptionsTranslationExperience">
+                    <Grid RowSpacing="8">
+                        <media:TimedTextView x:Name="PART_TimedTextView" />
+                        <TextBlock x:Name="PART_Status" Grid.Row="1" Opacity="0.7" AutomationProperties.LiveSetting="Polite" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <SolidColorBrush x:Key="MiniPlayerHostBackgroundBrush" Color="{ThemeResource LayerFillColorDefault}" />
+    <SolidColorBrush x:Key="MiniPlayerHostForegroundBrush" Color="{ThemeResource TextFillColorPrimary}" />
+    <CornerRadius x:Key="MiniPlayerHostCornerRadius">10</CornerRadius>
+
+    <Style TargetType="media:MiniPlayerHost">
+        <Setter Property="Foreground" Value="{ThemeResource MiniPlayerHostForegroundBrush}" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="media:MiniPlayerHost">
+                    <Border x:Name="PART_RootGrid" Background="{ThemeResource MiniPlayerHostBackgroundBrush}" CornerRadius="{ThemeResource MiniPlayerHostCornerRadius}" Padding="10">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="DisplayStates">
+                                <VisualState x:Name="Compact" />
+                                <VisualState x:Name="Expanded" />
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Grid ColumnSpacing="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Button x:Name="PART_PlayPauseButton" Grid.Column="0" MinWidth="44" MinHeight="44" AutomationProperties.Name="Play or pause" />
+                            <ContentPresenter Grid.Column="1" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" VerticalContentAlignment="Center" />
+                            <StackPanel Grid.Column="2" Orientation="Horizontal" Spacing="4">
+                                <Button x:Name="PART_RestoreButton" Content="Open" MinHeight="40" AutomationProperties.Name="Restore player" />
+                                <Button x:Name="PART_DismissButton" Content="Dismiss" MinHeight="40" AutomationProperties.Name="Dismiss mini player" />
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="media:MediaCenterGrid">
+        <Setter Property="IsTabStop" Value="True" />
+        <Setter Property="SelectionMode" Value="Single" />
+        <Setter Property="IsItemClickEnabled" Value="True" />
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <ItemsWrapGrid Orientation="Horizontal" MaximumRowsOrColumns="6" HorizontalAlignment="Stretch" />
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="ItemContainerStyle">
+            <Setter.Value>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    <Setter Property="Margin" Value="6" />
+                    <Setter Property="MinWidth" Value="180" />
+                    <Setter Property="MinHeight" Value="220" />
+                </Style>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="ItemTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <Border MinHeight="220" Padding="12" CornerRadius="10" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                        <Grid RowSpacing="8">
+                            <Grid.RowDefinitions><RowDefinition Height="*" /><RowDefinition Height="Auto" /></Grid.RowDefinitions>
+                            <Border Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" CornerRadius="8">
+                                <TextBlock Text="▣" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.55" />
+                            </Border>
+                            <TextBlock Grid.Row="1" Text="{Binding}" TextWrapping="Wrap" FontWeight="SemiBold" />
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="media:MediaCenterExperience">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="media:MediaCenterExperience">
+                    <Grid>
+                        <media:MediaCenterGrid x:Name="PART_Grid" />
+                        <Border x:Name="PART_DetailOverlay" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                MinWidth="360" MaxWidth="720" Padding="24" CornerRadius="14"
+                                Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1">
+                            <Grid RowSpacing="12">
+                                <Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /></Grid.RowDefinitions>
+                                <TextBlock x:Name="PART_DetailTitle" FontSize="24" FontWeight="SemiLight" TextWrapping="Wrap" />
+                                <TextBlock x:Name="PART_DetailSubtitle" Grid.Row="1" Opacity="0.75" TextWrapping="Wrap" />
+                                <StackPanel Grid.Row="2" Orientation="Horizontal" Spacing="8">
+                                    <Button x:Name="PART_PlayButton" Content="Play" AutomationProperties.Name="Request playback" />
+                                    <Button x:Name="PART_CloseDetailsButton" Content="Close" AutomationProperties.Name="Close details" />
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="media:QuickResumePicker">
+        <Setter Property="SelectionMode" Value="Single" />
+        <Setter Property="IsItemClickEnabled" Value="True" />
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate><ItemsWrapGrid Orientation="Horizontal" MaximumRowsOrColumns="4" /></ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="ItemTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <Border Width="220" MinHeight="150" Margin="6" Padding="12" CornerRadius="10" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                        <Grid RowSpacing="8">
+                            <Grid.RowDefinitions><RowDefinition Height="*" /><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /></Grid.RowDefinitions>
+                            <ContentPresenter Content="{Binding Thumbnail}" />
+                            <TextBlock Grid.Row="1" Text="{Binding Title}" FontWeight="SemiBold" TextTrimming="CharacterEllipsis" />
+                            <ProgressBar Grid.Row="2" Minimum="0" Maximum="1" Value="{Binding Progress}" />
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="media:ImmersiveNowPlaying">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="media:ImmersiveNowPlaying">
+                    <Border Background="{ThemeResource LayerFillColorDefault}" CornerRadius="12" Padding="16">
+                        <Grid RowSpacing="12">
+                            <Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition Height="*" /><RowDefinition Height="Auto" /></Grid.RowDefinitions>
+                            <StackPanel Spacing="3"><TextBlock Text="{Binding CurrentState.CurrentItem.Title, RelativeSource={RelativeSource TemplatedParent}}" FontSize="24" FontWeight="SemiLight" /><TextBlock Text="{Binding CurrentState.CurrentItem.Artist, RelativeSource={RelativeSource TemplatedParent}}" Opacity="0.7" /></StackPanel>
+                            <ContentPresenter Grid.Row="1" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" />
+                            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="8">
+                                <Button x:Name="PART_PreviousButton" Content="Previous" AutomationProperties.Name="Previous track" />
+                                <Button x:Name="PART_PlayButton" Content="Play" AutomationProperties.Name="Play or pause" />
+                                <Button x:Name="PART_NextButton" Content="Next" AutomationProperties.Name="Next track" />
+                                <Button x:Name="PART_QueueButton" Content="Queue" AutomationProperties.Name="Open queue" />
+                                <Button x:Name="PART_LyricsButton" Content="Lyrics" AutomationProperties.Name="Open lyrics" />
+                                <Button x:Name="PART_FullScreenButton" Content="Full screen" AutomationProperties.Name="Full screen" />
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

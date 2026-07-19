@@ -72,6 +72,7 @@ public sealed partial class CarouselView
     {
         DetachPresentationHandlers();
         _presentationTransition?.Dispose();
+        _presentationTransition = null;
     }
 
     private void DetachPresentationHandlers()

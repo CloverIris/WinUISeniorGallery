@@ -3,7 +3,7 @@
     "id":  "media.mini-player-host",
     "display_name":  "MiniPlayerHost",
     "kind":  "control",
-    "status":  "proposed",
+    "status":  "in-progress",
     "maturity":  "lab",
     "priority":  "P1",
     "package":  "WinUI3.Senior.Media",
@@ -11,7 +11,9 @@
     "gallery_route":  "/media/mini-player-host",
     "source_language":  "zh-CN",
     "owned_paths":  [
-                        "catalog/Media/MiniPlayerHost"
+                        "catalog/Media/MiniPlayerHost",
+                        "src/WinUI3.Senior.Media/MediaPlayerChrome/MiniPlayerHost.cs",
+                        "src/WinUI3.Senior.Media/Themes/Generic.xaml"
                     ],
     "depends_on":  [
                        "media.media-player-chrome"

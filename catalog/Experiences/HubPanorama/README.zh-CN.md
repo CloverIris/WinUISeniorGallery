@@ -1,10 +1,10 @@
 ﻿# HubPanorama
 
-这是中文规范源。当前为 proposed backlog，不允许进入实现。
+这是中文规范源。当前为 in-progress lab，已具备横向 Section、选择、键盘/RTL 和宿主内容模板。
 
 ## Status
 
-proposed / lab / P1
+in-progress / lab / P1
 
 ## Documents
 
@@ -18,4 +18,4 @@ proposed / lab / P1
 catalog/Experiences/HubPanorama
 
 ## 场景准备度
-跨异构章节横向探索；Ready 条件：虚拟化与窄窗纵向回退原型通过焦点测试。
+`HubPanorama` 拥有 Section 选择和滚动协调；宿主拥有 Items、背景资源和路由。当前不复制 Pivot API、不读取网络素材、不创建窗口。

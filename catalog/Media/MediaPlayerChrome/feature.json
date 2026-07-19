@@ -3,7 +3,7 @@
   "id": "media.media-player-chrome",
   "display_name": "MediaPlayerChrome",
   "kind": "control",
-  "status": "ready",
+  "status": "in-progress",
   "maturity": "lab",
   "priority": "P0",
   "package": "WinUI3.Senior.Media",

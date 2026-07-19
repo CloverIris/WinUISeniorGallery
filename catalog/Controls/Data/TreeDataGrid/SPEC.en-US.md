@@ -1,32 +1,31 @@
-﻿# TreeDataGrid Specification
+# TreeDataGrid Specification
 
 ## Goal
 
-Define reusable responsibilities, state, and boundaries.
+Provide a host-model-driven tree grid responsible for flattening, filtering, cancellable child loading, viewport realization, sorting, and selection. Row templates, cell editors, and persistence remain host-owned.
 
 ## Non-goals
 
-No implementation while proposed.
+The control does not mutate `TreeDataGridNode.Value`, create windows, persist sorting/selection, or perform remote requests on behalf of a host.
 
 ## Public API
 
-Not locked.
+`TreeDataGridNode` exposes stable `Key`, `Value`, `Parent`, `Children`, `HasChildren`, `IsExpanded`, `LoadState`, `LoadError`, and a cancellable `ChildrenProvider`. The control exposes `SetRootItems`, `RefreshRows`, `SetViewport`, `SetExpandedAsync`, `LoadChildrenAsync`, `Select`, `ToggleSelection`, `ClearSelection`, `MoveSelection`, `SortBy`, `CommitCellEdit`, and `InvokeRow`.
 
-## State model
+`SelectionMode=Single` keeps one selection; `Multiple` supports Ctrl+Space toggling; `Extended` supports Shift+Up/Down contiguous extension. `SelectedItem` is the current anchor and `SelectedItems` is read-only. Child load states are `NotLoaded/Loading/Loaded/Failed`; cancellation or failure does not expand a node.
 
-Not locked.
+## State, filtering, and virtualization
 
-## Template parts and visual tree
+`FilterText` matches `Value.ToString()` and retains a parent when any descendant matches. `VisibleRows` is the logical flattened list. `SetViewport(start,rowCount)` exposes only the viewport plus `RealizationBuffer` as `RealizedRows`; no containers are created for other rows. Sorting uses the column accessor independently at each sibling level.
 
-Not locked.
+## Input and failures
 
-## Behavior and failure modes
+Up/Down moves selection, Shift extends, Left/Right collapses/expands, Enter invokes a row, and Ctrl+Space toggles multiple selection. Provider exceptions keep the node in `Failed`, set `LoadError`, and raise `ChildrenLoadFailed`; a new load cancels the old one. Empty roots show Empty and unknown operations return `false`.
 
-Follow referenced contracts.
+## Template and accessibility
 
-## Open Decisions
+Templates may provide headers, a row repeater, scrollbars, and editors; missing optional parts do not disable model APIs. The AutomationPeer exposes DataGrid semantics, and row templates must expose hierarchy, expansion, selection, and visible focus.
 
-API, template parts, defaults, and performance budgets require specification review.
+## Current boundary
 
-## Proposed implementation baseline
-`ItemsSource`, `Columns`, `SelectedItems`, `SelectionMode=Single`, `IsEditingEnabled=false`, expand/collapse, async child provider; states empty/loading/ready/editing; header/repeater/scrollbars. Left/right collapse/expand, up/down move; failures show retry row.
+The item remains `in-progress/lab/P2`; column resizing, frozen columns, and in-row editors require separate specifications.

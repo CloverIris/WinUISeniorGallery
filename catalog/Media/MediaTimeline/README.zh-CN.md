@@ -9,16 +9,18 @@
 - 包含：显示、拖动预览、最终 Seek 请求、键盘步进、章节与区间可视化。
 - 不包含：执行 Seek、生成视频缩略图、加载章节元数据或管理播放速度。
 
+`MediaTimelineMath` 提供宿主可复用的区间归一化/合并、禁用区间修正、Live Edge、比例映射和时间格式化纯函数；控件与 Fake Session 使用同一时间域。
+
 ## 状态
 
-- 工作项：`ready`
+- 工作项：`in-progress`
 - 成熟度：`lab`
 - 优先级：`P0`
 - 包：`WinUI3.Senior.Media`
 
 ## 依赖
 
-- `foundation.media-playback`
+- `contracts.media-playback`（`MediaPlaybackTimeRange` 由 Core 拥有）
 
 ## 文档
 

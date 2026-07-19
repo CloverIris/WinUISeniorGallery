@@ -1,20 +1,17 @@
-﻿# MixviewExperience Integration
+# MixviewExperience Integration
 
-## Dependencies
+## Contracts and resources
 
-foundation.motion-system
+依赖 `foundation.motion-system` 的 Reduced Motion 语义；不新增全局资源键。节点和内容由宿主传入，控件不访问文件、网络或媒体服务。
 
-## Global contracts and resources
+## Host boundary
 
-不得重复定义全局 Contract 或资源键。异步操作必须可取消；宿主销毁后不得继续回调。默认不声明额外权限，不收集遥测或用户内容。
-
-## Platform APIs and capabilities
-
-No extra capability by default.
+宿主负责导航、推荐、持久化和内容生命周期。控件只通过 `NodeSelected`、`Closed` 通知宿主，不创建窗口或后台单例。
 
 ## Lifecycle and threading
 
-Cancellation and host destruction must be handled.
+`SetNodes`、`Open`、`Close`、`SelectNode` 应在 UI 线程调用；卸载后模板引用仅用于当前实例，宿主应停止外部更新。
 
-## 所有权、边界与生命周期
-宿主提供可取消关系Provider；体验不做推荐/存图。依赖Motion Contract，卸载取消布局线程并清缓存。
+## Failure and privacy
+
+无效节点由 `ArgumentException` 报告；未知选择返回 false。无权限、无遥测、无上传、无持久化。

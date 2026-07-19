@@ -4,9 +4,9 @@ Define an in-window host that collapses a full player into an edge mini player w
 
 ## Status and Scope
 
-- Status: proposed / lab / P1
+- Status: in-progress / lab / P1
 - Dependency: media.media-player-chrome
-- Not eligible for implementation; candidate API/part names are review vocabulary only.
+- The current code provides an in-window compact host with play/pause, restore, and dismiss requests; final theme and acceptance work remains.
 
 ## Host Boundary
 
@@ -14,5 +14,4 @@ Manage two slots inside the current Window; create no AppWindow, request no Comp
 
 ## Documents and Agent Ownership
 
-SPEC defines promotion gates, DESIGN visual/input, INTEGRATION lifecycle, and ACCEPTANCE Given/When/Then. Agent owns only catalog/Media/MiniPlayerHost.
-
+SPEC defines promotion gates, DESIGN visual/input, INTEGRATION lifecycle, and ACCEPTANCE Given/When/Then. Implementation is under `src/WinUI3.Senior.Media/MediaPlayerChrome/MiniPlayerHost.cs`.

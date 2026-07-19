@@ -2,31 +2,31 @@
 
 ## Goal
 
-Define reusable responsibilities, state, and boundaries.
+Provide a host-owned file preview metadata card. The control does not open files, cache thumbnails, or execute delete/share.
 
 ## Non-goals
 
-No implementation while proposed.
+No file-system access, provider, permission request, thumbnail decoding, or persisted path.
 
 ## Public API
 
-Not locked.
+`FileCardDescriptor` (Id/Name/Kind/Size/Modified/Thumbnail/Sharing/Actions), `FileCardAction`, `File`, `IsPreviewEnabled`, and `IsActionsVisible`; methods `RequestPreview` and `InvokeAction`; events `PreviewRequested` and `ActionInvoked`.
 
 ## State model
 
-Not locked.
+Null File shows an empty card; Size is normalized non-negative with SizeText; duplicate action IDs keep the first; the host decides whether an unhandled Preview is rejected.
 
 ## Template parts and visual tree
 
-Not locked.
+`PART_Root`, `PART_Thumbnail`, `PART_Name`, `PART_Metadata`, `PART_Sharing`, and `PART_Actions` are optional; a missing thumbnail does not affect metadata or actions.
 
 ## Behavior and failure modes
 
-Follow referenced contracts.
+Action events carry only the Descriptor and never expose FileInfo/StorageFile; hosts stop callbacks on unload; Automation Name uses `File {Name}`.
 
 ## Open Decisions
 
-API, template parts, defaults, and performance budgets require specification review.
+Open Decisions: provider permission boundary, thumbnail cache protocol, destructive confirmation, and sharing privacy rules.
 
 ## Scenario, data, and visual tree
 FileDescriptor(Id,Name,Kind,Size,Modified,Thumbnail,Sharing,Actions); tree `WidgetCard→Preview/Metadata/Actions`; Loading/Ready/Unavailable/Error.

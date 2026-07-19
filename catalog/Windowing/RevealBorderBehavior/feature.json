@@ -3,7 +3,7 @@
     "id":  "windowing.reveal-border-behavior",
     "display_name":  "RevealBorderBehavior",
     "kind":  "behavior",
-    "status":  "proposed",
+    "status":  "in-progress",
     "maturity":  "lab",
     "priority":  "P2",
     "package":  "WinUI3.Senior.Windowing",
@@ -11,7 +11,8 @@
     "gallery_route":  "/windowing/reveal-border-behavior",
     "source_language":  "zh-CN",
     "owned_paths":  [
-                        "catalog/Windowing/RevealBorderBehavior"
+                        "catalog/Windowing/RevealBorderBehavior",
+                        "src/WinUI3.Senior.Windowing/RevealBorderBehavior.cs"
                     ],
     "depends_on":  [
                        "contracts.motion"

@@ -1,0 +1,49 @@
+<Page
+    x:Class="WinUI3_Senior_Gallery.Pages.ImmersiveNowPlayingPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:media="using:WinUI3.Senior.Media">
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled">
+        <StackPanel MaxWidth="1120" Padding="32,28,32,48" Spacing="18">
+            <StackPanel Spacing="6">
+                <TextBlock Text="Immersive Now Playing" Style="{StaticResource TitleTextBlockStyle}" />
+                <TextBlock Text="MediaPlayerChrome + MediaTimeline + TimedTextView 的本地组合体验" Style="{StaticResource SubtitleTextBlockStyle}" TextWrapping="Wrap" />
+                <TextBlock Text="/experiences/immersive-now-playing · synthetic session only" Opacity="0.65" />
+            </StackPanel>
+
+            <InfoBar IsOpen="True" IsClosable="False" Severity="Informational"
+                     Title="本页不读取真实媒体"
+                     Message="使用 Gallery 自带虚拟播放会话和合成歌词，专门观察组合控件的状态传播、时间轴同步和浮窗请求边界。" />
+
+            <Border Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" CornerRadius="14" Padding="18">
+                <StackPanel Spacing="12">
+                    <Grid ColumnSpacing="14">
+                        <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                        <StackPanel Spacing="3">
+                            <TextBlock Text="Synthetic Album · Track 01" Style="{StaticResource SubtitleTextBlockStyle}" />
+                            <TextBlock Text="Composition diagnostic surface" Opacity="0.7" />
+                        </StackPanel>
+                        <ComboBox x:Name="ModeBox" Grid.Column="1" SelectedIndex="0" SelectionChanged="OnModeChanged" MinWidth="160">
+                            <ComboBoxItem Content="VOD" />
+                            <ComboBoxItem Content="Live DVR" />
+                        </ComboBox>
+                    </Grid>
+                    <media:MediaPlayerChrome x:Name="Chrome" PresentationRequested="OnPresentationRequested" />
+                </StackPanel>
+            </Border>
+
+            <Border Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" CornerRadius="14" Padding="18">
+                <StackPanel Spacing="12">
+                    <Grid ColumnSpacing="12">
+                        <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                        <TextBlock Text="Timed text / lyrics" Style="{StaticResource SubtitleTextBlockStyle}" />
+                        <TextBlock x:Name="StatusText" Grid.Column="1" Text="Ready" Opacity="0.7" />
+                    </Grid>
+                    <media:TimedTextView x:Name="Lyrics" DisplayMode="ScrollingLyrics" IsAutoScrollEnabled="True" MinHeight="220" />
+                </StackPanel>
+            </Border>
+
+            <TextBlock Text="组合边界：页面拥有会话和虚拟时钟；控件只消费契约，不创建窗口、不上传媒体、不解析字幕文件。" Opacity="0.7" TextWrapping="Wrap" />
+        </StackPanel>
+    </ScrollViewer>
+</Page>

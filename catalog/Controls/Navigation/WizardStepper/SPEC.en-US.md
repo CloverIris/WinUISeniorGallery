@@ -29,4 +29,4 @@ Follow referenced contracts.
 API, template parts, defaults, and performance budgets require specification review.
 
 ## Proposed implementation baseline
-`Steps`, `CurrentIndex`, `Orientation=Horizontal`, `NavigationMode=Linear`, commands, async `ValidateStep`; states `Idle/Validating/Invalid/Complete`; parts repeater/content/buttons. Validation blocks reentry and failure stays put.
+`Steps`, `CurrentIndex`, `Orientation=Horizontal`, `NavigationMode=Linear`, commands, async `ValidateStep`; states `Idle/Validating/Invalid/Complete`; parts repeater/content/buttons. A target step must be `IsEnabled`; validation blocks reentry and failure stays put. The final `Completed` event is emitted once per flow, and is re-armed by `Reset` or moving away from the final step.

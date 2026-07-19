@@ -3,7 +3,7 @@
     "id":  "controls.widget-card",
     "display_name":  "WidgetCard",
     "kind":  "control",
-    "status":  "proposed",
+    "status":  "in-progress",
     "maturity":  "lab",
     "priority":  "P1",
     "package":  "WinUI3.Senior.Controls",
@@ -11,13 +11,14 @@
     "gallery_route":  "/controls/widget-card",
     "source_language":  "zh-CN",
     "owned_paths":  [
-                        "catalog/Controls/Layout/WidgetCard"
+                        "catalog/Controls/Layout/WidgetCard",
+                        "src/WinUI3.Senior.Controls/Layout/WidgetCard"
                     ],
     "depends_on":  [
                        "foundation.theme-system"
                    ],
     "provides":  [
-                     "control:controls.widget-card"
+                     "WinUI3.Senior.Controls.WidgetCard"
                  ],
     "archaeology_refs":  [
 

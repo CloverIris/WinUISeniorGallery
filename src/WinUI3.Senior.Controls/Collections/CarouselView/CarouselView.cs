@@ -229,7 +229,7 @@ public sealed partial class CarouselView : ListView
 
     internal void SetPointerOverState(bool value)
     {
-        if (!PauseAutoplayOnPointerOver || _isPointerOver == value)
+        if (_isPointerOver == value)
         {
             return;
         }
@@ -240,7 +240,7 @@ public sealed partial class CarouselView : ListView
 
     internal void SetKeyboardFocusWithinState(bool value)
     {
-        if (!PauseAutoplayOnKeyboardFocusWithin || _isKeyboardFocusWithin == value)
+        if (_isKeyboardFocusWithin == value)
         {
             return;
         }
@@ -327,7 +327,9 @@ public sealed partial class CarouselView : ListView
 
     private static void OnCarouselPropertyChanged(DependencyObject sender, DependencyPropertyChangedEventArgs args)
     {
-        ((CarouselView)sender).RefreshAutoplay();
+        var carousel = (CarouselView)sender;
+        carousel.UpdateLayoutState();
+        carousel.RefreshAutoplay();
     }
 
     private static void OnAutoplayIntervalChanged(DependencyObject sender, DependencyPropertyChangedEventArgs args)
@@ -349,6 +351,7 @@ public sealed partial class CarouselView : ListView
         {
             throw new ArgumentOutOfRangeException(nameof(RealizationBuffer), "RealizationBuffer must be in the range 0 through 3.");
         }
+        ((CarouselView)sender).UpdateLayoutState();
     }
 
     private static void OnAdjacentPreviewExtentChanged(DependencyObject sender, DependencyPropertyChangedEventArgs args)
@@ -362,6 +365,13 @@ public sealed partial class CarouselView : ListView
     private void OnLoaded(object sender, RoutedEventArgs args)
     {
         _isLoaded = true;
+        // Unloaded/Loaded can occur without a new template pass (for example when
+        // a page is cached). Reattach presentation handlers and recreate the
+        // transition controller so navigation still works after returning.
+        if (_repeater is not null && _presentationRoot is null)
+        {
+            OnPresentationApplyTemplate();
+        }
         _selectedItemBeforeItemsChange = base.SelectedItem;
         _lastSelectedIndex = SelectedIndex;
         if (Items.Count > 0 && SelectedIndex < 0)
@@ -388,9 +398,11 @@ public sealed partial class CarouselView : ListView
         _selectedItemBeforeItemsChange = base.SelectedItem;
         var previousIndex = _lastSelectedIndex;
         _lastSelectedIndex = SelectedIndex;
+        // Refresh the realization window first so the transition controller can
+        // animate the newly selected container instead of observing the old layout.
+        UpdateLayoutState();
         OnCarouselSelectionChangedCore(previousIndex, SelectedIndex, _pendingUserSelection);
         _pendingUserSelection = false;
-        UpdateLayoutState();
         RefreshAutoplay();
     }
 

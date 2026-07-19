@@ -24,8 +24,8 @@ public sealed class MediaTimeline : Control
     public DateTimeOffset? LiveWindowEndTime { get; set; }
     public TimeSpan LiveEdgeTolerance { get; set; }
     public double PlaybackRate { get; set; }
-    public IReadOnlyList<MediaTimeRange> BufferedRanges { get; set; }
-    public IReadOnlyList<MediaTimeRange> DisabledRanges { get; set; }
+    public IReadOnlyList<MediaPlaybackTimeRange> BufferedRanges { get; set; }
+    public IReadOnlyList<MediaPlaybackTimeRange> DisabledRanges { get; set; }
     public IReadOnlyList<MediaTimelineMarker> Chapters { get; set; }
     public IReadOnlyList<MediaTimelineMarker> Markers { get; set; }
     public bool IsSeekEnabled { get; set; }
@@ -38,9 +38,10 @@ public sealed class MediaTimeline : Control
 }
 
 public enum MediaTimelineMode { VideoOnDemand, Live, LiveDvr }
-public readonly record struct MediaTimeRange(TimeSpan Start, TimeSpan End);
 public sealed record MediaTimelineMarker(string Id, TimeSpan Position, string? Label, object? Data);
 ```
+
+`MediaPlaybackTimeRange` 由 `WinUI3.Senior.Core` 拥有；MediaTimeline 不定义第二套公开媒体时间范围类型。
 
 默认值：`Mode=VideoOnDemand`、`Minimum=0`、`LiveEdgeTolerance=3s`、`PlaybackRate=1.0`、`KeyboardStep=5s`、`LargeKeyboardStep=30s`、`PreviewThrottleInterval=100ms`。`LiveWindowEndTime` 只将相对媒体时间格式化为墙钟时间，不参与 Seek 计算。`PlaybackRate` 仅用于倍速标签和 Automation 值文本，不缩放媒体时间、步进或 Seek；非有限值或小于等于 0 的值按 1.0 呈现。
 

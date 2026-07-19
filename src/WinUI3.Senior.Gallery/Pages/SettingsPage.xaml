@@ -1,21 +1,50 @@
 <Page
     x:Class="WinUI3_Senior_Gallery.Pages.SettingsPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled">
+        <StackPanel MaxWidth="920" Padding="32,28,32,48" Spacing="20">
+            <StackPanel Spacing="6">
+                <TextBlock Text="Settings" Style="{StaticResource TitleTextBlockStyle}" />
+                <TextBlock Text="Gallery 本地偏好与调试开关" Style="{StaticResource SubtitleTextBlockStyle}" />
+                <TextBlock Text="/settings · 不修改系统设置" Opacity="0.65" />
+            </StackPanel>
 
-    <ScrollViewer Padding="32">
-        <StackPanel Spacing="12">
-            <TextBlock Style="{StaticResource TitleTextBlockStyle}" Text="Settings" />
-            <TextBlock TextWrapping="Wrap" Text="Development placeholder for Gallery-owned preferences and diagnostics. It does not alter system settings or component contracts." />
-            <InfoBar
-                IsOpen="True"
-                IsClosable="False"
-                Severity="Informational"
-                Title="Catalog route"
-                Message="/pages/settings" />
+            <InfoBar x:Name="SettingsInfoBar" IsOpen="True" IsClosable="False" Severity="Informational"
+                     Title="设置只在当前进程内生效"
+                     Message="本页面不会写入磁盘，不会改变控件的公共 Contract。离开并重新启动 Gallery 后恢复默认值。" />
+
+            <Border Padding="20" CornerRadius="12" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                <StackPanel Spacing="16">
+                    <TextBlock Text="体验" Style="{StaticResource SubtitleTextBlockStyle}" />
+                    <ToggleSwitch x:Name="ReducedMotionSwitch" Header="Reduced Motion" Toggled="OnPreferenceChanged" />
+                    <TextBlock Text="禁用非必要动画，便于测试低动效偏好和可访问性降级。" Opacity="0.7" TextWrapping="Wrap" />
+                    <ToggleSwitch x:Name="DiagnosticsSwitch" Header="显示诊断状态" Toggled="OnPreferenceChanged" />
+                    <TextBlock Text="在实验页显示当前索引、暂停原因、实现容器数和虚拟时钟。" Opacity="0.7" TextWrapping="Wrap" />
+                    <ToggleSwitch x:Name="RememberRouteSwitch" Header="记住最近路由（仅会话内）" Toggled="OnPreferenceChanged" />
+                </StackPanel>
+            </Border>
+
+            <Border Padding="20" CornerRadius="12" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                <StackPanel Spacing="16">
+                    <TextBlock Text="布局与语言" Style="{StaticResource SubtitleTextBlockStyle}" />
+                    <ComboBox x:Name="DensityComboBox" Header="内容密度" SelectedIndex="0" SelectionChanged="OnSelectionChanged">
+                        <ComboBoxItem Content="Default" />
+                        <ComboBoxItem Content="Compact" />
+                        <ComboBoxItem Content="Comfortable" />
+                    </ComboBox>
+                    <ComboBox x:Name="LanguageComboBox" Header="说明语言" SelectedIndex="0" SelectionChanged="OnSelectionChanged">
+                        <ComboBoxItem Content="中文（规范源）" />
+                        <ComboBoxItem Content="English (translation)" />
+                    </ComboBox>
+                </StackPanel>
+            </Border>
+
+            <StackPanel Orientation="Horizontal" Spacing="12">
+                <Button Content="应用本次会话设置" Click="OnApplyClick" />
+                <Button Content="恢复默认" Click="OnResetClick" />
+                <TextBlock x:Name="DirtyText" Text="未修改" VerticalAlignment="Center" Opacity="0.7" />
+            </StackPanel>
         </StackPanel>
     </ScrollViewer>
 </Page>

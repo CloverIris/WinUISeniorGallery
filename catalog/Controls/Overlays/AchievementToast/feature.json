@@ -3,7 +3,7 @@
     "id":  "controls.achievement-toast",
     "display_name":  "AchievementToast",
     "kind":  "control",
-    "status":  "proposed",
+    "status":  "in-progress",
     "maturity":  "lab",
     "priority":  "P2",
     "package":  "WinUI3.Senior.Controls",
@@ -11,13 +11,18 @@
     "gallery_route":  "/controls/achievement-toast",
     "source_language":  "zh-CN",
     "owned_paths":  [
-                        "catalog/Controls/Overlays/AchievementToast"
+                        "catalog/Controls/Overlays/AchievementToast",
+                        "src/WinUI3.Senior.Controls/Overlays/AchievementToast/AchievementToast.cs",
+                        "src/WinUI3.Senior.Controls/Themes/Generic.xaml",
+                        "src/WinUI3.Senior.Gallery/Pages/AchievementToastPage.xaml",
+                        "src/WinUI3.Senior.Gallery/Pages/AchievementToastPage.xaml.cs"
                     ],
     "depends_on":  [
                        "foundation.motion-system"
                    ],
     "provides":  [
-                     "control:controls.achievement-toast"
+                     "control:controls.achievement-toast",
+                     "WinUI3.Senior.Controls.AchievementToast"
                  ],
     "archaeology_refs":  [
 

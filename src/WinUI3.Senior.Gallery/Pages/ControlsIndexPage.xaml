@@ -25,6 +25,56 @@
                 </StackPanel>
             </Button>
 
+            <Button HorizontalAlignment="Left" Click="OnOpenWorkbenchClick">
+                <StackPanel Orientation="Horizontal" Spacing="12">
+                    <SymbolIcon Symbol="DeveloperTools" />
+                    <StackPanel>
+                        <TextBlock Text="Open Senior Controls Workbench" />
+                        <TextBlock Text="CommandRibbon · IconPicker · DragOverlay · /controls/workbench" Opacity="0.68" Style="{StaticResource CaptionTextBlockStyle}" />
+                    </StackPanel>
+                </StackPanel>
+            </Button>
+
+            <Button HorizontalAlignment="Left" Click="OnOpenAchievementToastClick">
+                <StackPanel Orientation="Horizontal" Spacing="12">
+                    <SymbolIcon Symbol="Like" />
+                    <StackPanel>
+                        <TextBlock Text="Open AchievementToast lab" />
+                        <TextBlock Text="window-local FIFO · progress · timed dismissal · /controls/achievement-toast" Opacity="0.68" Style="{StaticResource CaptionTextBlockStyle}" />
+                    </StackPanel>
+                </StackPanel>
+            </Button>
+
+            <Button HorizontalAlignment="Left" Click="OnOpenOverlayMenuClick">
+                <StackPanel Orientation="Horizontal" Spacing="12">
+                    <SymbolIcon Symbol="More" />
+                    <StackPanel>
+                        <TextBlock Text="Open OverlayMenu lab" />
+                        <TextBlock Text="modal/non-modal · nested navigation · Esc/Back · /controls/overlay-menu" Opacity="0.68" Style="{StaticResource CaptionTextBlockStyle}" />
+                    </StackPanel>
+                </StackPanel>
+            </Button>
+
+            <Button HorizontalAlignment="Left" Click="OnOpenBigTitleClick">
+                <StackPanel Orientation="Horizontal" Spacing="12">
+                    <SymbolIcon Symbol="Font" />
+                    <StackPanel>
+                        <TextBlock Text="Open BigTitle lab" />
+                        <TextBlock Text="scroll-aware typography · Expanded/Collapsing/Collapsed · /controls/big-title" Opacity="0.68" Style="{StaticResource CaptionTextBlockStyle}" />
+                    </StackPanel>
+                </StackPanel>
+            </Button>
+
+            <Button HorizontalAlignment="Left" Click="OnOpenContentRailClick">
+                <StackPanel Orientation="Horizontal" Spacing="12">
+                    <SymbolIcon Symbol="View" />
+                    <StackPanel>
+                        <TextBlock Text="Open ContentRail lab" />
+                        <TextBlock Text="horizontal peek rail · PageSize · wrap navigation · See All command · /controls/content-rail" Opacity="0.68" Style="{StaticResource CaptionTextBlockStyle}" />
+                    </StackPanel>
+                </StackPanel>
+            </Button>
+
             <Grid ColumnSpacing="16" RowSpacing="16">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />

@@ -1,10 +1,10 @@
 ﻿# BreadcrumbBarEx
 
-这是中文规范源。当前为 proposed backlog，不允许进入实现。
+这是中文规范源。当前实现处于 in-progress；模板和宿主解析器仍可在评审阶段细化。
 
 ## Status
 
-proposed / lab / P2
+in-progress / lab / P2
 
 ## Documents
 
@@ -18,4 +18,4 @@ proposed / lab / P2
 catalog/Controls/Navigation/BreadcrumbBarEx
 
 ## 实现准备
-可编辑且支持历史/拖放的路径面包屑；进入 Ready 前以文件与 URI 原型锁定统一 Item 模型。
+可编辑、键盘友好且支持宿主自定义解析器的路径面包屑。控件不创建导航窗口、不解析文件系统权限；提交失败保持原路径并发出 NavigationFailed。

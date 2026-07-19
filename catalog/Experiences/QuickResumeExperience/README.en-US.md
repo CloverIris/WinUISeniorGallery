@@ -4,7 +4,7 @@ Specification work item for QuickResumeExperience.
 
 ## Status
 
-proposed / lab / P2. Not eligible for implementation.
+in-progress / lab / P2.
 
 ## Documents
 
@@ -17,5 +17,7 @@ proposed / lab / P2. Not eligible for implementation.
 
 catalog/Experiences/QuickResumeExperience
 
+Implementation path: `src/WinUI3.Senior.Media/QuickResume`.
+
 ## Scenario readiness
-Quick resume from recent-state thumbnails; Ready after snapshot privacy/expiry/restore protocol review.
+The picker supports recent-activity deduplication, an item cap, ten-foot directional navigation, resume and remove requests. Thumbnail privacy, persistence, invalidation cleanup and real restoration remain host-owned.

@@ -3,7 +3,7 @@
     "id":  "controls.pivot-view",
     "display_name":  "PivotView",
     "kind":  "control",
-    "status":  "proposed",
+    "status":  "in-progress",
     "maturity":  "lab",
     "priority":  "P1",
     "package":  "WinUI3.Senior.Controls",
@@ -11,7 +11,8 @@
     "gallery_route":  "/controls/pivot-view",
     "source_language":  "zh-CN",
     "owned_paths":  [
-                        "catalog/Controls/Navigation/PivotView"
+                        "catalog/Controls/Navigation/PivotView",
+                        "src/WinUI3.Senior.Controls/Navigation/PivotView"
                     ],
     "depends_on":  [
                        "foundation.input-system",

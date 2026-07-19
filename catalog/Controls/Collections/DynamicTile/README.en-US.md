@@ -1,10 +1,10 @@
 ﻿# DynamicTile
 
-Specification work item for DynamicTile.
+Specification work item for DynamicTile. Business-logic implementation is now active; the host still owns the visual template and final acceptance.
 
 ## Status
 
-proposed / lab / P1. Not eligible for implementation.
+in-progress / lab / P1. Logic is available for host integration; the item is not yet review-ready.
 
 ## Documents
 
@@ -17,5 +17,9 @@ proposed / lab / P1. Not eligible for implementation.
 
 catalog/Controls/Collections/DynamicTile
 
-## Implementation readiness
-App-local dynamic card, not a system tile. Before Ready lock update queue limit; default retains newest three faces.
+## Current implementation surface
+
+`DynamicTile` exposes a stable `Id`, `Frames`, `Size`, `Transition`, automatic/manual rotation, host visibility/window-active pause, and a cancellable host `RefreshProvider`.
+`DynamicTileBoard` coordinates deterministic ordering, edit-mode reordering, pause broadcasts, and parallel refresh; it never creates windows, registers system tiles, or persists content.
+
+This is an app-local dynamic card, not a system tile. The host must still lock the visual update queue before Ready; the default policy retains at most the newest three faces.

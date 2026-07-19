@@ -1,10 +1,10 @@
 ﻿# WidgetCard
 
-这是中文规范源。当前为 proposed backlog，不允许进入实现。
+这是中文规范源。当前为 in-progress lab，已具备宿主刷新 Provider、自动刷新暂停和错误恢复逻辑。
 
 ## Status
 
-proposed / lab / P1
+in-progress / lab / P1
 
 ## Documents
 

@@ -6,12 +6,13 @@
 |---|---|---|---|---|---|
 | P0 | control | BottomSheet | ready | WinUI3.Senior.Controls | /controls/bottom-sheet |
 | P0 | control | CarouselView | in-progress | WinUI3.Senior.Controls | /controls/carousel-view |
-| P0 | control | MediaPlayerChrome | ready | WinUI3.Senior.Media | /media/media-player-chrome |
-| P0 | control | MediaTimeline | ready | WinUI3.Senior.Media | /media/media-timeline |
+| P0 | control | MediaPlayerChrome | in-progress | WinUI3.Senior.Media | /media/media-player-chrome |
+| P0 | control | MediaTimeline | in-progress | WinUI3.Senior.Media | /media/media-timeline |
 | P0 | control | SnackbarHost | ready | WinUI3.Senior.Controls | /controls/snackbar-host |
-| P0 | control | TimedTextView | ready | WinUI3.Senior.Media | /media/timed-text-view |
+| P0 | control | TimedTextView | in-progress | WinUI3.Senior.Media | /media/timed-text-view |
 | P0 | foundation | AccessibilitySystem | proposed | WinUI3.Senior.Core |  |
 | P0 | foundation | InputSystem | proposed | WinUI3.Senior.Core |  |
+| P0 | foundation | MediaPlayback | in-progress | WinUI3.Senior.Core |  |
 | P0 | foundation | MotionSystem | proposed | WinUI3.Senior.Core |  |
 | P0 | foundation | ThemeSystem | proposed | WinUI3.Senior.Core |  |
 | P1 | archaeology | Achievement Toast | specified | WinUI3.Senior.Archaeology | /archaeology/xbox/achievement-toast |

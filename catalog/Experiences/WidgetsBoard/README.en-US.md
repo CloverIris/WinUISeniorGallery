@@ -1,10 +1,10 @@
 ﻿# WidgetsBoard
 
-Specification work item for WidgetsBoard.
+Specification work item for WidgetsBoard. Grid placement and edit interactions are implemented; persistence and visual composition remain host-owned.
 
 ## Status
 
-proposed / lab / P1. Not eligible for implementation.
+in-progress / lab / P1. Logic is available for host integration; the item is not yet review-ready.
 
 ## Documents
 
@@ -18,4 +18,4 @@ proposed / lab / P1. Not eligible for implementation.
 catalog/Experiences/WidgetsBoard
 
 ## Scenario readiness
-Reorderable/collapsible widget board; Ready after cross-size collision and persistence schema review.
+Reorderable/collapsible widget board. Current logic covers collision-aware drag preview/commit, pin/collapse/remove, snapshots and cancellable refresh. Ready still requires cross-size persistence schema review.

@@ -1,0 +1,36 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:media="using:WinUI3.Senior.Media">
+    <SolidColorBrush x:Key="MediaPlayerChromeBackgroundBrush" Color="{ThemeResource LayerFillColorDefault}" />
+    <SolidColorBrush x:Key="MediaPlayerChromeForegroundBrush" Color="{ThemeResource TextFillColorPrimary}" />
+    <SolidColorBrush x:Key="MediaPlayerChromeSecondaryForegroundBrush" Color="{ThemeResource TextFillColorSecondary}" />
+    <SolidColorBrush x:Key="MediaPlayerChromeControlFillBrush" Color="{ThemeResource ControlFillColorDefault}" />
+    <SolidColorBrush x:Key="MediaPlayerChromeErrorBrush" Color="{ThemeResource SystemFillColorCritical}" />
+    <CornerRadius x:Key="MediaPlayerChromeCornerRadius">8</CornerRadius>
+    <x:Double x:Key="MediaPlayerChromeControlSpacing">8</x:Double>
+    <Duration x:Key="MediaPlayerChromeAutoHideDuration">0:0:0.2</Duration>
+
+    <Style TargetType="media:MediaPlayerChrome">
+        <Setter Property="Foreground" Value="{ThemeResource MediaPlayerChromeForegroundBrush}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="media:MediaPlayerChrome">
+                    <Border x:Name="PART_RootGrid" Background="{ThemeResource MediaPlayerChromeBackgroundBrush}" CornerRadius="{ThemeResource MediaPlayerChromeCornerRadius}" Padding="12">
+                        <Grid RowSpacing="8">
+                            <Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /></Grid.RowDefinitions>
+                            <media:MediaTimeline x:Name="PART_Timeline" Grid.Row="0" />
+                            <StackPanel Grid.Row="1" Orientation="Horizontal" Spacing="{ThemeResource MediaPlayerChromeControlSpacing}">
+                                <Button x:Name="PART_PlayPauseButton" MinWidth="44" MinHeight="44" AutomationProperties.Name="Play" />
+                                <Button x:Name="PART_StopButton" Content="Stop" MinWidth="44" MinHeight="44" AutomationProperties.Name="Stop" />
+                                <Slider x:Name="PART_VolumeSlider" Minimum="0" Maximum="100" Width="120" AutomationProperties.Name="Volume" />
+                                <Button x:Name="PART_FullScreenButton" Content="Full screen" MinHeight="44" AutomationProperties.Name="Full screen" />
+                                <Button x:Name="PART_CompactOverlayButton" Content="Floating window" MinHeight="44" AutomationProperties.Name="Floating window" />
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

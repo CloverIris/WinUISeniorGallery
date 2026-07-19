@@ -1,0 +1,22 @@
+<Page
+    x:Class="WinUI3_Senior_Gallery.Pages.FileCardPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:WinUI3.Senior.Controls">
+    <Grid Margin="28" RowSpacing="16">
+        <Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /><RowDefinition Height="*" /></Grid.RowDefinitions>
+        <StackPanel Spacing="4">
+            <TextBlock Text="FileCard" Style="{StaticResource TitleTextBlockStyle}" />
+            <TextBlock Text="Preview metadata and host-owned file actions" Style="{StaticResource SubtitleTextBlockStyle}" />
+            <TextBlock Text="合成文件描述；控件不打开文件、不持久化路径、不读取共享状态。" Opacity="0.7" />
+        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Spacing="8">
+            <Button Content="Preview" Click="OnPreviewClick" />
+            <Button Content="Share" Click="OnShareClick" />
+            <TextBlock x:Name="StatusText" VerticalAlignment="Center" Margin="8,0,0,0" Opacity="0.7" />
+        </StackPanel>
+        <Border Grid.Row="2" MaxWidth="520" HorizontalAlignment="Left" Padding="1" CornerRadius="12">
+            <controls:FileCard x:Name="Card" />
+        </Border>
+    </Grid>
+</Page>

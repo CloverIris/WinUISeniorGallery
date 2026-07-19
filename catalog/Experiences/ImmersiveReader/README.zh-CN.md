@@ -1,10 +1,10 @@
 ﻿# ImmersiveReader
 
-这是中文规范源。当前为 proposed backlog，不允许进入实现。
+这是中文规范源。当前为 `in-progress`，已实现虚拟化阅读块、焦点锚定和宿主朗读请求。
 
 ## Status
 
-proposed / lab / P2
+in-progress / lab / P2
 
 ## Documents
 
@@ -17,5 +17,7 @@ proposed / lab / P2
 
 catalog/Experiences/ImmersiveReader
 
+实现路径：`src/WinUI3.Senior.Controls/Experiences/ImmersiveReader`。
+
 ## 场景准备度
-专注阅读、行聚焦和朗读高亮；Ready 条件：文本模型/朗读Provider/隐私评审。
+支持段落/标题模型、行聚焦、字体缩放、键盘焦点移动和可取消的朗读边界请求。文本来源、朗读 Provider 和隐私策略仍由宿主负责。

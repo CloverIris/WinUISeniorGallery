@@ -1,32 +1,21 @@
-﻿# GuideMenuExperience Specification
+# GuideMenuExperience Specification
 
 ## Goal
 
-Define reusable responsibilities, state, and boundaries.
+Provide an embeddable layered Guide navigation model with explicit hierarchy, breadcrumb state, and host-owned leaf actions.
 
 ## Non-goals
 
-No implementation while proposed.
+No window creation, host command execution, network access, or persisted navigation state.
 
 ## Public API
 
-Not locked.
+`GuideNode(Id, Label, Icon, Children, Tag)`; `Nodes`, `CurrentItems`, `NavigationPath`, `IsOpen`, `IsExecuting`, and `IsDismissOnLeafInvoke`. `SetNodes` normalizes and de-duplicates IDs; `Open`, `Close`, `NavigateBack`, and `Invoke` return operation results. `NodeInvoked` reports leaves, `NavigationChanged` reports hierarchy changes, and `Closed` reports dismissal.
 
-## State model
+## Template parts
 
-Not locked.
+`PART_Root`, `PART_Scrim`, `PART_Breadcrumb`, and `PART_Nodes`. Missing list parts still allow pure logic calls; template buttons pass stable IDs through Tag.
 
-## Template parts and visual tree
+## Behavior
 
-Not locked.
-
-## Behavior and failure modes
-
-Follow referenced contracts.
-
-## Open Decisions
-
-API, template parts, defaults, and performance budgets require specification review.
-
-## Scenario, data, and visual tree
-GuideNode(Id,Label,Icon,Children,Command); tree `EdgePanel→Breadcrumb→NodeList`; Closed/Root/Submenu/Executing/Error; commands close only by policy.
+Open shows root nodes. A node with children enters the next level; a leaf raises `NodeInvoked`, and `IsDismissOnLeafInvoke` controls closing. Escape goes back first, then closes at root. Empty collections and unknown IDs return false.

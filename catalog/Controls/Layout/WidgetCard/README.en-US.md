@@ -4,7 +4,7 @@ Specification work item for WidgetCard.
 
 ## Status
 
-proposed / lab / P1. Not eligible for implementation.
+in-progress / lab / P1. Implementation is active; visual and test closure remain.
 
 ## Documents
 

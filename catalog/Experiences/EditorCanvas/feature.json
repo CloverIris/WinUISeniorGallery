@@ -3,21 +3,26 @@
     "id":  "experiences.editor-canvas",
     "display_name":  "EditorCanvas",
     "kind":  "experience",
-    "status":  "proposed",
+    "status":  "in-progress",
     "maturity":  "lab",
     "priority":  "P2",
-    "package":  "WinUI3.Senior.Archaeology",
-    "namespace":  "WinUI3.Senior.Archaeology",
+    "package":  "WinUI3.Senior.Controls",
+    "namespace":  "WinUI3.Senior.Controls",
     "gallery_route":  "/experiences/editor-canvas",
     "source_language":  "zh-CN",
     "owned_paths":  [
-                        "catalog/Experiences/EditorCanvas"
+                        "catalog/Experiences/EditorCanvas",
+                        "src/WinUI3.Senior.Core/Canvas/CanvasAbstractions.cs",
+                        "src/WinUI3.Senior.Controls/Canvas/EditorCanvas.cs",
+                        "src/WinUI3.Senior.Controls/Themes/Generic.xaml",
+                        "src/WinUI3.Senior.Gallery/Pages/EditorCanvasPage.xaml",
+                        "src/WinUI3.Senior.Gallery/Pages/EditorCanvasPage.xaml.cs"
                     ],
-    "depends_on":  [
-                       "future.canvas-winui"
-                   ],
+    "depends_on":  [],
     "provides":  [
-                     "experience:experiences.editor-canvas"
+                     "experience:experiences.editor-canvas",
+                     "WinUI3.Senior.Core.CanvasDocumentController",
+                     "WinUI3.Senior.Controls.EditorCanvas"
                  ],
     "archaeology_refs":  [
 

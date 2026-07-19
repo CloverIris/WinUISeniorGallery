@@ -4,7 +4,7 @@ Specification work item for ContentRail.
 
 ## Status
 
-proposed / lab / P1. Not eligible for implementation.
+in-progress / lab / P1. Implementation is active; final acceptance is still pending.
 
 ## Documents
 
@@ -15,7 +15,7 @@ proposed / lab / P1. Not eligible for implementation.
 
 ## Agent ownership
 
-catalog/Controls/Collections/ContentRail
+catalog/Controls/Collections/ContentRail; implementation is under `src/WinUI3.Senior.Controls/Collections/ContentRail`.
 
 ## Implementation readiness
-Virtualized horizontal content rail. Before Ready, lock paging/selection coupling; default is focus/scroll without Selection.
+The current implementation provides a horizontal ListView, keyboard direction navigation, RTL mirroring, item-invoked events, and selection scrolling. Virtualized paging policy and final theme acceptance remain backlog work.

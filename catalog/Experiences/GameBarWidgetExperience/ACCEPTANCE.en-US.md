@@ -1,12 +1,12 @@
-﻿# GameBarWidgetExperience Acceptance
+# GameBarWidgetExperience Acceptance
 
 ## Current gate
 
-Proposed work items must not be implemented. Chinese and English heading structures, stable IDs, and API names remain synchronized. APIs, state, errors, and performance budgets must be locked before ready.
-
-## Common matrix
-
-Light, Dark, High Contrast, DPI, keyboard, mouse, touch, Narrator, Reduced Motion, Chinese, English, and RTL.
+The item is `in-progress`; the local fake host is observable, while visual and runtime verification remain.
 
 ## Given / When / Then
-Given display removal/DPI change/hotkey failure, recover on primary in interactive mode; move p95≤16.7 ms and click-through always recoverable.
+
+- Given a bound host, When Open is called, Then one host request is sent and state becomes Interactive.
+- Given Interactive, When the host confirms ClickThrough, Then state becomes ClickThrough and the recovery hotkey remains available.
+- Given no acknowledgement or an empty recovery hotkey, When ClickThrough is requested, Then it returns false and preserves the prior mode.
+- Given ClickThrough, When Minimize/Restore is used, Then content is retained and ClickThrough is restored.

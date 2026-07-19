@@ -1,10 +1,10 @@
 ﻿# HomeScreen
 
-Specification work item for HomeScreen.
+Specification work item for HomeScreen. The in-memory interaction model is implemented; persistence, navigation and visual composition remain host-owned.
 
 ## Status
 
-proposed / lab / P1. Not eligible for implementation.
+in-progress / lab / P1. Logic is available for host integration; the item is not yet review-ready.
 
 ## Documents
 
@@ -18,4 +18,4 @@ proposed / lab / P1. Not eligible for implementation.
 catalog/Experiences/HomeScreen
 
 ## Scenario readiness
-Aggregates continue/recommendations/shortcuts without owning child APIs. Ready after three data-scale prototypes lock Section model and routing.
+Aggregates continue/recommendations/shortcuts without owning child APIs. Current logic covers search, pin/unpin, deterministic pin reorder and cancellable refresh. Ready still requires Section model and routing review.

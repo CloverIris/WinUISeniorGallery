@@ -1,32 +1,36 @@
-﻿# FontPicker Specification
+# FontPicker Specification
 
 ## Goal
 
-Define reusable responsibilities, state, and boundaries.
+Provide a host-fed local font selector with search, favorites, preview, and selection notifications. Font enumeration, installation, registry access, and persistence remain host responsibilities.
 
 ## Non-goals
 
-No implementation while proposed.
+The control does not install fonts, read the registry, load web fonts, persist favorites, or claim that a font file is available.
 
 ## Public API
 
-Not locked.
+- `SetOptions(IEnumerable<FontPickerOption>)`: replaces the list and de-duplicates by case-insensitive `FamilyName`; stale favorites and selection are removed.
+- `Options`, `VisibleOptions`, `FavoriteFamilies`, and `SelectedOption`: read-only views.
+- `SelectedFontFamily`: bindable string; a valid external change raises a non-user `SelectionChanged` event. Unknown names are retained but do not raise selection.
+- `SearchText`, `IsFavoritesOnly`, `IsPreviewEnabled`, and `PreviewText`: filter and preview state.
+- `Select(string, bool isUserInitiated = true)`: returns `false` for an unknown name and raises `SelectionChanged` on success.
+- `ToggleFavorite(string)` and `IsFavorite(string)`: operate only on known options and raise `FavoritesChanged` plus option-change notifications.
 
-## State model
+`FontPickerOption.FamilyName` and `DisplayName` are required. `Category` is optional. APIs are UI-thread APIs and events are raised in committed state order.
 
-Not locked.
+## State and filtering
 
-## Template parts and visual tree
+Filtering applies the favorites-only predicate first, then a current-culture case-insensitive match over FamilyName, DisplayName, and the search query. `VisibleOptions` is rebuilt immediately after `SetOptions`. Removing the selected option clears `SelectedFontFamily`.
 
-Not locked.
+## Template and degradation
 
-## Behavior and failure modes
+The template may provide search, option list, favorite toggle, and preview parts. Missing optional parts do not disable API use. The control does not verify that a font is installed; a host may label unavailable options through `DisplayName` or `Category`.
 
-Follow referenced contracts.
+## Failure modes
 
-## Open Decisions
+An empty list displays an empty state; duplicate families collapse to the first option; unknown selection returns `false`; search does not throw. Unloading does not cancel font enumeration because the control never starts enumeration itself.
 
-API, template parts, defaults, and performance budgets require specification review.
+## Current boundary
 
-## Proposed implementation baseline
-`ItemsSource`, `SelectedFont`, `PreviewText`, `SearchText`, `RecentFonts`, `Favorites`; states loading/ready/empty/error; search/list/preview parts. 300 ms debounce, Enter commits, missing font retains name as Unavailable.
+The item remains `in-progress/lab/P2`. System enumeration, variable axes, recent fonts, and installation require a separate review and must not be invented inside this control.

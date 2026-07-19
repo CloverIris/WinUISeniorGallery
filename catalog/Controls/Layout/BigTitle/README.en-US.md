@@ -4,7 +4,7 @@ Specification work item for BigTitle.
 
 ## Status
 
-proposed / lab / P2. Not eligible for implementation.
+in-progress / lab / P2. Scroll-driven collapse logic and dual presenter template are implemented locally.
 
 ## Documents
 
@@ -18,4 +18,4 @@ proposed / lab / P2. Not eligible for implementation.
 catalog/Controls/Layout/BigTitle
 
 ## Implementation readiness
-Provides a scroll-collapsing large heading without owning navigation. A text-scaling prototype must lock minimum collapsed height before Ready.
+The host explicitly supplies `ScrollSource`; VerticalOffset maps to 0..1 through CollapseDistance and Expanded/Collapsing/Collapsed only affect title visuals. Navigation remains host-owned.

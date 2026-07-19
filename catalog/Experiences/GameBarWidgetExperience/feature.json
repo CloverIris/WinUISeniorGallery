@@ -3,21 +3,24 @@
     "id":  "experiences.game-bar-widget",
     "display_name":  "GameBarWidgetExperience",
     "kind":  "experience",
-    "status":  "proposed",
+    "status":  "in-progress",
     "maturity":  "lab",
     "priority":  "P2",
-    "package":  "WinUI3.Senior.Archaeology",
-    "namespace":  "WinUI3.Senior.Archaeology",
+    "package":  "WinUI3.Senior.Windowing",
+    "namespace":  "WinUI3.Senior.Windowing",
     "gallery_route":  "/experiences/game-bar-widget",
     "source_language":  "zh-CN",
     "owned_paths":  [
-                        "catalog/Experiences/GameBarWidgetExperience"
+                        "catalog/Experiences/GameBarWidgetExperience",
+                        "src/WinUI3.Senior.Windowing/GameBarWidgetExperience.cs",
+                        "src/WinUI3.Senior.Gallery/Pages/GameBarWidgetPage.xaml",
+                        "src/WinUI3.Senior.Gallery/Pages/GameBarWidgetPage.xaml.cs"
                     ],
     "depends_on":  [
                        "windowing.floating-widget-host"
                    ],
     "provides":  [
-                     "experience:experiences.game-bar-widget"
+                     "WinUI3.Senior.Windowing.GameBarWidgetExperience"
                  ],
     "archaeology_refs":  [
 

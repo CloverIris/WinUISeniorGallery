@@ -1,10 +1,10 @@
 ﻿# WizardStepper
 
-这是中文规范源。当前为 proposed backlog，不允许进入实现。
+这是中文规范源。当前实现处于 in-progress；验证策略和模板视觉仍会在后续评审继续收敛。
 
 ## Status
 
-proposed / lab / P2
+in-progress / lab / P2
 
 ## Documents
 
@@ -18,4 +18,4 @@ proposed / lab / P2
 catalog/Controls/Navigation/WizardStepper
 
 ## 实现准备
-带验证与恢复的多步骤向导指示器；进入 Ready 前锁定线性/自由导航策略接口。
+带异步验证、恢复和线性/自由导航策略的多步骤向导指示器。验证期间防止重入；失败保持当前步骤并公告可访问错误。

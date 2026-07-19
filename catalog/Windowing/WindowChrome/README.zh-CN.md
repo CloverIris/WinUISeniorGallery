@@ -4,9 +4,11 @@
 
 ## 状态与范围
 
-- 状态：proposed / lab / P1
+- 状态：in-progress / lab / P1
 - 依赖：contracts.windowing
-- 不允许实现；候选 API/模板名仅用于评审。
+- WindowChrome 仍处于候选实现阶段；`WindowPlacementCoordinator` 已作为纯主机中立几何状态机落地，供 Snap/自定义标题栏实验使用。
+
+`WindowPlacementCoordinator` 只维护工作区、边界、最小/最大尺寸、Normal/Maximized/FullScreen、移动、八方向调整大小和八种 Snap 目标；它不会调用 AppWindow/HWND，宿主必须自行应用 `Snapshot`。
 
 ## 宿主与窗口边界
 
@@ -15,4 +17,3 @@
 ## Agent 所有权
 
 仅 catalog/Windowing/WindowChrome；SPEC/DESIGN/INTEGRATION/ACCEPTANCE 分别锁定职责、视觉、平台生命周期和验收。
-

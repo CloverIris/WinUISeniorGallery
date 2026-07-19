@@ -4,7 +4,7 @@ Create and manage app-owned secondary floating-widget windows with topmost, mini
 
 ## Status and Scope
 
-- Status: proposed / lab / P1
+- Status: in-progress / lab / P1
 - Dependency: contracts.windowing
 - Not eligible for implementation; candidate API/part names are review vocabulary only.
 
@@ -15,4 +15,3 @@ Host owns secondary AppWindow and window services, while host ContentFactory cre
 ## Agent Ownership
 
 Only catalog/Windowing/FloatingWidgetHost; SPEC/DESIGN/INTEGRATION/ACCEPTANCE lock responsibility, visuals, platform lifecycle, and acceptance.
-

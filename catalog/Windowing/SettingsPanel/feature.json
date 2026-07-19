@@ -3,7 +3,7 @@
     "id":  "windowing.settings-panel",
     "display_name":  "SettingsPanel",
     "kind":  "control",
-    "status":  "proposed",
+    "status":  "in-progress",
     "maturity":  "lab",
     "priority":  "P2",
     "package":  "WinUI3.Senior.Windowing",
@@ -11,7 +11,8 @@
     "gallery_route":  "/windowing/settings-panel",
     "source_language":  "zh-CN",
     "owned_paths":  [
-                        "catalog/Windowing/SettingsPanel"
+                        "catalog/Windowing/SettingsPanel",
+                        "src/WinUI3.Senior.Windowing/SettingsPanel.cs"
                     ],
     "depends_on":  [
                        "contracts.windowing"

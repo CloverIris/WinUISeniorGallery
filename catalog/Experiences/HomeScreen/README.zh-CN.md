@@ -1,10 +1,10 @@
 ﻿# HomeScreen
 
-这是中文规范源。当前为 proposed backlog，不允许进入实现。
+这是中文规范源。当前为 in-progress，已完成内存模型、搜索、固定、重排与取消式刷新逻辑；页面模板和持久化仍由宿主负责。
 
 ## Status
 
-proposed / lab / P1
+in-progress / lab / P1
 
 ## Documents
 

@@ -3,7 +3,7 @@
     "id":  "controls.expandable-command-bar",
     "display_name":  "ExpandableCommandBar",
     "kind":  "control",
-    "status":  "proposed",
+    "status":  "in-progress",
     "maturity":  "lab",
     "priority":  "P2",
     "package":  "WinUI3.Senior.Controls",
@@ -11,7 +11,8 @@
     "gallery_route":  "/controls/expandable-command-bar",
     "source_language":  "zh-CN",
     "owned_paths":  [
-                        "catalog/Controls/Commands/ExpandableCommandBar"
+                        "catalog/Controls/Commands/ExpandableCommandBar",
+                        "src/WinUI3.Senior.Controls/Commands/ExpandableCommandBar"
                     ],
     "depends_on":  [
                        "foundation.input-system"

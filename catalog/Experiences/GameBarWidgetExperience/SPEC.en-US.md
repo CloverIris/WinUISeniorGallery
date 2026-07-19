@@ -1,32 +1,17 @@
-﻿# GameBarWidgetExperience Specification
+# GameBarWidgetExperience Specification
 
 ## Goal
 
-Define reusable responsibilities, state, and boundaries.
+Provide a host-neutral Game Bar style widget state machine and interaction-mode requests.
 
 ## Non-goals
 
-No implementation while proposed.
+No window creation, system click-through changes, global hotkey registration, game/process data access, or persisted position.
 
 ## Public API
 
-Not locked.
+`WidgetId`, `PreferredSize`, `RecoveryHotKey`, `IsAlwaysOnTop`, `State`, `InteractionMode`, `AttachHost`, `DetachHost`, `OpenAsync`, `CloseAsync`, `SetInteractionMode`, `Minimize`, and `Restore`. `InteractionModeRequested` requires host confirmation for ClickThrough.
 
-## State model
+## Behavior
 
-Not locked.
-
-## Template parts and visual tree
-
-Not locked.
-
-## Behavior and failure modes
-
-Follow referenced contracts.
-
-## Open Decisions
-
-API, template parts, defaults, and performance budgets require specification review.
-
-## Scenario, data, and visual tree
-WidgetSession(Bounds,Opacity,InteractionMode,Pinned); tree `FloatingHost→WidgetContent→Chrome`; Interactive/ClickThrough/Minimized/Closed; recovery hotkey required before click-through.
+Open requests presentation through `IFloatingWidgetHost`; close/owner close returns Closed. ClickThrough is rejected without a recovery hotkey or host `Handled=true`. Minimized retains content and Restore returns to the prior interaction mode.

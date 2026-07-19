@@ -24,8 +24,8 @@ public sealed class MediaTimeline : Control
     public DateTimeOffset? LiveWindowEndTime { get; set; }
     public TimeSpan LiveEdgeTolerance { get; set; }
     public double PlaybackRate { get; set; }
-    public IReadOnlyList<MediaTimeRange> BufferedRanges { get; set; }
-    public IReadOnlyList<MediaTimeRange> DisabledRanges { get; set; }
+    public IReadOnlyList<MediaPlaybackTimeRange> BufferedRanges { get; set; }
+    public IReadOnlyList<MediaPlaybackTimeRange> DisabledRanges { get; set; }
     public IReadOnlyList<MediaTimelineMarker> Chapters { get; set; }
     public IReadOnlyList<MediaTimelineMarker> Markers { get; set; }
     public bool IsSeekEnabled { get; set; }
@@ -38,9 +38,10 @@ public sealed class MediaTimeline : Control
 }
 
 public enum MediaTimelineMode { VideoOnDemand, Live, LiveDvr }
-public readonly record struct MediaTimeRange(TimeSpan Start, TimeSpan End);
 public sealed record MediaTimelineMarker(string Id, TimeSpan Position, string? Label, object? Data);
 ```
+
+`MediaPlaybackTimeRange` is owned by `WinUI3.Senior.Core`; MediaTimeline never defines a second public media time-range type.
 
 Defaults are `Mode=VideoOnDemand`, `Minimum=0`, `LiveEdgeTolerance=3s`, `PlaybackRate=1.0`, `KeyboardStep=5s`, `LargeKeyboardStep=30s`, and `PreviewThrottleInterval=100ms`. `LiveWindowEndTime` only formats relative media time as wall-clock time and never participates in Seek calculations. `PlaybackRate` is presentation-only for a rate label and Automation value text; it never scales media time, stepping, or Seek. Non-finite or non-positive values present as 1.0.
 

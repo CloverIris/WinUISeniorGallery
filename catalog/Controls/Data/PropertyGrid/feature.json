@@ -3,7 +3,7 @@
     "id":  "controls.property-grid",
     "display_name":  "PropertyGrid",
     "kind":  "control",
-    "status":  "proposed",
+    "status":  "in-progress",
     "maturity":  "lab",
     "priority":  "P2",
     "package":  "WinUI3.Senior.Controls",
@@ -11,7 +11,8 @@
     "gallery_route":  "/controls/property-grid",
     "source_language":  "zh-CN",
     "owned_paths":  [
-                        "catalog/Controls/Data/PropertyGrid"
+                        "catalog/Controls/Data/PropertyGrid",
+                        "src/WinUI3.Senior.Controls/Data/PropertyGrid"
                     ],
     "depends_on":  [
                        "foundation.accessibility-system"

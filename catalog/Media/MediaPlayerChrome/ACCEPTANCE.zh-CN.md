@@ -31,3 +31,9 @@
 ## 自动化
 
 单元测试状态映射、命令串行化、会话注销和请求事件；UI 测试模板缺失降级、响应式模式、键盘路径及 AutomationPeer；使用假会话，不依赖网络或真实媒体。
+
+## 实现证据
+
+- 2026-07-16：Media Release x64、Gallery Debug/Release x64 构建成功；Media 自动化测试通过 9/9。
+- Gallery 提供未打包 FileOpenPicker；取消保留会话，加载失败显示页内错误，不保存路径。
+- 真实媒体、键盘/手柄和视觉矩阵待 review 手工验收，保持 `in-progress`。

@@ -3,7 +3,7 @@
   "id": "controls.bottom-sheet",
   "display_name": "BottomSheet",
   "kind": "control",
-  "status": "ready",
+  "status": "in-progress",
   "maturity": "lab",
   "priority": "P0",
   "package": "WinUI3.Senior.Controls",

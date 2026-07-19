@@ -1,10 +1,10 @@
 ﻿# ContentRail
 
-这是中文规范源。当前为 proposed backlog，不允许进入实现。
+这是中文规范源。当前实现正在推进，仍未完成正式验收。
 
 ## Status
 
-proposed / lab / P1
+in-progress / lab / P1
 
 ## Documents
 
@@ -15,7 +15,7 @@ proposed / lab / P1
 
 ## Agent ownership
 
-catalog/Controls/Collections/ContentRail
+catalog/Controls/Collections/ContentRail；实现位于 `src/WinUI3.Senior.Controls/Collections/ContentRail`。
 
 ## 实现准备
-虚拟化横向内容条；进入 ready 前锁定分页与选中是否耦合，默认仅焦点/滚动不产生 Selection。
+当前实现提供横向 ListView、键盘方向导航、RTL 镜像、项目调用事件和滚动到选中项；虚拟化分页策略与主题验收仍待后续补齐。

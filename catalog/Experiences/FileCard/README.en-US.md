@@ -4,7 +4,7 @@ Specification work item for FileCard.
 
 ## Status
 
-proposed / lab / P2. Not eligible for implementation.
+in-progress / lab / P2. Local file descriptor, metadata presentation, and Preview/Action requests are implemented.
 
 ## Documents
 
@@ -18,4 +18,4 @@ proposed / lab / P2. Not eligible for implementation.
 catalog/Experiences/FileCard
 
 ## Scenario readiness
-File preview, metadata, and action card; Ready after provider permission, thumbnail cache, destructive confirmation review.
+The control does not read files, cache thumbnails, or execute delete/share. The host supplies FileCardDescriptor and handles PreviewRequested/ActionInvoked. Permission, cache, and destructive-action policy remain before Ready.

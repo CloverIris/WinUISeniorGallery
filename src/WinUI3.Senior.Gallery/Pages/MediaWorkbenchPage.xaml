@@ -1,0 +1,45 @@
+<Page
+    x:Class="WinUI3_Senior_Gallery.Pages.MediaWorkbenchPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled">
+        <StackPanel MaxWidth="1100" Padding="32,28,32,48" Spacing="20">
+            <StackPanel Spacing="6">
+                <TextBlock Text="Media Workbench" Style="{StaticResource TitleTextBlockStyle}" />
+                <TextBlock Text="把 Media P0 三件套放在同一条本地调试链路里" Style="{StaticResource SubtitleTextBlockStyle}" />
+                <TextBlock Text="/media/workbench · Fake Session only" Opacity="0.65" />
+            </StackPanel>
+            <InfoBar IsOpen="True" IsClosable="False" Severity="Informational" Title="本页使用合成会话"
+                     Message="这里不会打开文件、创建窗口或解析字幕；它只帮助观察 Chrome、Timeline 与 TimedTextView 的组合边界。" />
+            <Border Padding="20" CornerRadius="12" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                <StackPanel Spacing="14">
+                    <TextBlock Text="选择虚拟播放模式" Style="{StaticResource SubtitleTextBlockStyle}" />
+                    <ComboBox x:Name="ModeComboBox" SelectedIndex="0" SelectionChanged="OnModeChanged">
+                        <ComboBoxItem Content="VOD · 4 分钟" />
+                        <ComboBoxItem Content="Live · 不可 Seek" />
+                        <ComboBoxItem Content="Live DVR · 滚动窗口" />
+                    </ComboBox>
+                    <TextBlock x:Name="ModeDescription" TextWrapping="Wrap" Opacity="0.75" />
+                </StackPanel>
+            </Border>
+            <Grid ColumnSpacing="12" RowSpacing="12">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button Content="打开 MediaPlayerChrome" Click="OnChromeClick" Padding="16" />
+                <Button Grid.Column="1" Content="打开 MediaTimeline" Click="OnTimelineClick" Padding="16" />
+                <Button Grid.Column="2" Content="打开 TimedTextView" Click="OnTimedTextClick" Padding="16" />
+            </Grid>
+            <Border Padding="18" CornerRadius="12" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                <StackPanel Spacing="7">
+                    <TextBlock Text="工作台约束" Style="{StaticResource SubtitleTextBlockStyle}" />
+                    <TextBlock Text="播放会话由页面宿主拥有，控件只接收 IMediaPlaybackSession。PresentationRequested 只表达意图，不在 Gallery 之外创建浮窗。" TextWrapping="Wrap" />
+                    <TextBlock Text="页面离开时释放所有会话和计时器，避免跨窗口投递状态。" Opacity="0.7" TextWrapping="Wrap" />
+                    <TextBlock x:Name="StatusText" Text="Session: not created" Opacity="0.7" />
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

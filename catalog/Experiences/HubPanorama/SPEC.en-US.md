@@ -2,31 +2,31 @@
 
 ## Goal
 
-Define reusable responsibilities, state, and boundaries.
+Provide Metro Hub-style horizontal section exploration. The control owns section selection, scroll alignment, and directional-key semantics; the host owns content, backgrounds, and routing.
 
 ## Non-goals
 
-No implementation while proposed.
+No network assets, window creation, route persistence, or duplicated Pivot API.
 
 ## Public API
 
-Not locked.
+`HubSection` (Id/Header/Items/Background), `Sections`, `SelectedIndex`, `SectionWidth`, `IsParallaxEnabled`, `ParallaxStrength`, `IsWrapNavigationEnabled`, and `IsReducedMotion`; methods `SetSections`, `SelectSection`, and `Navigate`; event `SectionChanged`.
 
 ## State model
 
-Not locked.
+An empty collection has SelectedIndex=-1. Sections are horizontally arranged; Left/Right mirror under RTL, Home/End jump to boundaries, and wrapping cycles or clamps as configured. Scroll offset repairs the current section.
 
 ## Template parts and visual tree
 
-Not locked.
+`PART_ScrollViewer` and `PART_Repeater` are required; `PART_Indicator` is optional. Missing Indicator does not affect selection or scroll, and backgrounds are not required to have a specific type.
 
 ## Behavior and failure modes
 
-Follow referenced contracts.
+Duplicate section IDs retain the first item; SectionWidth is clamped to 240–2000. Reduced Motion disables ChangeView animation without changing selection. Hosts detach ScrollViewer events on unload.
 
 ## Open Decisions
 
-API, template parts, defaults, and performance budgets require specification review.
+Open Decisions: narrow-window vertical fallback, actual background-parallax pipeline, and virtualization budget for 10k sections.
 
 ## Scenario, data, and visual tree
 Section(Id,Header,Template,Items,BackgroundLayer); tree `HubRoot→SectionRepeater`; Empty/Ready/Panning/Settling; current section is route bookmark, not duplicate Pivot API.

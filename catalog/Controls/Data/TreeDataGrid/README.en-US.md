@@ -4,7 +4,7 @@ Specification work item for TreeDataGrid.
 
 ## Status
 
-proposed / lab / P2. Not eligible for implementation.
+in-progress / lab / P2. Implementation is active; template, visual acceptance and test closure remain.
 
 ## Documents
 
@@ -18,4 +18,4 @@ proposed / lab / P2. Not eligible for implementation.
 catalog/Controls/Data/TreeDataGrid
 
 ## Implementation readiness
-Hierarchical expandable column grid; lock selection/virtualization, default row selection plus flattened visible list.
+The implementation now provides asynchronous node loading, expand/collapse, filtering, sorting, single/multiple/extended selection, keyboard navigation, edit events, and a buffered viewport row model. Templates, visual column rendering, and automated tests remain to be closed.

@@ -12,7 +12,7 @@
 
 ## Status
 
-- Work item: `ready`
+- Work item: `in-progress`
 - Maturity: `lab`
 - Priority: `P0`
 - Package: `WinUI3.Senior.Media`

@@ -2,11 +2,11 @@
 
 ## Current gate
 
-Proposed work items must not be implemented. Chinese and English heading structures, stable IDs, and API names remain synchronized. APIs, state, errors, and performance budgets must be locked before ready.
+This is an in-progress lab item: local implementation is allowed but the API is not stable; Chinese/English headings, stable IDs, and API names remain synchronized.
 
 ## Common matrix
 
 Light, Dark, High Contrast, DPI, keyboard, mouse, touch, Narrator, Reduced Motion, Chinese, English, and RTL.
 
 ## Given / When / Then
-Given denied/missing fields/avatar fail, minimal name card works; crossing 10 anchors never shows stale result, open p95≤300 ms.
+Given a synthetic Person When loaded Then only host fields appear; Given a disabled action When InvokeAction occurs Then no event is raised; Given ToggleExpanded When used Then state changes without data loss; Given unload When an action arrives Then no window/contact access occurs; Given High Contrast/RTL/200% DPI Then fields/actions remain reachable.

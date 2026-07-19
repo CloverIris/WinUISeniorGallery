@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "id": "foundation.media-playback",
+  "display_name": "MediaPlayback",
+  "kind": "foundation",
+  "status": "in-progress",
+  "maturity": "lab",
+  "priority": "P0",
+  "package": "WinUI3.Senior.Core",
+  "namespace": "WinUI3.Senior.Core",
+  "gallery_route": "",
+  "source_language": "zh-CN",
+  "owned_paths": [
+    "catalog/Foundation/MediaPlayback/**",
+    "contracts/MediaPlayback/**",
+    "src/WinUI3.Senior.Core/MediaPlayback/**",
+    "tests/WinUI3.Senior.Core.Tests/MediaPlayback/**"
+  ],
+  "depends_on": [
+    "contracts.architecture"
+  ],
+  "provides": [
+    "WinUI3.Senior.Core.IMediaPlaybackSession",
+    "WinUI3.Senior.Core.MediaPlaybackSnapshot",
+    "WinUI3.Senior.Core.MediaPlaybackTimeRange"
+  ],
+  "archaeology_refs": [],
+  "license_review": "not-required"
+}

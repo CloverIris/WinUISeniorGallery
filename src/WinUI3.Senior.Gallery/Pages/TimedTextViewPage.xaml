@@ -1,0 +1,26 @@
+<Page
+    x:Class="WinUI3_Senior_Gallery.Pages.TimedTextViewPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:media="using:WinUI3.Senior.Media">
+    <ScrollViewer>
+        <StackPanel MaxWidth="1200" Padding="32,24,32,40" Spacing="16">
+            <TextBlock Text="TimedTextView" Style="{StaticResource TitleTextBlockStyle}" />
+            <TextBlock Text="合成文本与虚拟时钟实验室，不解析或上传外部字幕文件。" />
+            <StackPanel Orientation="Horizontal" Spacing="12">
+                <Button x:Name="ClockButton" Content="Start clock" Click="OnClockClick" VerticalAlignment="Bottom" />
+                <ComboBox x:Name="DisplayModeBox" Header="Display mode" Width="170" SelectionChanged="OnDisplayModeChanged">
+                    <ComboBoxItem Content="Single line" />
+                    <ComboBoxItem Content="Scrolling lyrics" />
+                    <ComboBoxItem Content="Karaoke" />
+                    <ComboBoxItem Content="Bilingual" />
+                </ComboBox>
+                <Slider x:Name="PositionSlider" Header="Position" Minimum="0" Maximum="30" Width="280" ValueChanged="OnPositionChanged" />
+                <TextBlock x:Name="StatusText" VerticalAlignment="Bottom" />
+            </StackPanel>
+            <Border MinHeight="160" Padding="16" CornerRadius="12" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                <media:TimedTextView x:Name="TimedText" ActiveTrackId="en-US" ActiveSegmentChanged="OnActiveSegmentChanged" SegmentInvoked="OnSegmentInvoked" />
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

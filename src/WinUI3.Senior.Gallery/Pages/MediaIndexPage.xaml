@@ -12,8 +12,8 @@
             </StackPanel>
 
             <InfoBar IsOpen="True" IsClosable="False" Severity="Informational"
-                     Title="媒体功能仍由规格驱动"
-                     Message="P0 先定义宿主接口和可访问性、生命周期与失败回退；此处不绑定具体媒体服务或网络 Provider。" />
+                     Title="P0 media lab"
+                     Message="控件通过 IMediaPlaybackSession 与引擎解耦。实验页默认不联网；播放器页只在你主动选择本地文件时创建媒体源。" />
 
             <Grid ColumnSpacing="16" RowSpacing="16">
                 <Grid.ColumnDefinitions>
@@ -23,31 +23,40 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                <Border Grid.Row="1" Padding="20" CornerRadius="12" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                <Button Grid.Row="1" Padding="20" HorizontalContentAlignment="Stretch" Click="OnChromeClick">
                     <StackPanel Spacing="8">
                         <TextBlock Text="Playback chrome" Style="{StaticResource SubtitleTextBlockStyle}" />
-                        <TextBlock Text="MediaPlayerChrome 通过 IMediaPlaybackSession 与具体播放器解耦；浮窗是请求而非控件自行创建窗口。" TextWrapping="Wrap" />
-                        <TextBlock Text="controls.media-player-chrome · specified" Opacity="0.68" />
+                        <TextBlock Text="打开本地媒体、观察播放器控制层和显式全屏/浮窗请求。" TextWrapping="Wrap" />
+                        <TextBlock Text="/media/media-player-chrome · P0 lab" Opacity="0.68" />
                     </StackPanel>
-                </Border>
-                <Border Grid.Row="1" Grid.Column="1" Padding="20" CornerRadius="12" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                </Button>
+                <Button Grid.Row="1" Grid.Column="1" Padding="20" HorizontalContentAlignment="Stretch" Click="OnTimelineClick">
                     <StackPanel Spacing="8">
-                        <TextBlock Text="Timeline &amp; timed text" Style="{StaticResource SubtitleTextBlockStyle}" />
-                        <TextBlock Text="MediaTimeline、TimedTextView、字幕、歌词与 ASR/翻译抽象。" TextWrapping="Wrap" />
-                        <TextBlock Text="/media/timeline · /media/timed-text" Opacity="0.68" />
+                        <TextBlock Text="MediaTimeline" Style="{StaticResource SubtitleTextBlockStyle}" />
+                        <TextBlock Text="本地确定性会话：点播、直播 DVR、缓冲、禁用区间和标记。" TextWrapping="Wrap" />
+                        <TextBlock Text="/media/media-timeline · P0 lab" Opacity="0.68" />
                     </StackPanel>
-                </Border>
-                <Border Padding="20" CornerRadius="12" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                </Button>
+                <Button Grid.Row="2" Padding="20" HorizontalContentAlignment="Stretch" Click="OnMediaCenterGridClick">
                     <StackPanel Spacing="8">
-                        <TextBlock Text="Mini &amp; ten-foot UI" Style="{StaticResource SubtitleTextBlockStyle}" />
-                        <TextBlock Text="MiniPlayerHost 与 MediaCenterGrid 面向小窗和十英尺媒体浏览体验。" TextWrapping="Wrap" />
+                        <TextBlock Text="MediaCenterGrid" Style="{StaticResource SubtitleTextBlockStyle}" />
+                        <TextBlock Text="十英尺海报墙、方向键/手柄焦点和宿主选择事件。" TextWrapping="Wrap" />
+                        <TextBlock Text="/media/media-center-grid · in-progress" Opacity="0.68" />
                     </StackPanel>
-                </Border>
+                </Button>
+                <Button Padding="20" HorizontalContentAlignment="Stretch" Click="OnTimedTextClick">
+                    <StackPanel Spacing="8">
+                        <TextBlock Text="TimedTextView" Style="{StaticResource SubtitleTextBlockStyle}" />
+                        <TextBlock Text="合成文本演示单行字幕、歌词、Karaoke、双语和 Revision。" TextWrapping="Wrap" />
+                        <TextBlock Text="/media/timed-text-view · P0 lab" Opacity="0.68" />
+                    </StackPanel>
+                </Button>
                 <Border Grid.Column="1" Padding="20" CornerRadius="12" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
                     <StackPanel Spacing="8">
                         <TextBlock Text="Implementation boundary" Style="{StaticResource SubtitleTextBlockStyle}" />
-                        <TextBlock Text="当前 Gallery 只承载工作单元入口；不会请求网络、媒体权限或启动任何 Provider。" TextWrapping="Wrap" />
+                        <TextBlock Text="P0 不含网络、播放列表、投屏、字幕解析、ASR 或翻译 Provider。Gallery 不保存文件路径或媒体内容。" TextWrapping="Wrap" />
                     </StackPanel>
                 </Border>
             </Grid>

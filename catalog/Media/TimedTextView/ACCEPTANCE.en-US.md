@@ -31,3 +31,9 @@
 ## Automation
 
 Unit-test normalization, time boundaries, overlap selection, Revision, track fallback, and translation fallback. UI-test virtualization, scroll suspension, focus anchoring, template degradation, and AutomationPeer. Use a virtual clock and immutable fake documents.
+
+## Implementation Evidence
+
+- 2026-07-16: Media Release x64 and Gallery Debug/Release x64 builds succeeded; Media automation tests passed 9/9.
+- Gallery uses an explicitly labeled synthetic Document and virtual position control; it does not parse, upload, or persist caption content.
+- The 10,000-item, assistive-tech, and theme/RTL/DPI matrices remain manual review work; the item remains `in-progress`.

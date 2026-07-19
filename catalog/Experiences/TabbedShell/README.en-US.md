@@ -4,7 +4,7 @@ Specification work item for TabbedShell.
 
 ## Status
 
-proposed / lab / P1. Not eligible for implementation.
+in-progress / lab / P1.
 
 ## Documents
 
@@ -17,5 +17,7 @@ proposed / lab / P1. Not eligible for implementation.
 
 catalog/Experiences/TabbedShell
 
+Implementation path: `src/WinUI3.Senior.Controls/Navigation/TabbedShell`.
+
 ## Scenario readiness
-Tabbed content, tear-out, multi-window restore; Ready after tab lifecycle/crash-recovery state chart approval.
+Tab selection, cancellable close, reorder, keyboard shortcuts and explicit tear-out requests are covered. Window creation, multi-window restoration and crash recovery remain host-owned.

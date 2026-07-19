@@ -3,7 +3,7 @@
     "id":  "windowing.title-bar-host",
     "display_name":  "TitleBarHost",
     "kind":  "control",
-    "status":  "proposed",
+    "status":  "in-progress",
     "maturity":  "lab",
     "priority":  "P1",
     "package":  "WinUI3.Senior.Windowing",
@@ -11,7 +11,9 @@
     "gallery_route":  "/windowing/title-bar-host",
     "source_language":  "zh-CN",
     "owned_paths":  [
-                        "catalog/Windowing/TitleBarHost"
+                        "catalog/Windowing/TitleBarHost",
+                        "src/WinUI3.Senior.Windowing/TitleBarHost.cs",
+                        "src/WinUI3.Senior.Windowing/WindowingContracts.cs"
                     ],
     "depends_on":  [
                        "contracts.windowing"

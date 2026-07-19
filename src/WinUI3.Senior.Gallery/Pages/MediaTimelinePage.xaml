@@ -1,0 +1,27 @@
+<Page
+    x:Class="WinUI3_Senior_Gallery.Pages.MediaTimelinePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:media="using:WinUI3.Senior.Media">
+    <ScrollViewer>
+        <StackPanel MaxWidth="1200" Padding="32,24,32,40" Spacing="16">
+            <TextBlock Text="MediaTimeline" Style="{StaticResource TitleTextBlockStyle}" />
+            <TextBlock Text="VOD、Live 与 Live DVR 的确定性时间轴实验室。" />
+            <StackPanel Orientation="Horizontal" Spacing="12">
+                <ComboBox x:Name="ModeBox" Header="Mode" SelectionChanged="OnModeChanged" Width="160">
+                    <ComboBoxItem Content="Video on demand" />
+                    <ComboBoxItem Content="Live" />
+                    <ComboBoxItem Content="Live DVR" />
+                </ComboBox>
+                <Button Content="Play / pause" Click="OnPlayPauseClick" VerticalAlignment="Bottom" />
+                <Button Content="Previous marker" Click="OnPreviousMarkerClick" VerticalAlignment="Bottom" />
+                <Button Content="Next marker" Click="OnNextMarkerClick" VerticalAlignment="Bottom" />
+                <TextBlock x:Name="StatusText" VerticalAlignment="Bottom" />
+            </StackPanel>
+            <Border MinHeight="160" Padding="16" CornerRadius="12" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                <media:MediaTimeline x:Name="Timeline" SeekRequested="OnSeekRequested" LiveEdgeRequested="OnLiveEdgeRequested"
+                                     Chapters="{x:Bind Chapters}" Markers="{x:Bind Markers}" DisabledRanges="{x:Bind DisabledRanges}" />
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

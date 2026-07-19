@@ -1,12 +1,16 @@
-﻿# DetachablePlayerHost Acceptance
+# DetachablePlayerHost Acceptance
 
 ## Current gate
 
-验收门禁：proposed 工作单元不得实现。中英文标题结构、稳定 ID 和 API 名称必须同步；API、状态、错误和性能预算锁定后才可进入 ready。
-
-## Common matrix
-
-Light, Dark, High Contrast, DPI, keyboard, mouse, touch, Narrator, Reduced Motion, Chinese, English, and RTL.
+当前为 `in-progress`；Fake Host 可用于人工观察，仍需后续视觉和运行时验证后进入 `review`。
 
 ## Given / When / Then
-Given 创建窗口失败 Then 原位继续播放并可重试；Given 任一窗口关闭矩阵 Then 会话恰好一个所有者；迁移p95≤250ms且无音频中断。
+
+- Given 已绑定宿主且处于 Inline，When 调用 `DetachAsync`，Then 发送一次 Open 请求并进入 Detached。
+- Given Detached，When 调用 `AttachAsync`，Then 发送一次 Close 请求并回到 Inline。
+- Given 操作正在等待，When owner close 或 host 被替换，Then 迟到结果被取消且不覆盖新状态。
+- Given 未绑定宿主、非法尺寸或错误状态，When 调用操作，Then 返回稳定 Rejected 错误码。
+
+## Matrix
+
+Light/Dark/High Contrast、Reduced Motion、RTL、100%/150%/200% DPI、键盘按钮、窗口销毁和取消。

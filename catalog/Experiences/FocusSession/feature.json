@@ -3,21 +3,25 @@
     "id":  "experiences.focus-session",
     "display_name":  "FocusSession",
     "kind":  "experience",
-    "status":  "proposed",
+    "status":  "in-progress",
     "maturity":  "lab",
     "priority":  "P2",
-    "package":  "WinUI3.Senior.Archaeology",
-    "namespace":  "WinUI3.Senior.Archaeology",
+    "package":  "WinUI3.Senior.Controls",
+    "namespace":  "WinUI3.Senior.Controls",
     "gallery_route":  "/experiences/focus-session",
     "source_language":  "zh-CN",
     "owned_paths":  [
-                        "catalog/Experiences/FocusSession"
+                        "catalog/Experiences/FocusSession",
+                        "src/WinUI3.Senior.Controls/Experiences/FocusSession/**",
+                        "src/WinUI3.Senior.Gallery/Pages/FocusSessionPage.xaml",
+                        "src/WinUI3.Senior.Gallery/Pages/FocusSessionPage.xaml.cs"
                     ],
     "depends_on":  [
                        "controls.snackbar-host"
                    ],
     "provides":  [
-                     "experience:experiences.focus-session"
+                     "experience:experiences.focus-session",
+                     "WinUI3.Senior.Controls.FocusSession"
                  ],
     "archaeology_refs":  [
 

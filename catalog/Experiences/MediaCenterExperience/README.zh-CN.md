@@ -1,21 +1,15 @@
-﻿# MediaCenterExperience
+# MediaCenterExperience
 
-这是中文规范源。当前为 proposed backlog，不允许进入实现。
+中文规范源。当前为 `in-progress` lab，复用 `MediaCenterGrid` 提供十英尺浏览、详情覆盖层和宿主播放意图。
 
 ## Status
 
-proposed / lab / P1
+in-progress / lab / P1
 
-## Documents
+## Scope
 
-- SPEC.zh-CN.md
-- DESIGN.zh-CN.md
-- INTEGRATION.zh-CN.md
-- ACCEPTANCE.zh-CN.md
+分类、海报网格、详情和选择事件由体验组合；播放、导航和媒体会话由宿主负责。
 
-## Agent ownership
+## Ownership
 
-catalog/Experiences/MediaCenterExperience
-
-## 场景准备度
-十英尺媒体浏览与播放入口；Ready 条件：电视/桌面两距离手柄可用性测试。
+实现：`src/WinUI3.Senior.Media/MediaCenterExperience/MediaCenterExperience.cs`；演示：`src/WinUI3.Senior.Gallery/Pages/MediaCenterExperiencePage.xaml*`。

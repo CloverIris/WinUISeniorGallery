@@ -43,11 +43,14 @@
 
 ## 最小契约面
 
+实现所有权、精确签名和验收场景位于 [Foundation MediaPlayback](../../catalog/Foundation/MediaPlayback/README.zh-CN.md)。本文件定义跨模块必须遵守的语义；Core 是唯一代码所有者。
+
 ### 接口与模型
 
-- `IMediaPlaybackSession`: 状态与 Play.
-- `MediaPlaybackSnapshot`: 不可变递增修订快照.
-- `HostPresentationRequested`: 带 SessionId 的宿主请求.
+- `IMediaPlaybackSession`: `CurrentSnapshot`、`SnapshotChanged` 以及六个可取消命令 `PlayAsync`、`PauseAsync`、`StopAsync`、`SeekAsync`、`SetVolumeAsync`、`SetPlaybackRateAsync`。
+- `MediaPlaybackSnapshot`: 不可变递增修订快照，包含会话身份、状态、模式、能力、媒体时间、区间、音量、倍速及稳定错误码。
+- `MediaPlaybackTimeRange`: 所有 Consumer 共用的闭合媒体时间区间；Timeline 不得复制第二种公共区间类型。
+- `MediaPlaybackCommandResult`: `Success`、`Rejected`、`Cancelled` 或 `Failed` 的可观察命令结果。
 
 - 公共值 MUST 是不可变快照或有明确文档的命令。
 - 命令 MUST 返回可观察结果：success、rejected、cancelled 或 failed。

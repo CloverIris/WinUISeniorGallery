@@ -1,10 +1,10 @@
 ﻿# ImmersiveNowPlaying
 
-Specification work item for ImmersiveNowPlaying.
+Specification work item for ImmersiveNowPlaying. The reusable coordination layer currently lives in the Media package.
 
 ## Status
 
-proposed / lab / P1. Not eligible for implementation.
+in-progress / lab / P1. Implementation is active; visual/template work remains.
 
 ## Documents
 
@@ -15,7 +15,8 @@ proposed / lab / P1. Not eligible for implementation.
 
 ## Agent ownership
 
-catalog/Experiences/ImmersiveNowPlaying
+catalog/Experiences/ImmersiveNowPlaying  
+src/WinUI3.Senior.Media/NowPlaying
 
 ## Scenario readiness
-Immersive current media, lyrics, controls; Ready after no-art/long-lyrics/video prototypes lock hierarchy.
+Immersive current media, lyrics, and controls. The current code provides host-owned session binding, queue selection, serialized playback commands, repeat/shuffle intent, and fullscreen requests; it never creates windows, opens files, or parses captions. Ready after no-art/long-lyrics/video prototypes lock hierarchy and template/visual acceptance is complete.

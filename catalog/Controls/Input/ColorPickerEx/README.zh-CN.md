@@ -1,10 +1,10 @@
 ﻿# ColorPickerEx
 
-这是中文规范源。当前为 proposed backlog，不允许进入实现。
+这是中文规范源。当前为 in-progress 实现工作单元；实现仍需后续模板、视觉验收与测试收尾。
 
 ## Status
 
-proposed / lab / P2
+in-progress / lab / P2
 
 ## Documents
 
@@ -18,4 +18,4 @@ proposed / lab / P2
 catalog/Controls/Input/ColorPickerEx
 
 ## 实现准备
-多色彩空间与历史的高级取色器；进入 Ready 前决定屏幕吸管平台实现，默认可选Provider。
+当前实现包含 Hex/RGB 文本解析、RGB/HSV/HSL 通道转换、调色板与有界历史、可选 `IColorEyedropperProvider` 和校验事件。屏幕取色宿主、模板、视觉验收和自动化测试仍待收尾。

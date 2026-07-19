@@ -3,21 +3,25 @@
     "id":  "experiences.quick-resume",
     "display_name":  "QuickResumeExperience",
     "kind":  "experience",
-    "status":  "proposed",
+    "status":  "in-progress",
     "maturity":  "lab",
     "priority":  "P2",
-    "package":  "WinUI3.Senior.Archaeology",
-    "namespace":  "WinUI3.Senior.Archaeology",
+    "package":  "WinUI3.Senior.Media",
+    "namespace":  "WinUI3.Senior.Media",
     "gallery_route":  "/experiences/quick-resume",
     "source_language":  "zh-CN",
     "owned_paths":  [
-                        "catalog/Experiences/QuickResumeExperience"
+                        "catalog/Experiences/QuickResumeExperience",
+                        "src/WinUI3.Senior.Media/QuickResume",
+                        "src/WinUI3.Senior.Gallery/Pages/QuickResumePage.xaml",
+                        "src/WinUI3.Senior.Gallery/Pages/QuickResumePage.xaml.cs"
                     ],
     "depends_on":  [
                        "controls.content-rail"
                    ],
     "provides":  [
-                     "experience:experiences.quick-resume"
+                     "WinUI3.Senior.Media.QuickResumePicker",
+                     "WinUI3.Senior.Media.QuickResumeEntry"
                  ],
     "archaeology_refs":  [
 

@@ -2,11 +2,11 @@
 
 ## Current gate
 
-验收门禁：proposed 工作单元不得实现。中英文标题结构、稳定 ID 和 API 名称必须同步；API、状态、错误和性能预算锁定后才可进入 ready。
+验收门禁：当前为 in-progress lab，允许本地实现但尚未稳定。中英文标题结构、稳定 ID 和 API 名称必须同步。
 
 ## Common matrix
 
 Light, Dark, High Contrast, DPI, keyboard, mouse, touch, Narrator, Reduced Motion, Chinese, English, and RTL.
 
 ## 自动化场景
-验证嵌套10层、Esc/Back、窗口缩放、焦点陷阱、非模态背景；事件顺序唯一且无背景UIA泄漏。
+Given 10层嵌套 When Invoke/Back Then NavigationPath 与 CurrentItems 严格对应；Given Modal When Esc Then 先返回父级再关闭根菜单；Given NonModal When 叶项未处理 Then 菜单保持打开；Given Disabled item When Invoke Then 不产生 ItemInvoked；Given Scrim/BackButton 缺失 When 操作 Then NonModal/Esc 仍可用。

@@ -4,7 +4,7 @@
 
 ## 状态与范围
 
-- 状态：proposed / lab / P1
+- 状态：in-progress / lab / P1
 - 依赖：contracts.windowing
 - 不允许实现；候选 API/模板名仅用于评审。
 
@@ -15,4 +15,3 @@ Host 拥有次级 AppWindow 和窗口级服务，但内容由宿主 ContentFacto
 ## Agent 所有权
 
 仅 catalog/Windowing/FloatingWidgetHost；SPEC/DESIGN/INTEGRATION/ACCEPTANCE 分别锁定职责、视觉、平台生命周期和验收。
-

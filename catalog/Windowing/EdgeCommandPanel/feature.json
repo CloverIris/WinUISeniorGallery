@@ -3,7 +3,7 @@
     "id":  "windowing.edge-command-panel",
     "display_name":  "EdgeCommandPanel",
     "kind":  "control",
-    "status":  "proposed",
+    "status":  "in-progress",
     "maturity":  "lab",
     "priority":  "P2",
     "package":  "WinUI3.Senior.Windowing",
@@ -11,7 +11,9 @@
     "gallery_route":  "/windowing/edge-command-panel",
     "source_language":  "zh-CN",
     "owned_paths":  [
-                        "catalog/Windowing/EdgeCommandPanel"
+                        "catalog/Windowing/EdgeCommandPanel",
+                        "src/WinUI3.Senior.Windowing/EdgeCommandPanel.cs",
+                        "src/WinUI3.Senior.Windowing/WindowingContracts.cs"
                     ],
     "depends_on":  [
                        "contracts.windowing"

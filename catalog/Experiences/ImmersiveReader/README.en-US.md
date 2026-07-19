@@ -4,7 +4,7 @@ Specification work item for ImmersiveReader.
 
 ## Status
 
-proposed / lab / P2. Not eligible for implementation.
+in-progress / lab / P2.
 
 ## Documents
 
@@ -17,5 +17,7 @@ proposed / lab / P2. Not eligible for implementation.
 
 catalog/Experiences/ImmersiveReader
 
+Implementation path: `src/WinUI3.Senior.Controls/Experiences/ImmersiveReader`.
+
 ## Scenario readiness
-Focused reading, line focus, read-aloud highlighting; Ready after text model/speech provider/privacy review.
+Paragraph/heading blocks, line focus, font scaling, keyboard focus movement and cancellable speech-boundary requests are implemented. Text sources, speech providers and privacy policy remain host-owned.

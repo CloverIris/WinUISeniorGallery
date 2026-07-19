@@ -1,10 +1,14 @@
 # DockLayoutPreview
 
+## 实现备注
+
+当前实现提供稳定 LayoutId、归一化区域、确定性的焦点移动、点选区域、DIP 坐标换算和携带布局与区域的提交请求。最终布局事务仍由宿主负责。
+
 在应用内部拖拽内容时显示可投放 Dock 区域与磁吸预览，不复制 Windows 系统 Snap Layouts。
 
 ## 状态与范围
 
-- 状态：proposed / lab / P2
+- 状态：in-progress / lab / P2
 - 依赖：contracts.windowing
 - 不允许实现；候选 API/模板名仅用于评审。
 
@@ -15,4 +19,3 @@
 ## Agent 所有权
 
 仅 catalog/Windowing/DockLayoutPreview；SPEC/DESIGN/INTEGRATION/ACCEPTANCE 分别锁定职责、视觉、平台生命周期和验收。
-

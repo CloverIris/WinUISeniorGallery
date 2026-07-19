@@ -1,21 +1,15 @@
-﻿# MediaCenterExperience
+# MediaCenterExperience
 
-Specification work item for MediaCenterExperience.
+The Chinese document is normative. This `in-progress` lab composes `MediaCenterGrid` for ten-foot browse, details overlay, and host-owned playback intent.
 
 ## Status
 
-proposed / lab / P1. Not eligible for implementation.
+in-progress / lab / P1
 
-## Documents
+## Scope
 
-- SPEC.en-US.md
-- DESIGN.en-US.md
-- INTEGRATION.en-US.md
-- ACCEPTANCE.en-US.md
+The experience composes categories, poster grid, details, and selection events; the host owns playback, navigation, and media sessions.
 
-## Agent ownership
+## Ownership
 
-catalog/Experiences/MediaCenterExperience
-
-## Scenario readiness
-Ten-foot media browse/play entry; Ready after TV/desktop-distance gamepad usability testing.
+Implementation: `src/WinUI3.Senior.Media/MediaCenterExperience/MediaCenterExperience.cs`; demo: `src/WinUI3.Senior.Gallery/Pages/MediaCenterExperiencePage.xaml*`.

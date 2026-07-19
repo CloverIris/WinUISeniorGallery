@@ -3,7 +3,7 @@
   "id": "controls.snackbar-host",
   "display_name": "SnackbarHost",
   "kind": "control",
-  "status": "ready",
+  "status": "in-progress",
   "maturity": "lab",
   "priority": "P0",
   "package": "WinUI3.Senior.Controls",

@@ -9,9 +9,15 @@
 - 包含：时间匹配、增量快照、轨道选择、虚拟化呈现、自动滚动、原文与翻译显示。
 - 不包含：语音识别、机器翻译、字幕文件解析、媒体播放或 Provider 凭据管理。
 
+## 共享时间投影
+
+`TimedTextProjectionCalculator` 将当前位置投影为不可变的 `TimedTextProjection`：包括有效时间、活动 Segment/Word、0–1 段落与逐词进度、翻译回退和上下文窗口。控件和未来的 ASR/翻译适配器共用这套半开区间规则，避免各页面自行实现时间匹配。
+
+控件还提供显式轨道切换、自动滚动暂停/恢复和 `ActiveTrackChanged` 事件；用户滚动或离开宿主时不会偷偷修改播放会话。
+
 ## 状态
 
-- 工作项：`ready`
+- 工作项：`in-progress`
 - 成熟度：`lab`
 - 优先级：`P0`
 - 包：`WinUI3.Senior.Media`

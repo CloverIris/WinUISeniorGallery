@@ -3,7 +3,7 @@
     "id":  "media.media-center-grid",
     "display_name":  "MediaCenterGrid",
     "kind":  "control",
-    "status":  "proposed",
+    "status":  "in-progress",
     "maturity":  "lab",
     "priority":  "P1",
     "package":  "WinUI3.Senior.Media",
@@ -11,7 +11,11 @@
     "gallery_route":  "/media/media-center-grid",
     "source_language":  "zh-CN",
     "owned_paths":  [
-                        "catalog/Media/MediaCenterGrid"
+                        "catalog/Media/MediaCenterGrid",
+                        "src/WinUI3.Senior.Media/MediaCenterGrid",
+                        "src/WinUI3.Senior.Media/Themes/Generic.xaml",
+                        "src/WinUI3.Senior.Gallery/Pages/MediaCenterGridPage.xaml",
+                        "src/WinUI3.Senior.Gallery/Pages/MediaCenterGridPage.xaml.cs"
                     ],
     "depends_on":  [
                        "controls.content-rail"

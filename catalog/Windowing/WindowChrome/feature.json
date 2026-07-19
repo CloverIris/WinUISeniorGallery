@@ -3,7 +3,7 @@
     "id":  "windowing.window-chrome",
     "display_name":  "WindowChrome",
     "kind":  "control",
-    "status":  "proposed",
+    "status":  "in-progress",
     "maturity":  "lab",
     "priority":  "P1",
     "package":  "WinUI3.Senior.Windowing",
@@ -11,13 +11,17 @@
     "gallery_route":  "/windowing/window-chrome",
     "source_language":  "zh-CN",
     "owned_paths":  [
-                        "catalog/Windowing/WindowChrome"
+                        "catalog/Windowing/WindowChrome",
+                        "src/WinUI3.Senior.Windowing/WindowChrome.cs",
+                        "src/WinUI3.Senior.Windowing/WindowingContracts.cs",
+                        "src/WinUI3.Senior.Windowing/WindowPlacementCoordinator.cs"
                     ],
     "depends_on":  [
                        "contracts.windowing"
                    ],
     "provides":  [
-                     "control:windowing.window-chrome"
+                     "control:windowing.window-chrome",
+                     "WinUI3.Senior.Windowing.WindowPlacementCoordinator"
                  ],
     "archaeology_refs":  [
 

@@ -4,7 +4,7 @@ Specification work item for PeopleCard.
 
 ## Status
 
-proposed / lab / P2. Not eligible for implementation.
+in-progress / lab / P2. Local Person data, field summary, and host action events are implemented.
 
 ## Documents
 
@@ -18,4 +18,4 @@ proposed / lab / P2. Not eligible for implementation.
 catalog/Experiences/PeopleCard
 
 ## Scenario readiness
-Contact hover/invoked detail card; Ready after data minimization and trigger/close focus prototype.
+The control never reads contacts or accounts. The host supplies PersonCardData; the card renders allowed fields and raises ActionInvoked. Focus restoration and data-minimization policy remain before Ready.

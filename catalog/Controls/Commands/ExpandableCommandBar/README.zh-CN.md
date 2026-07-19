@@ -1,10 +1,10 @@
 ﻿# ExpandableCommandBar
 
-这是中文规范源。当前为 proposed backlog，不允许进入实现。
+这是中文规范源。当前实现正在推进，最终验收尚未完成。
 
 ## Status
 
-proposed / lab / P2
+in-progress / lab / P2
 
 ## Documents
 
@@ -18,4 +18,4 @@ proposed / lab / P2
 catalog/Controls/Commands/ExpandableCommandBar
 
 ## 实现准备
-底部可展开主/次命令栏；进入 Ready 前锁定拖拽阈值。
+当前提供显式展开/收起状态、窄宽度自动收起、F10/方向键语义和上下文状态；拖拽阈值与主题验收仍待补齐。

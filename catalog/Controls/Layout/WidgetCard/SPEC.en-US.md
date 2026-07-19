@@ -2,19 +2,19 @@
 
 ## Goal
 
-Define reusable responsibilities, state, and boundaries.
+Provide a Dashboard card with Loading/Error lifecycle, host refresh provider, auto-refresh pause, and collapsible content.
 
 ## Non-goals
 
-No implementation while proposed.
+No persistence, network access, window creation, or hidden interpretation of host refresh data.
 
 ## Public API
 
-Not locked.
+Alongside Header/Footer/Content, expose `RefreshProvider`, `RefreshAsync`, `IsAutoRefreshEnabled`, `RefreshInterval`, `IsHostVisible`, `IsHostWindowActive`, `PauseReason`, `SetPauseReason`, and refresh lifecycle events. Setting or replacing `RefreshProvider` recomputes the auto-refresh timer; stale, cancelled, or post-dispose results never overwrite newer state.
 
 ## State model
 
-Not locked.
+`Expanded/Collapsed/Loading/Error`; auto-refresh stops while not visible, inactive, or host-paused and waits a full interval after resuming.
 
 ## Template parts and visual tree
 
@@ -22,7 +22,7 @@ Not locked.
 
 ## Behavior and failure modes
 
-Follow referenced contracts.
+Without a template the ContentControl still carries content. Refresh failure keeps old content and sets ErrorMessage; Retry uses the same provider pipeline.
 
 ## Open Decisions
 

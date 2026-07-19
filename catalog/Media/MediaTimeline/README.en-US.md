@@ -9,16 +9,18 @@
 - Includes rendering, scrub preview, final Seek requests, keyboard stepping, and chapter/range visualization.
 - Excludes executing Seek, generating video thumbnails, loading chapter metadata, or managing playback rate.
 
+`MediaTimelineMath` provides reusable pure functions for range normalization/merging, disabled-range correction, Live Edge, ratio mapping, and time formatting so controls and Fake Sessions share one time domain.
+
 ## Status
 
-- Work item: `ready`
+- Work item: `in-progress`
 - Maturity: `lab`
 - Priority: `P0`
 - Package: `WinUI3.Senior.Media`
 
 ## Dependencies
 
-- `foundation.media-playback`
+- `contracts.media-playback` (`MediaPlaybackTimeRange` is owned by Core)
 
 ## Documents
 

@@ -5,7 +5,7 @@ using WinUI3_Senior_Gallery.Pages;
 
 namespace WinUI3_Senior_Gallery;
 
-/// <summary>Packaged Gallery shell and the single owner of top-level navigation.</summary>
+/// <summary>Gallery shell and the single owner of top-level navigation.</summary>
 public sealed partial class MainWindow : Window
 {
     private static readonly IReadOnlyDictionary<string, Type> Routes = new Dictionary<string, Type>(StringComparer.Ordinal)
@@ -13,9 +13,34 @@ public sealed partial class MainWindow : Window
         ["home"] = typeof(HomePage),
         ["controls"] = typeof(ControlsIndexPage),
         ["controls/carousel-view"] = typeof(CarouselViewPage),
+        ["controls/achievement-toast"] = typeof(AchievementToastPage),
+        ["controls/overlay-menu"] = typeof(OverlayMenuPage),
+        ["controls/big-title"] = typeof(BigTitlePage),
+        ["controls/content-rail"] = typeof(ContentRailPage),
+        ["controls/workbench"] = typeof(ControlsWorkbenchPage),
         ["media"] = typeof(MediaIndexPage),
+        ["media/media-player-chrome"] = typeof(MediaPlayerChromePage),
+        ["media/media-timeline"] = typeof(MediaTimelinePage),
+        ["media/timed-text-view"] = typeof(TimedTextViewPage),
+        ["media/media-center-grid"] = typeof(MediaCenterGridPage),
+        ["media/workbench"] = typeof(MediaWorkbenchPage),
         ["windowing"] = typeof(WindowingIndexPage),
         ["experiences"] = typeof(ExperiencesIndexPage),
+        ["experiences/immersive-now-playing"] = typeof(ImmersiveNowPlayingPage),
+        ["experiences/focus-session"] = typeof(FocusSessionPage),
+        ["experiences/tabbed-shell"] = typeof(TabbedShellPage),
+        ["experiences/quick-resume"] = typeof(QuickResumePage),
+        ["experiences/immersive-reader"] = typeof(ImmersiveReaderPage),
+        ["experiences/hub-panorama"] = typeof(HubPanoramaPage),
+        ["experiences/people-card"] = typeof(PeopleCardPage),
+        ["experiences/file-card"] = typeof(FileCardPage),
+        ["experiences/editor-canvas"] = typeof(EditorCanvasPage),
+        ["experiences/mixview"] = typeof(MixviewPage),
+        ["experiences/guide-menu"] = typeof(GuideMenuPage),
+        ["experiences/detachable-player-host"] = typeof(DetachablePlayerHostPage),
+        ["experiences/game-bar-widget"] = typeof(GameBarWidgetPage),
+        ["experiences/media-center"] = typeof(MediaCenterExperiencePage),
+        ["experiences/captions-translation"] = typeof(CaptionsTranslationPage),
         ["archaeology"] = typeof(ArchaeologyIndexPage),
         ["playground"] = typeof(PlaygroundPage),
         ["settings"] = typeof(SettingsPage),
@@ -23,6 +48,8 @@ public sealed partial class MainWindow : Window
     };
 
     private bool _isWindowActive = true;
+
+    internal nint WindowHandle => WinRT.Interop.WindowNative.GetWindowHandle(this);
 
     public MainWindow()
     {

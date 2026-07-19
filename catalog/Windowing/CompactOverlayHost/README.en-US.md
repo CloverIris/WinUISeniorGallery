@@ -4,7 +4,7 @@ Reliably switch one AppWindow between Inline and CompactOverlay presenters while
 
 ## Status and Scope
 
-- Status: proposed / lab / P1
+- Status: in-progress / lab / P1
 - Dependency: contracts.windowing
 - Not eligible for implementation; candidate API/part names are review vocabulary only.
 
@@ -15,4 +15,3 @@ Create no second window, migrate no XAML content, and control no playback; host 
 ## Agent Ownership
 
 Only catalog/Windowing/CompactOverlayHost; SPEC/DESIGN/INTEGRATION/ACCEPTANCE lock responsibility, visuals, platform lifecycle, and acceptance.
-

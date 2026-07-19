@@ -1,20 +1,17 @@
-﻿# MixviewExperience Integration
+# MixviewExperience Integration
 
-## Dependencies
+## Contracts and resources
 
-foundation.motion-system
+The control follows `foundation.motion-system` Reduced Motion semantics and adds no global resource keys. Nodes and content are host-provided; the control does not access files, network, or media services.
 
-## Global contracts and resources
+## Host boundary
 
-Do not redefine global contracts or shared resource keys.
-
-## Platform APIs and capabilities
-
-No extra capability by default.
+The host owns navigation, recommendations, persistence, and content lifetime. The control only reports through `NodeSelected` and `Closed`; it creates no windows or background singletons.
 
 ## Lifecycle and threading
 
-Cancellation and host destruction must be handled.
+Call `SetNodes`, `Open`, `Close`, and `SelectNode` on the UI thread. After unload, the host should stop external updates to the instance.
 
-## Ownership, boundaries, and lifecycle
-Host supplies cancellable relation provider; no recommendation/persistence. Uses Motion contract; unload cancels layout worker/cache.
+## Failure and privacy
+
+Invalid nodes report `ArgumentException`; unknown selection returns false. No capabilities, telemetry, uploads, or persistence are used.

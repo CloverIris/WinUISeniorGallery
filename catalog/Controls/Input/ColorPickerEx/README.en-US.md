@@ -4,7 +4,7 @@ Specification work item for ColorPickerEx.
 
 ## Status
 
-proposed / lab / P2. Not eligible for implementation.
+in-progress / lab / P2. Implementation is active; template, visual acceptance and test closure remain.
 
 ## Documents
 
@@ -18,4 +18,4 @@ proposed / lab / P2. Not eligible for implementation.
 catalog/Controls/Input/ColorPickerEx
 
 ## Implementation readiness
-Advanced multi-space picker with history; decide eyedropper platform before Ready, default optional provider.
+The implementation now provides Hex/RGB parsing, RGB/HSV/HSL channel conversion, palette and bounded history, an optional `IColorEyedropperProvider`, and validation events. Host screen sampling, templates, visual acceptance, and automated tests remain to be closed.

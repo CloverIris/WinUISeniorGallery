@@ -1,32 +1,17 @@
-﻿# GameBarWidgetExperience Specification
+# GameBarWidgetExperience Specification
 
 ## Goal
 
-目标：定义可复用职责、状态和边界。正式 API、模板部件、失败模式和性能预算尚未锁定；完成专项评审后方可进入 ready。
+提供 Game Bar 风格的宿主中立 Widget 状态机和交互模式请求。
 
 ## Non-goals
 
-No implementation while proposed.
+不创建窗口、不设置系统点击穿透、不注册全局热键、不访问游戏/进程数据、不持久化位置。
 
 ## Public API
 
-Not locked.
+`WidgetId`、`PreferredSize`、`RecoveryHotKey`、`IsAlwaysOnTop`、`State`、`InteractionMode`、`AttachHost`、`DetachHost`、`OpenAsync`、`CloseAsync`、`SetInteractionMode`、`Minimize`、`Restore`。`InteractionModeRequested` 必须由宿主确认 ClickThrough 请求。
 
-## State model
+## Behavior
 
-Not locked.
-
-## Template parts and visual tree
-
-Not locked.
-
-## Behavior and failure modes
-
-Follow referenced contracts.
-
-## Open Decisions
-
-API, template parts, defaults, and performance budgets require specification review.
-
-## 场景、数据与视觉树
-模型 WidgetSession(Bounds,Opacity,InteractionMode,Pinned)；树 `FloatingHost→WidgetContent→Chrome`；状态 Interactive/ClickThrough/Minimized/Closed，进入穿透前必须有可恢复热键。
+Open 通过 `IFloatingWidgetHost` 请求呈现；关闭/owner close 回到 Closed。ClickThrough 没有非空恢复热键或宿主未设置 `Handled=true` 时拒绝。Minimized 不销毁内容，Restore 恢复先前交互模式。

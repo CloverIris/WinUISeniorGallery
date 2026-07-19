@@ -1,32 +1,21 @@
-﻿# GuideMenuExperience Specification
+# GuideMenuExperience Specification
 
 ## Goal
 
-目标：定义可复用职责、状态和边界。正式 API、模板部件、失败模式和性能预算尚未锁定；完成专项评审后方可进入 ready。
+提供可嵌入的分层 Guide 导航模型，保留当前层级、面包屑和宿主叶动作边界。
 
 ## Non-goals
 
-No implementation while proposed.
+不创建窗口、不执行宿主命令、不访问网络、不持久化导航状态。
 
 ## Public API
 
-Not locked.
+`GuideNode(Id, Label, Icon, Children, Tag)`；`Nodes`、`CurrentItems`、`NavigationPath`、`IsOpen`、`IsExecuting`、`IsDismissOnLeafInvoke`。`SetNodes` 规范化并按 ID 去重；`Open`、`Close`、`NavigateBack`、`Invoke` 返回操作结果。`NodeInvoked` 只报告叶节点，`NavigationChanged` 报告层级变化，`Closed` 报告关闭。
 
-## State model
+## Template parts
 
-Not locked.
+`PART_Root`、`PART_Scrim`、`PART_Breadcrumb`、`PART_Nodes`。缺少列表部件时仍可调用纯逻辑 API；模板按钮通过 Tag 传递稳定 ID。
 
-## Template parts and visual tree
+## Behavior
 
-Not locked.
-
-## Behavior and failure modes
-
-Follow referenced contracts.
-
-## Open Decisions
-
-API, template parts, defaults, and performance budgets require specification review.
-
-## 场景、数据与视觉树
-模型 GuideNode(Id,Label,Icon,Children,Command)；树 `EdgePanel→Breadcrumb→NodeList`；状态 Closed/Root/Submenu/Executing/Error，命令执行不隐式关闭除非策略指定。
+打开显示根节点；有子节点的调用进入下一层；叶节点触发 `NodeInvoked`，是否关闭由 `IsDismissOnLeafInvoke` 决定。`Escape` 优先返回上一层，已在根层时关闭。空集合和未知 ID 返回 false。

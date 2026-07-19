@@ -4,9 +4,9 @@ Define a virtualized poster grid for TV, remote, and living-room distance, enlar
 
 ## Status and Scope
 
-- Status: proposed / lab / P1
+- Status: in-progress / lab / P1
 - Dependency: controls.content-rail
-- Not eligible for implementation; candidate API/part names are review vocabulary only.
+- The current code provides single-selection poster browsing, click/keyboard invocation, and focus-friendly navigation; virtualization and final visual acceptance remain.
 
 ## Host Boundary
 
@@ -14,5 +14,4 @@ Remain in the current page visual tree; create no window, full screen, or playba
 
 ## Documents and Agent Ownership
 
-SPEC defines promotion gates, DESIGN visual/input, INTEGRATION lifecycle, and ACCEPTANCE Given/When/Then. Agent owns only catalog/Media/MediaCenterGrid.
-
+SPEC defines promotion gates, DESIGN visual/input, INTEGRATION lifecycle, and ACCEPTANCE Given/When/Then. Implementation is under `src/WinUI3.Senior.Media/MediaCenterGrid`.

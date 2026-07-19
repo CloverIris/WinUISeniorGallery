@@ -3,7 +3,7 @@
   "id": "media.timed-text-view",
   "display_name": "TimedTextView",
   "kind": "control",
-  "status": "ready",
+  "status": "in-progress",
   "maturity": "lab",
   "priority": "P0",
   "package": "WinUI3.Senior.Media",
@@ -29,7 +29,11 @@
     "WinUI3.Senior.Media.TimedTextDocument",
     "WinUI3.Senior.Media.TimedTextTrack",
     "WinUI3.Senior.Media.TimedTextSegment",
-    "WinUI3.Senior.Media.TimedTextWord"
+    "WinUI3.Senior.Media.TimedTextWord",
+    "WinUI3.Senior.Media.TimedTextNavigator",
+    "WinUI3.Senior.Media.TimedTextProjection",
+    "WinUI3.Senior.Media.TimedTextProjectionCalculator",
+    "WinUI3.Senior.Media.TimedTextTrackChangedEventArgs"
   ],
   "archaeology_refs": [
     "archaeology.zune.now-playing"

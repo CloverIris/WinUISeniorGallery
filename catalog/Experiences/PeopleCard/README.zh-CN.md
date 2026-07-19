@@ -1,10 +1,10 @@
 ﻿# PeopleCard
 
-这是中文规范源。当前为 proposed backlog，不允许进入实现。
+这是中文规范源。当前为 in-progress lab，已具备本地 Person 模型、字段摘要和宿主动作事件。
 
 ## Status
 
-proposed / lab / P2
+in-progress / lab / P2
 
 ## Documents
 
@@ -18,4 +18,4 @@ proposed / lab / P2
 catalog/Experiences/PeopleCard
 
 ## 场景准备度
-联系人悬停/调用详情卡；Ready 条件：数据最小化、触发与关闭焦点原型。
+控件不读取通讯录或账号数据；宿主提供 PersonCardData，控件只渲染允许字段并发出 ActionInvoked。进入 ready 前仍需锁定焦点恢复和数据最小化策略。

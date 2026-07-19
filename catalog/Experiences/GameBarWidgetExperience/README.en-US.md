@@ -1,21 +1,15 @@
-﻿# GameBarWidgetExperience
+# GameBarWidgetExperience
 
-Specification work item for GameBarWidgetExperience.
+The Chinese document is normative. This `in-progress` lab provides host-owned floating-widget lifecycle and recoverable click-through interaction.
 
 ## Status
 
-proposed / lab / P2. Not eligible for implementation.
+in-progress / lab / P2
 
-## Documents
+## Scope
 
-- SPEC.en-US.md
-- DESIGN.en-US.md
-- INTEGRATION.en-US.md
-- ACCEPTANCE.en-US.md
+The control manages Interactive, ClickThrough, Minimized, and Closed states. Click-through always requires a recovery hotkey and host acknowledgement; the control does not alter hit testing or create windows.
 
-## Agent ownership
+## Ownership
 
-catalog/Experiences/GameBarWidgetExperience
-
-## Scenario readiness
-Always-on-top translucent widget experience; Ready after click-through/topmost safety and multi-DPI matrix.
+Implementation: `src/WinUI3.Senior.Windowing/GameBarWidgetExperience.cs`; demo: `src/WinUI3.Senior.Gallery/Pages/GameBarWidgetPage.xaml*`.

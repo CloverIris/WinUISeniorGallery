@@ -1,32 +1,17 @@
-﻿# CaptionsTranslationExperience Specification
+# CaptionsTranslationExperience Specification
 
 ## Goal
 
-Define reusable responsibilities, state, and boundaries.
+Provide a host revision layer for `TimedTextView` with monotonic ordering, translation-track fallback, and degraded-error state.
 
 ## Non-goals
 
-No implementation while proposed.
+No speech recognition, translation, caption-file parsing, network access, or provider instantiation.
 
 ## Public API
 
-Not locked.
+`CaptionsTranslationRevision(Revision, Source, Translation, IsFinal, ErrorCode)`; `State` (Idle/Listening/Translating/Degraded/Error), `DisplayMode`, `IsAutoFollowEnabled`, `ApplyRevision`, `SetPosition`, and `SetError`. Revisions less than or equal to the current value are rejected without changing the projection.
 
-## State model
+## Projection
 
-Not locked.
-
-## Template parts and visual tree
-
-Not locked.
-
-## Behavior and failure modes
-
-Follow referenced contracts.
-
-## Open Decisions
-
-API, template parts, defaults, and performance budgets require specification review.
-
-## Scenario, data, and visual tree
-Session→Track→MutableSegment→Word/Translation; tree `SourceSelector→TimedTextView→Status/Controls`; Idle/Listening/Translating/Degraded/Error; monotonic revisions replace.
+Required parts are `PART_TimedTextView` and `PART_Status`. Source and Translation tracks are merged into an immutable document; duplicate track IDs keep the first. Error revisions expose degraded state while retaining the last accepted document. Provider and unload lifetimes remain host-owned.

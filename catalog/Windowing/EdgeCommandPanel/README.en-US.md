@@ -4,7 +4,7 @@ Present a draggable command panel at an app-window edge, preserving progressive 
 
 ## Status and Scope
 
-- Status: proposed / lab / P2
+- Status: in-progress / lab / P2
 - Dependency: contracts.windowing
 - Not eligible for implementation; candidate API/part names are review vocabulary only.
 
@@ -16,3 +16,9 @@ Work only inside host XAML root; register no global edge gesture, cover no other
 
 Only catalog/Windowing/EdgeCommandPanel; SPEC/DESIGN/INTEGRATION/ACCEPTANCE lock responsibility, visuals, platform lifecycle, and acceptance.
 
+## Implementation notes
+
+The current implementation provides an edge-aware state machine (`Closed`, `Opening`, `Open`,
+`Dragging`, `Closing`), host-neutral snap distances, keyboard/Home/End/Escape handling, light
+dismissal, and a drag threshold. It only changes XAML state and raises requests; it never creates
+a Popup, Window, or global edge gesture.

@@ -4,7 +4,7 @@
 
 ## 状态与范围
 
-- 状态：proposed / lab / P2
+- 状态：in-progress / lab / P2
 - 依赖：contracts.windowing
 - 不允许实现；候选 API/模板名仅用于评审。
 
@@ -15,4 +15,3 @@
 ## Agent 所有权
 
 仅 catalog/Windowing/SettingsPanel；SPEC/DESIGN/INTEGRATION/ACCEPTANCE 分别锁定职责、视觉、平台生命周期和验收。
-

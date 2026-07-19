@@ -3,7 +3,7 @@
     "id":  "windowing.dock-layout-preview",
     "display_name":  "DockLayoutPreview",
     "kind":  "control",
-    "status":  "proposed",
+    "status":  "in-progress",
     "maturity":  "lab",
     "priority":  "P2",
     "package":  "WinUI3.Senior.Windowing",
@@ -11,7 +11,8 @@
     "gallery_route":  "/windowing/dock-layout-preview",
     "source_language":  "zh-CN",
     "owned_paths":  [
-                        "catalog/Windowing/DockLayoutPreview"
+                        "catalog/Windowing/DockLayoutPreview",
+                        "src/WinUI3.Senior.Windowing/DockLayoutPreview.cs"
                     ],
     "depends_on":  [
                        "contracts.windowing"

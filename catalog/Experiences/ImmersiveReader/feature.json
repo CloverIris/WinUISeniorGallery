@@ -3,21 +3,25 @@
     "id":  "experiences.immersive-reader",
     "display_name":  "ImmersiveReader",
     "kind":  "experience",
-    "status":  "proposed",
+    "status":  "in-progress",
     "maturity":  "lab",
     "priority":  "P2",
-    "package":  "WinUI3.Senior.Archaeology",
-    "namespace":  "WinUI3.Senior.Archaeology",
+    "package":  "WinUI3.Senior.Controls",
+    "namespace":  "WinUI3.Senior.Controls",
     "gallery_route":  "/experiences/immersive-reader",
     "source_language":  "zh-CN",
     "owned_paths":  [
-                        "catalog/Experiences/ImmersiveReader"
+                        "catalog/Experiences/ImmersiveReader",
+                        "src/WinUI3.Senior.Controls/Experiences/ImmersiveReader",
+                        "src/WinUI3.Senior.Gallery/Pages/ImmersiveReaderPage.xaml",
+                        "src/WinUI3.Senior.Gallery/Pages/ImmersiveReaderPage.xaml.cs"
                     ],
     "depends_on":  [
                        "media.timed-text-view"
                    ],
     "provides":  [
-                     "experience:experiences.immersive-reader"
+                     "WinUI3.Senior.Controls.ImmersiveReader",
+                     "WinUI3.Senior.Controls.ReaderBlock"
                  ],
     "archaeology_refs":  [
 

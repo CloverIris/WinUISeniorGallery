@@ -1,0 +1,25 @@
+<Page
+    x:Class="WinUI3_Senior_Gallery.Pages.MediaCenterGridPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:media="using:WinUI3.Senior.Media">
+    <Grid Margin="28" RowSpacing="16">
+        <Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /><RowDefinition Height="*" /></Grid.RowDefinitions>
+        <StackPanel Spacing="5">
+            <TextBlock Text="MediaCenterGrid" Style="{StaticResource TitleTextBlockStyle}" />
+            <TextBlock Text="Ten-foot poster browsing with directional focus" Style="{StaticResource SubtitleTextBlockStyle}" />
+            <TextBlock Text="合成海报标题，不读取媒体库；方向键/手柄只改变焦点，选择后由宿主决定播放。" Opacity="0.7" />
+        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Spacing="8">
+            <ToggleButton x:Name="TenFootToggle" Content="Ten-foot mode" Checked="OnTenFootChanged" Unchecked="OnTenFootChanged" />
+            <Button Content="Left" Click="OnLeftClick" />
+            <Button Content="Right" Click="OnRightClick" />
+            <Button Content="Up" Click="OnUpClick" />
+            <Button Content="Down" Click="OnDownClick" />
+            <TextBlock x:Name="StatusText" VerticalAlignment="Center" Margin="8,0,0,0" Opacity="0.7" />
+        </StackPanel>
+        <Border Grid.Row="2" CornerRadius="12" Padding="8" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+            <media:MediaCenterGrid x:Name="GridView" Columns="6" IsWrapNavigationEnabled="True" />
+        </Border>
+    </Grid>
+</Page>

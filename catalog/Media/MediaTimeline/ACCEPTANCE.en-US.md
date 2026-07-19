@@ -33,3 +33,9 @@
 ## Automation
 
 Unit-test normalization, disabled-range correction, throttle trailing value, final commit, and Live Edge. UI-test template degradation, ToolTip, focus, RTL, and AutomationPeer. Use a virtual clock for deterministic tests.
+
+## Implementation Evidence
+
+- 2026-07-16: Media Release x64 and Gallery Debug/Release x64 builds succeeded; Media automation tests passed 9/9.
+- Gallery provides deterministic VOD, Live, and Live DVR sessions with disabled-range, chapter, and marker demonstrations.
+- Touch, pen, gamepad, RTL, and frame-budget checks remain manual review work; the item remains `in-progress`.

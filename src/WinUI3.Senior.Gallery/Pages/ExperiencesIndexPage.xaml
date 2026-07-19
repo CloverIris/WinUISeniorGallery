@@ -1,33 +1,178 @@
 <Page
     x:Class="WinUI3_Senior_Gallery.Pages.ExperiencesIndexPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
-
-    <ScrollViewer Padding="32,24" VerticalScrollBarVisibility="Auto">
-        <StackPanel Spacing="16">
-            <TextBlock Text="Experiences" Style="{StaticResource TitleTextBlockStyle}" />
-            <TextBlock
-                Text="由多个高级组件组合而成的完整体验。该区域用于验证主页、沉浸式播放、阅读和生产力场景的结构与体验边界。"
-                Style="{StaticResource BodyTextBlockStyle}"
-                TextWrapping="Wrap" />
-            <InfoBar
-                IsOpen="True"
-                IsClosable="False"
-                Severity="Informational"
-                Title="开发占位页"
-                Message="Catalog route: /experiences。此页仅建立导航与信息结构，不代表体验已实现。" />
-            <Border
-                Padding="20"
-                Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
-                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                BorderThickness="1"
-                CornerRadius="8">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled">
+        <StackPanel MaxWidth="1180" Padding="32,28,32,48" Spacing="20">
+            <StackPanel Spacing="6">
+                <TextBlock Text="Experiences" Style="{StaticResource TitleTextBlockStyle}" />
+                <TextBlock Text="由多个高级控件组合而成的完整应用体验" Style="{StaticResource SubtitleTextBlockStyle}" />
+                <TextBlock Text="/experiences · 页面只描述组合方式，不拥有公共控件 API" Opacity="0.65" />
+            </StackPanel>
+            <InfoBar IsOpen="True" IsClosable="False" Severity="Informational"
+                     Title="组合层实验目录"
+                     Message="每个体验明确列出组成控件、数据边界和生命周期。in-progress 入口只用于本地实验，不代表 API 已稳定。" />
+            <Button HorizontalAlignment="Left" Click="OnOpenImmersiveNowPlayingClick">
+                <StackPanel Orientation="Horizontal" Spacing="10">
+                    <SymbolIcon Symbol="Play" />
+                    <StackPanel>
+                        <TextBlock Text="打开 Immersive Now Playing" />
+                        <TextBlock Text="MediaPlayerChrome + TimedTextView · local synthetic session" Opacity="0.7" Style="{StaticResource CaptionTextBlockStyle}" />
+                    </StackPanel>
+                </StackPanel>
+            </Button>
+            <Button HorizontalAlignment="Left" Click="OnOpenFocusSessionClick">
+                <StackPanel Orientation="Horizontal" Spacing="10">
+                    <SymbolIcon Symbol="Clock" />
+                    <StackPanel>
+                        <TextBlock Text="打开 Focus Session" />
+                        <TextBlock Text="FocusSession · local virtual clock · host-owned tasks" Opacity="0.7" Style="{StaticResource CaptionTextBlockStyle}" />
+                    </StackPanel>
+                </StackPanel>
+            </Button>
+            <Button HorizontalAlignment="Left" Click="OnOpenTabbedShellClick">
+                <StackPanel Orientation="Horizontal" Spacing="10">
+                    <SymbolIcon Symbol="AllApps" />
+                    <StackPanel>
+                        <TextBlock Text="打开 TabbedShell" />
+                        <TextBlock Text="标签选择、重排、关闭守卫与 tear-out 请求" Opacity="0.7" Style="{StaticResource CaptionTextBlockStyle}" />
+                    </StackPanel>
+                </StackPanel>
+            </Button>
+            <Button HorizontalAlignment="Left" Click="OnOpenQuickResumeClick">
+                <StackPanel Orientation="Horizontal" Spacing="10">
+                    <SymbolIcon Symbol="Play" />
+                    <StackPanel>
+                        <TextBlock Text="打开 Quick Resume" />
+                        <TextBlock Text="最近会话选择、十英尺导航与宿主恢复请求" Opacity="0.7" Style="{StaticResource CaptionTextBlockStyle}" />
+                    </StackPanel>
+                </StackPanel>
+            </Button>
+            <Button HorizontalAlignment="Left" Click="OnOpenImmersiveReaderClick">
+                <StackPanel Orientation="Horizontal" Spacing="10">
+                    <SymbolIcon Symbol="Document" />
+                    <StackPanel>
+                        <TextBlock Text="打开 Immersive Reader" />
+                        <TextBlock Text="行聚焦、文本缩放与宿主中立的朗读请求" Opacity="0.7" Style="{StaticResource CaptionTextBlockStyle}" />
+                    </StackPanel>
+                </StackPanel>
+            </Button>
+            <Button HorizontalAlignment="Left" Click="OnOpenEditorCanvasClick">
+                <StackPanel Orientation="Horizontal" Spacing="10">
+                    <SymbolIcon Symbol="Edit" />
+                    <StackPanel>
+                        <TextBlock Text="打开 EditorCanvas" />
+                        <TextBlock Text="Core document + zoom/pan/selection surface · synthetic objects" Opacity="0.7" Style="{StaticResource CaptionTextBlockStyle}" />
+                    </StackPanel>
+                </StackPanel>
+            </Button>
+            <Button HorizontalAlignment="Left" Click="OnOpenHubPanoramaClick">
+                <StackPanel Orientation="Horizontal" Spacing="10">
+                    <SymbolIcon Symbol="View" />
+                    <StackPanel>
+                        <TextBlock Text="打开 HubPanorama" />
+                        <TextBlock Text="Metro 横向章节、RTL 方向和循环选择 · synthetic sections" Opacity="0.7" Style="{StaticResource CaptionTextBlockStyle}" />
+                    </StackPanel>
+                </StackPanel>
+            </Button>
+            <Button HorizontalAlignment="Left" Click="OnOpenPeopleCardClick">
+                <StackPanel Orientation="Horizontal" Spacing="10">
+                    <SymbolIcon Symbol="Contact" />
+                    <StackPanel>
+                        <TextBlock Text="打开 PeopleCard" />
+                        <TextBlock Text="联系人摘要、字段过滤和宿主动作 · synthetic person" Opacity="0.7" Style="{StaticResource CaptionTextBlockStyle}" />
+                    </StackPanel>
+                </StackPanel>
+            </Button>
+            <Button HorizontalAlignment="Left" Click="OnOpenFileCardClick">
+                <StackPanel Orientation="Horizontal" Spacing="10">
+                    <SymbolIcon Symbol="Document" />
+                    <StackPanel>
+                        <TextBlock Text="打开 FileCard" />
+                        <TextBlock Text="文件元数据、Preview/Share 请求 · synthetic descriptor" Opacity="0.7" Style="{StaticResource CaptionTextBlockStyle}" />
+                    </StackPanel>
+                </StackPanel>
+            </Button>
+            <Button HorizontalAlignment="Left" Click="OnOpenMixviewClick">
+                <StackPanel Orientation="Horizontal" Spacing="10">
+                    <SymbolIcon Symbol="View" />
+                    <StackPanel>
+                        <TextBlock Text="打开 Mixview" />
+                        <TextBlock Text="Radial related-content graph · synthetic nodes · host-owned selection" Opacity="0.7" Style="{StaticResource CaptionTextBlockStyle}" />
+                    </StackPanel>
+                </StackPanel>
+            </Button>
+            <Button HorizontalAlignment="Left" Click="OnOpenGuideMenuClick">
+                <StackPanel Orientation="Horizontal" Spacing="10">
+                    <SymbolIcon Symbol="More" />
+                    <StackPanel>
+                        <TextBlock Text="打开 GuideMenu" />
+                        <TextBlock Text="Layered guide navigation · host-owned leaf actions" Opacity="0.7" Style="{StaticResource CaptionTextBlockStyle}" />
+                    </StackPanel>
+                </StackPanel>
+            </Button>
+            <Button HorizontalAlignment="Left" Click="OnOpenDetachablePlayerHostClick">
+                <StackPanel Orientation="Horizontal" Spacing="10">
+                    <SymbolIcon Symbol="Play" />
+                    <StackPanel>
+                        <TextBlock Text="打开 DetachablePlayerHost" />
+                        <TextBlock Text="Inline/detached state machine · host-owned floating request" Opacity="0.7" Style="{StaticResource CaptionTextBlockStyle}" />
+                    </StackPanel>
+                </StackPanel>
+            </Button>
+            <Button HorizontalAlignment="Left" Click="OnOpenGameBarWidgetClick">
+                <StackPanel Orientation="Horizontal" Spacing="10">
+                    <SymbolIcon Symbol="Play" />
+                    <StackPanel>
+                        <TextBlock Text="打开 GameBarWidget" />
+                        <TextBlock Text="Floating widget state · reversible click-through · host acknowledgement" Opacity="0.7" Style="{StaticResource CaptionTextBlockStyle}" />
+                    </StackPanel>
+                </StackPanel>
+            </Button>
+            <Button HorizontalAlignment="Left" Click="OnOpenMediaCenterClick">
+                <StackPanel Orientation="Horizontal" Spacing="10">
+                    <SymbolIcon Symbol="View" />
+                    <StackPanel>
+                        <TextBlock Text="打开 MediaCenterExperience" />
+                        <TextBlock Text="Ten-foot grid · details overlay · host-owned playback intent" Opacity="0.7" Style="{StaticResource CaptionTextBlockStyle}" />
+                    </StackPanel>
+                </StackPanel>
+            </Button>
+            <Button HorizontalAlignment="Left" Click="OnOpenCaptionsTranslationClick">
+                <StackPanel Orientation="Horizontal" Spacing="10">
+                    <SymbolIcon Symbol="Font" />
+                    <StackPanel>
+                        <TextBlock Text="打开 CaptionsTranslation" />
+                        <TextBlock Text="Synthetic revision ordering · translation fallback · TimedTextView composition" Opacity="0.7" Style="{StaticResource CaptionTextBlockStyle}" />
+                    </StackPanel>
+                </StackPanel>
+            </Button>
+            <ItemsControl ItemsSource="{Binding Experiences}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border Padding="18" Margin="0,0,0,12" CornerRadius="12" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                            <Grid ColumnSpacing="18">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Spacing="5">
+                                    <TextBlock Text="{Binding Name}" Style="{StaticResource SubtitleTextBlockStyle}" />
+                                    <TextBlock Text="{Binding Intent}" TextWrapping="Wrap" />
+                                    <TextBlock Opacity="0.7" TextWrapping="Wrap"><Run Text="组合：" /><Run Text="{Binding Composition}" /></TextBlock>
+                                </StackPanel>
+                                <Border Grid.Column="1" Padding="10,6" CornerRadius="8" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" VerticalAlignment="Center">
+                                    <TextBlock Text="{Binding Status}" />
+                                </Border>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+            <Border Padding="18" CornerRadius="12" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
                 <StackPanel Spacing="8">
-                    <TextBlock Text="规划中的体验" Style="{StaticResource SubtitleTextBlockStyle}" />
-                    <TextBlock Text="HomeScreen · ImmersiveNowPlaying · WidgetsBoard · TabbedShell · FocusSession · ImmersiveReader · EditorCanvas · CaptionsTranslationExperience" TextWrapping="Wrap" />
+                    <TextBlock Text="组合原则" Style="{StaticResource SubtitleTextBlockStyle}" />
+                    <TextBlock Text="体验层可以编排多个模块，但不得把 Gallery 页面的状态偷偷变成 Core 或 Controls 的全局单例。窗口、媒体会话、字幕 Provider 和资源生命周期都由宿主显式拥有。" TextWrapping="Wrap" />
                 </StackPanel>
             </Border>
         </StackPanel>

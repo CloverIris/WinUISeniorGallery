@@ -4,7 +4,7 @@ Show in-app dock targets and magnetic preview during content drag without copyin
 
 ## Status and Scope
 
-- Status: proposed / lab / P2
+- Status: in-progress / lab / P2
 - Dependency: contracts.windowing
 - Not eligible for implementation; candidate API/part names are review vocabulary only.
 
@@ -16,3 +16,8 @@ Layout app-internal panels only; move no OS windows, call no system Snap, and co
 
 Only catalog/Windowing/DockLayoutPreview; SPEC/DESIGN/INTEGRATION/ACCEPTANCE lock responsibility, visuals, platform lifecycle, and acceptance.
 
+## Implementation notes
+
+The preview now exposes stable layout IDs, normalized zones, deterministic keyboard focus
+movement, point-to-zone selection, DIP coordinate conversion, and a commit request carrying the
+chosen layout and zone. Applying a layout remains the host application's responsibility.

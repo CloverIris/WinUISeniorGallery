@@ -3,21 +3,26 @@
     "id":  "experiences.people-card",
     "display_name":  "PeopleCard",
     "kind":  "experience",
-    "status":  "proposed",
+    "status":  "in-progress",
     "maturity":  "lab",
     "priority":  "P2",
-    "package":  "WinUI3.Senior.Archaeology",
-    "namespace":  "WinUI3.Senior.Archaeology",
+    "package":  "WinUI3.Senior.Controls",
+    "namespace":  "WinUI3.Senior.Controls",
     "gallery_route":  "/experiences/people-card",
     "source_language":  "zh-CN",
     "owned_paths":  [
-                        "catalog/Experiences/PeopleCard"
+                        "catalog/Experiences/PeopleCard",
+                        "src/WinUI3.Senior.Controls/Experiences/PeopleCard/PeopleCard.cs",
+                        "src/WinUI3.Senior.Controls/Themes/Generic.xaml",
+                        "src/WinUI3.Senior.Gallery/Pages/PeopleCardPage.xaml",
+                        "src/WinUI3.Senior.Gallery/Pages/PeopleCardPage.xaml.cs"
                     ],
     "depends_on":  [
                        "controls.overlay-menu"
                    ],
     "provides":  [
-                     "experience:experiences.people-card"
+                     "experience:experiences.people-card",
+                     "WinUI3.Senior.Controls.PeopleCard"
                  ],
     "archaeology_refs":  [
 

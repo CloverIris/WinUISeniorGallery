@@ -1,10 +1,10 @@
 ﻿# FileCard
 
-这是中文规范源。当前为 proposed backlog，不允许进入实现。
+这是中文规范源。当前为 in-progress lab，已具备本地文件描述、元数据展示和 Preview/Action 请求。
 
 ## Status
 
-proposed / lab / P2
+in-progress / lab / P2
 
 ## Documents
 
@@ -18,4 +18,4 @@ proposed / lab / P2
 catalog/Experiences/FileCard
 
 ## 场景准备度
-文件预览、元数据与操作卡；Ready 条件：Provider权限/缩略图缓存/危险操作确认评审。
+控件不读取文件、不缓存缩略图、不执行删除或分享；宿主提供 FileCardDescriptor 并处理 PreviewRequested/ActionInvoked。进入 ready 前仍需锁定权限、缓存和危险操作确认策略。

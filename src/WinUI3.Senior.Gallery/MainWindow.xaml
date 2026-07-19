@@ -29,11 +29,45 @@
                         <NavigationViewItem Content="CarouselView" Tag="controls/carousel-view">
                             <NavigationViewItem.Icon><SymbolIcon Symbol="Switch" /></NavigationViewItem.Icon>
                         </NavigationViewItem>
+                        <NavigationViewItem Content="AchievementToast" Tag="controls/achievement-toast"><NavigationViewItem.Icon><SymbolIcon Symbol="Like" /></NavigationViewItem.Icon></NavigationViewItem>
+                        <NavigationViewItem Content="OverlayMenu" Tag="controls/overlay-menu"><NavigationViewItem.Icon><SymbolIcon Symbol="More" /></NavigationViewItem.Icon></NavigationViewItem>
+                        <NavigationViewItem Content="BigTitle" Tag="controls/big-title"><NavigationViewItem.Icon><SymbolIcon Symbol="Font" /></NavigationViewItem.Icon></NavigationViewItem>
+                        <NavigationViewItem Content="ContentRail" Tag="controls/content-rail"><NavigationViewItem.Icon><SymbolIcon Symbol="View" /></NavigationViewItem.Icon></NavigationViewItem>
+                        <NavigationViewItem Content="Senior Controls Workbench" Tag="controls/workbench">
+                            <NavigationViewItem.Icon><SymbolIcon Symbol="DeveloperTools" /></NavigationViewItem.Icon>
+                        </NavigationViewItem>
                     </NavigationViewItem.MenuItems>
                 </NavigationViewItem>
-                <NavigationViewItem Content="Media" Tag="media"><NavigationViewItem.Icon><SymbolIcon Symbol="MusicInfo" /></NavigationViewItem.Icon></NavigationViewItem>
+                <NavigationViewItem Content="Media" Tag="media">
+                    <NavigationViewItem.Icon><SymbolIcon Symbol="MusicInfo" /></NavigationViewItem.Icon>
+                    <NavigationViewItem.MenuItems>
+                        <NavigationViewItem Content="MediaPlayerChrome" Tag="media/media-player-chrome"><NavigationViewItem.Icon><SymbolIcon Symbol="Play" /></NavigationViewItem.Icon></NavigationViewItem>
+                        <NavigationViewItem Content="MediaTimeline" Tag="media/media-timeline"><NavigationViewItem.Icon><SymbolIcon Symbol="Clock" /></NavigationViewItem.Icon></NavigationViewItem>
+                        <NavigationViewItem Content="TimedTextView" Tag="media/timed-text-view"><NavigationViewItem.Icon><SymbolIcon Symbol="Font" /></NavigationViewItem.Icon></NavigationViewItem>
+                        <NavigationViewItem Content="MediaCenterGrid" Tag="media/media-center-grid"><NavigationViewItem.Icon><SymbolIcon Symbol="View" /></NavigationViewItem.Icon></NavigationViewItem>
+                        <NavigationViewItem Content="Media Workbench" Tag="media/workbench"><NavigationViewItem.Icon><SymbolIcon Symbol="Play" /></NavigationViewItem.Icon></NavigationViewItem>
+                    </NavigationViewItem.MenuItems>
+                </NavigationViewItem>
                 <NavigationViewItem Content="Windowing" Tag="windowing"><NavigationViewItem.Icon><SymbolIcon Symbol="View" /></NavigationViewItem.Icon></NavigationViewItem>
-                <NavigationViewItem Content="Experiences" Tag="experiences"><NavigationViewItem.Icon><SymbolIcon Symbol="Library" /></NavigationViewItem.Icon></NavigationViewItem>
+                <NavigationViewItem Content="Experiences" Tag="experiences"><NavigationViewItem.Icon><SymbolIcon Symbol="Library" /></NavigationViewItem.Icon>
+                    <NavigationViewItem.MenuItems>
+                        <NavigationViewItem Content="Immersive Now Playing" Tag="experiences/immersive-now-playing"><NavigationViewItem.Icon><SymbolIcon Symbol="Play" /></NavigationViewItem.Icon></NavigationViewItem>
+                        <NavigationViewItem Content="Focus Session" Tag="experiences/focus-session"><NavigationViewItem.Icon><SymbolIcon Symbol="Clock" /></NavigationViewItem.Icon></NavigationViewItem>
+                        <NavigationViewItem Content="TabbedShell" Tag="experiences/tabbed-shell"><NavigationViewItem.Icon><SymbolIcon Symbol="AllApps" /></NavigationViewItem.Icon></NavigationViewItem>
+                        <NavigationViewItem Content="Quick Resume" Tag="experiences/quick-resume"><NavigationViewItem.Icon><SymbolIcon Symbol="Play" /></NavigationViewItem.Icon></NavigationViewItem>
+                        <NavigationViewItem Content="Immersive Reader" Tag="experiences/immersive-reader"><NavigationViewItem.Icon><SymbolIcon Symbol="Document" /></NavigationViewItem.Icon></NavigationViewItem>
+                        <NavigationViewItem Content="HubPanorama" Tag="experiences/hub-panorama"><NavigationViewItem.Icon><SymbolIcon Symbol="View" /></NavigationViewItem.Icon></NavigationViewItem>
+                        <NavigationViewItem Content="PeopleCard" Tag="experiences/people-card"><NavigationViewItem.Icon><SymbolIcon Symbol="Contact" /></NavigationViewItem.Icon></NavigationViewItem>
+                        <NavigationViewItem Content="FileCard" Tag="experiences/file-card"><NavigationViewItem.Icon><SymbolIcon Symbol="Document" /></NavigationViewItem.Icon></NavigationViewItem>
+                        <NavigationViewItem Content="EditorCanvas" Tag="experiences/editor-canvas"><NavigationViewItem.Icon><SymbolIcon Symbol="Edit" /></NavigationViewItem.Icon></NavigationViewItem>
+                        <NavigationViewItem Content="Mixview" Tag="experiences/mixview"><NavigationViewItem.Icon><SymbolIcon Symbol="View" /></NavigationViewItem.Icon></NavigationViewItem>
+                        <NavigationViewItem Content="GuideMenu" Tag="experiences/guide-menu"><NavigationViewItem.Icon><SymbolIcon Symbol="More" /></NavigationViewItem.Icon></NavigationViewItem>
+                        <NavigationViewItem Content="DetachablePlayerHost" Tag="experiences/detachable-player-host"><NavigationViewItem.Icon><SymbolIcon Symbol="Play" /></NavigationViewItem.Icon></NavigationViewItem>
+                        <NavigationViewItem Content="GameBarWidget" Tag="experiences/game-bar-widget"><NavigationViewItem.Icon><SymbolIcon Symbol="Play" /></NavigationViewItem.Icon></NavigationViewItem>
+                        <NavigationViewItem Content="MediaCenterExperience" Tag="experiences/media-center"><NavigationViewItem.Icon><SymbolIcon Symbol="View" /></NavigationViewItem.Icon></NavigationViewItem>
+                        <NavigationViewItem Content="CaptionsTranslation" Tag="experiences/captions-translation"><NavigationViewItem.Icon><SymbolIcon Symbol="Font" /></NavigationViewItem.Icon></NavigationViewItem>
+                    </NavigationViewItem.MenuItems>
+                </NavigationViewItem>
                 <NavigationViewItem Content="Design archaeology" Tag="archaeology"><NavigationViewItem.Icon><SymbolIcon Symbol="Document" /></NavigationViewItem.Icon></NavigationViewItem>
             </NavigationView.MenuItems>
 

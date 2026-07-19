@@ -3,21 +3,25 @@
     "id":  "experiences.tabbed-shell",
     "display_name":  "TabbedShell",
     "kind":  "experience",
-    "status":  "proposed",
+    "status":  "in-progress",
     "maturity":  "lab",
     "priority":  "P1",
-    "package":  "WinUI3.Senior.Archaeology",
-    "namespace":  "WinUI3.Senior.Archaeology",
+    "package":  "WinUI3.Senior.Controls",
+    "namespace":  "WinUI3.Senior.Controls",
     "gallery_route":  "/experiences/tabbed-shell",
     "source_language":  "zh-CN",
     "owned_paths":  [
-                        "catalog/Experiences/TabbedShell"
+                        "catalog/Experiences/TabbedShell",
+                        "src/WinUI3.Senior.Controls/Navigation/TabbedShell",
+                        "src/WinUI3.Senior.Gallery/Pages/TabbedShellPage.xaml",
+                        "src/WinUI3.Senior.Gallery/Pages/TabbedShellPage.xaml.cs"
                     ],
     "depends_on":  [
                        "windowing.tab-tear-out-behavior"
                    ],
     "provides":  [
-                     "experience:experiences.tabbed-shell"
+                     "WinUI3.Senior.Controls.TabbedShell",
+                     "WinUI3.Senior.Controls.TabbedShellItem"
                  ],
     "archaeology_refs":  [
 

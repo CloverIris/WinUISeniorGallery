@@ -1,21 +1,15 @@
-﻿# DetachablePlayerHost
+# DetachablePlayerHost
 
-这是中文规范源。当前为 proposed backlog，不允许进入实现。
+中文规范源。当前为 `in-progress` lab，已实现播放器内容的 Inline/Detached 生命周期协调器和本地 Fake Host 演示。
 
 ## Status
 
-proposed / lab / P1
+in-progress / lab / P1
 
-## Documents
+## Scope
 
-- SPEC.zh-CN.md
-- DESIGN.zh-CN.md
-- INTEGRATION.zh-CN.md
-- ACCEPTANCE.zh-CN.md
+控件只向宿主发出浮动窗口请求，管理操作串行化、取消、过期响应和 owner close 回退；不创建窗口、不迁移 MediaPlayer、不拥有播放会话。
 
-## Agent ownership
+## Ownership
 
-catalog/Experiences/DetachablePlayerHost
-
-## 场景准备度
-在内嵌与独立/紧凑窗口间迁移同一播放会话；Ready 条件：双窗口关闭矩阵和所有权原型通过。
+实现：`src/WinUI3.Senior.Windowing/DetachablePlayerHost.cs`；演示：`src/WinUI3.Senior.Gallery/Pages/DetachablePlayerHostPage.xaml*`。

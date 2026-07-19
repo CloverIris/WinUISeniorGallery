@@ -3,7 +3,7 @@
     "id":  "controls.color-picker-ex",
     "display_name":  "ColorPickerEx",
     "kind":  "control",
-    "status":  "proposed",
+    "status":  "in-progress",
     "maturity":  "lab",
     "priority":  "P2",
     "package":  "WinUI3.Senior.Controls",
@@ -11,13 +11,15 @@
     "gallery_route":  "/controls/color-picker-ex",
     "source_language":  "zh-CN",
     "owned_paths":  [
-                        "catalog/Controls/Input/ColorPickerEx"
+                        "catalog/Controls/Input/ColorPickerEx",
+                        "src/WinUI3.Senior.Controls/Input/ColorPickerEx"
                     ],
     "depends_on":  [
                        "foundation.accessibility-system"
                    ],
     "provides":  [
-                     "control:controls.color-picker-ex"
+                     "control:controls.color-picker-ex",
+                     "WinUI3.Senior.Controls.ColorPickerColorChangedEventArgs"
                  ],
     "archaeology_refs":  [
 

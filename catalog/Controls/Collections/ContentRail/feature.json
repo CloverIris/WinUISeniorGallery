@@ -3,7 +3,7 @@
     "id":  "controls.content-rail",
     "display_name":  "ContentRail",
     "kind":  "control",
-    "status":  "proposed",
+    "status":  "in-progress",
     "maturity":  "lab",
     "priority":  "P1",
     "package":  "WinUI3.Senior.Controls",
@@ -11,13 +11,18 @@
     "gallery_route":  "/controls/content-rail",
     "source_language":  "zh-CN",
     "owned_paths":  [
-                        "catalog/Controls/Collections/ContentRail"
+                        "catalog/Controls/Collections/ContentRail",
+                        "src/WinUI3.Senior.Controls/Collections/ContentRail",
+                        "src/WinUI3.Senior.Controls/Themes/Generic.xaml",
+                        "src/WinUI3.Senior.Gallery/Pages/ContentRailPage.xaml",
+                        "src/WinUI3.Senior.Gallery/Pages/ContentRailPage.xaml.cs"
                     ],
     "depends_on":  [
                        "foundation.input-system"
                    ],
     "provides":  [
-                     "control:controls.content-rail"
+                     "control:controls.content-rail",
+                     "WinUI3.Senior.Controls.ContentRail"
                  ],
     "archaeology_refs":  [
 

@@ -3,7 +3,7 @@
   "id": "media.media-timeline",
   "display_name": "MediaTimeline",
   "kind": "control",
-  "status": "ready",
+  "status": "in-progress",
   "maturity": "lab",
   "priority": "P0",
   "package": "WinUI3.Senior.Media",
@@ -24,8 +24,9 @@
   ],
   "provides": [
     "WinUI3.Senior.Media.MediaTimeline",
-    "WinUI3.Senior.Media.MediaTimeRange",
-    "WinUI3.Senior.Media.MediaTimelineMarker"
+    "WinUI3.Senior.Media.MediaTimelineMarker",
+    "WinUI3.Senior.Media.MediaTimelineMath",
+    "WinUI3.Senior.Media.MediaTimelineNavigator"
   ],
   "archaeology_refs": [
     "archaeology.zune.now-playing",

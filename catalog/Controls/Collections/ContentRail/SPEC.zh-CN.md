@@ -2,27 +2,27 @@
 
 ## Goal
 
-目标：定义可复用职责、状态和边界。正式 API、模板部件、失败模式和性能预算尚未锁定；完成专项评审后方可进入 ready。
+目标：提供横向内容轨道，拥有选择、键盘/触摸方向语义和相邻预览参数；项目数据、See All 导航和业务动作由宿主拥有。
 
 ## Non-goals
 
-No implementation while proposed.
+不实现网络加载、图片缓存、全局导航或持久化滚动位置。
 
 ## Public API
 
-Not locked.
+继承 `ItemsSource`/`ItemTemplate`；公开 `Header`、`ItemWidth`、`ItemSpacing`、`PeekWidth`、`IsSnapEnabled`、`SeeAllCommand`、`PageSize`、`IsWrapNavigationEnabled`；方法 `MoveSelection`、`ScrollNext`、`ScrollPrevious`、`ScrollToIndex`、`InvokeSeeAll`。
 
 ## State model
 
-Not locked.
+空集合保持无选中；PageSize=0 时一次移动一个项目；RTL 镜像 Left/Right；Wrap 开启时首尾循环，否则钳制边界；Enter/Space 触发 ItemInvoked，SeeAllCommand 使用 Header 作为参数。
 
 ## Template parts and visual tree
 
-Not locked.
+`PART_Repeater`/`PART_ScrollView` 为主题实现可选部件；缺失时保留 ListView 默认布局和键盘逻辑。相邻预览由 ItemContainerStyle 的宽度/间距表达。
 
 ## Behavior and failure modes
 
-Follow referenced contracts.
+滚轮事件交给父级，不拦截纵向滚动；触摸/Shift+滚轮/方向键调用同一选择状态机。ItemsSource 替换后超界选中项被修复，宿主卸载不保留计时器或事件订阅。
 
 ## Open Decisions
 

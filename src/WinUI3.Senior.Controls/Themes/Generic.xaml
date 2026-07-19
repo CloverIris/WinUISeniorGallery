@@ -3,12 +3,16 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="using:WinUI3.Senior.Controls">
 
-    <SolidColorBrush x:Key="CarouselViewBackground" Color="{ThemeResource SystemControlBackgroundBaseLowColor}" />
-    <SolidColorBrush x:Key="CarouselViewIndicatorForeground" Color="{ThemeResource SystemControlForegroundBaseMediumColor}" />
-    <SolidColorBrush x:Key="CarouselViewIndicatorSelectedForeground" Color="{ThemeResource SystemControlHighlightAltAccentColor}" />
+    <!-- Use Fluent/WinUI 3 color resources. SystemControl* keys belonged to UWP and are not
+         available in an unpackaged WinUI 3 process. -->
+    <controls:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    <SolidColorBrush x:Key="CarouselViewBackground" Color="{ThemeResource ControlFillColorDefault}" />
+    <SolidColorBrush x:Key="CarouselViewIndicatorForeground" Color="{ThemeResource TextFillColorSecondary}" />
+    <SolidColorBrush x:Key="CarouselViewIndicatorSelectedForeground" Color="{ThemeResource AccentFillColorDefault}" />
     <x:Double x:Key="CarouselViewItemSpacing">0</x:Double>
     <Duration x:Key="CarouselViewTransitionDuration">0:0:0.25</Duration>
     <CornerRadius x:Key="CarouselViewCornerRadius">8</CornerRadius>
+    <SolidColorBrush x:Key="SeniorCanvasGridBrush" Color="{ThemeResource TextFillColorSecondary}" />
 
     <Style x:Key="CarouselViewNavigationButtonStyle" TargetType="Button">
         <Setter Property="Background" Value="Transparent" />
@@ -77,4 +81,708 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <SolidColorBrush x:Key="SeniorOverlaySurfaceBrush" Color="{ThemeResource LayerFillColorDefault}" />
+    <SolidColorBrush x:Key="SeniorOverlayScrimBrush" Color="#66000000" />
+    <CornerRadius x:Key="SeniorOverlayCornerRadius">12</CornerRadius>
+
+    <Style TargetType="controls:BottomSheet">
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:BottomSheet">
+                    <Grid x:Name="PART_Root">
+                        <Rectangle x:Name="PART_Scrim" Fill="{ThemeResource SeniorOverlayScrimBrush}" />
+                        <Border x:Name="PART_Surface" Background="{ThemeResource SeniorOverlaySurfaceBrush}" CornerRadius="{ThemeResource SeniorOverlayCornerRadius}" Padding="20" HorizontalAlignment="Center" VerticalAlignment="Bottom" MinWidth="320">
+                            <Grid RowSpacing="12">
+                                <Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition Height="*" /></Grid.RowDefinitions>
+                                <Border x:Name="PART_DragHandle" Height="6" Width="48" CornerRadius="3" Background="{ThemeResource TextFillColorTertiary}" HorizontalAlignment="Center" />
+                                <ContentPresenter x:Name="PART_ContentPresenter" Grid.Row="1" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" />
+                            </Grid>
+                        </Border>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="OpenStates">
+                                <VisualState x:Name="Closed"><Storyboard><ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_Root" Storyboard.TargetProperty="Visibility"><DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed" /></ObjectAnimationUsingKeyFrames></Storyboard></VisualState>
+                                <VisualState x:Name="Open" />
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="PlacementStates"><VisualState x:Name="Auto" /><VisualState x:Name="Bottom" /><VisualState x:Name="Side" /><VisualState x:Name="Center" /></VisualStateGroup>
+                            <VisualStateGroup x:Name="ModalityStates"><VisualState x:Name="Modal" /><VisualState x:Name="Modeless" /></VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="controls:WidgetCard">
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:WidgetCard">
+                    <Border Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" CornerRadius="12" Padding="16">
+                        <Grid RowSpacing="10">
+                            <Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition Height="*" /><RowDefinition Height="Auto" /></Grid.RowDefinitions>
+                            <Grid>
+                                <ContentPresenter Content="{TemplateBinding Header}" />
+                                <Button x:Name="PART_RefreshButton" Content="↻" HorizontalAlignment="Right" MinWidth="36" MinHeight="36" AutomationProperties.Name="Refresh widget" />
+                            </Grid>
+                            <ContentPresenter Grid.Row="1" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" />
+                            <ContentPresenter Grid.Row="2" Content="{TemplateBinding Footer}" />
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="controls:SnackbarHost">
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="VerticalAlignment" Value="Stretch" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:SnackbarHost">
+                    <Grid x:Name="PART_Root" IsHitTestVisible="True" VerticalAlignment="Bottom">
+                        <Border Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" CornerRadius="10" Padding="14" HorizontalAlignment="Center" MaxWidth="720">
+                            <Grid ColumnSpacing="14">
+                                <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding CurrentRequest.Message, RelativeSource={RelativeSource TemplatedParent}}" TextWrapping="Wrap" VerticalAlignment="Center" />
+                                <Button x:Name="PART_ActionButton" Grid.Column="1" Content="Action" AutomationProperties.Name="Snackbar action" />
+                                <Button x:Name="PART_DismissButton" Grid.Column="2" Content="Dismiss" AutomationProperties.Name="Dismiss snackbar" />
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="controls:ContentRail">
+        <Setter Property="SelectionMode" Value="Single" />
+        <Setter Property="IsItemClickEnabled" Value="True" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <ItemsStackPanel Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="ItemContainerStyle">
+            <Setter.Value>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Width" Value="260" />
+                    <Setter Property="Margin" Value="0,0,12,0" />
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                </Style>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="controls:SearchBoxEx">
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:SearchBoxEx">
+                    <Grid RowSpacing="4">
+                        <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                        <TextBox x:Name="PART_EditBox" PlaceholderText="{TemplateBinding PlaceholderText}" MinHeight="40" />
+                        <ProgressRing x:Name="PART_ProgressRing" Grid.Column="1" Width="20" Height="20" IsActive="False" VerticalAlignment="Center" Margin="8,0,0,0" />
+                        <ListView x:Name="PART_SuggestionList" Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding Suggestions, RelativeSource={RelativeSource TemplatedParent}}" Visibility="Collapsed" MaxHeight="260">
+                            <ListView.ItemTemplate><DataTemplate><StackPanel Padding="8,6"><TextBlock Text="{Binding Text}" /><TextBlock Text="{Binding Description}" Opacity="0.65" FontSize="12" /></StackPanel></DataTemplate></ListView.ItemTemplate>
+                        </ListView>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="SuggestionStates">
+                                <VisualState x:Name="SuggestionsClosed"><Storyboard><ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_SuggestionList" Storyboard.TargetProperty="Visibility"><DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed" /></ObjectAnimationUsingKeyFrames></Storyboard></VisualState>
+                                <VisualState x:Name="SuggestionsOpen"><Storyboard><ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_SuggestionList" Storyboard.TargetProperty="Visibility"><DiscreteObjectKeyFrame KeyTime="0" Value="Visible" /></ObjectAnimationUsingKeyFrames></Storyboard></VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="SearchStates"><VisualState x:Name="Idle" /><VisualState x:Name="Loading" /><VisualState x:Name="Results" /><VisualState x:Name="Error" /></VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="controls:BreadcrumbBarEx">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:BreadcrumbBarEx">
+                    <Grid>
+                        <ItemsControl x:Name="PART_Repeater" ItemsSource="{Binding Items, RelativeSource={RelativeSource TemplatedParent}}">
+                            <ItemsControl.ItemsPanel><ItemsPanelTemplate><ItemsStackPanel Orientation="Horizontal" /></ItemsPanelTemplate></ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate><DataTemplate><StackPanel Orientation="Horizontal" Spacing="6"><Button Content="{Binding Label}" Padding="6,3" /><TextBlock Text="/" VerticalAlignment="Center" Opacity="0.55" /></StackPanel></DataTemplate></ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                        <TextBox x:Name="PART_EditBox" Visibility="Collapsed" Text="{TemplateBinding EditText}" MinWidth="260" />
+                        <Flyout x:Name="PART_Flyout" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="controls:DynamicTile">
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:DynamicTile">
+                    <Border Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" CornerRadius="12" Padding="12">
+                        <ContentPresenter Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="controls:HomeScreen">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:HomeScreen">
+                    <Grid RowSpacing="12">
+                        <Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition Height="*" /></Grid.RowDefinitions>
+                        <TextBox PlaceholderText="Search" Text="{TemplateBinding SearchQuery}" IsEnabled="{TemplateBinding IsSearchEnabled}" />
+                        <ItemsControl Grid.Row="1" ItemsSource="{Binding VisibleItems, RelativeSource={RelativeSource TemplatedParent}}">
+                            <ItemsControl.ItemsPanel><ItemsPanelTemplate><ItemsWrapGrid MaximumRowsOrColumns="6" /></ItemsPanelTemplate></ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate><DataTemplate><Border Padding="12" Margin="4" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" CornerRadius="10"><StackPanel><TextBlock Text="{Binding Title}" FontWeight="SemiBold" /><TextBlock Text="{Binding Subtitle}" Opacity="0.7" TextWrapping="Wrap" /></StackPanel></Border></DataTemplate></ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="controls:PropertyGrid">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:PropertyGrid">
+                    <ItemsControl ItemsSource="{Binding Properties, RelativeSource={RelativeSource TemplatedParent}}">
+                        <ItemsControl.ItemTemplate><DataTemplate><Border Padding="6"><Grid ColumnSpacing="12"><Grid.ColumnDefinitions><ColumnDefinition Width="180" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions><TextBlock Text="{Binding DisplayName}" /><TextBlock Grid.Column="1" Text="{Binding Value}" Opacity="0.8" /></Grid></Border></DataTemplate></ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="controls:TreeDataGrid">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:TreeDataGrid">
+                    <ItemsControl ItemsSource="{Binding VisibleRows, RelativeSource={RelativeSource TemplatedParent}}">
+                        <ItemsControl.ItemTemplate><DataTemplate><Border Padding="6"><Grid ColumnSpacing="10"><Grid.ColumnDefinitions><ColumnDefinition Width="24" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions><TextBlock Text="{Binding Depth}" Opacity="0.55" /><TextBlock Grid.Column="1" Text="{Binding Node.Value}" TextWrapping="Wrap" /></Grid></Border></DataTemplate></ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="controls:WizardStepper">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:WizardStepper">
+                    <Grid RowSpacing="14">
+                        <Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition Height="*" /><RowDefinition Height="Auto" /></Grid.RowDefinitions>
+                        <ContentPresenter Content="{TemplateBinding Header}" />
+                        <ItemsControl x:Name="PART_StepRepeater" Grid.Row="1">
+                            <ItemsControl.ItemsPanel><ItemsPanelTemplate><ItemsStackPanel Orientation="Horizontal" /></ItemsPanelTemplate></ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate><DataTemplate><Border Padding="10,6" Margin="0,0,8,0" CornerRadius="6" Background="{ThemeResource ControlFillColorDefaultBrush}"><StackPanel><TextBlock Text="{Binding Title}" FontWeight="SemiBold" /><TextBlock Text="{Binding Description}" FontSize="12" Opacity="0.7" /></StackPanel></Border></DataTemplate></ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                        <ContentPresenter x:Name="PART_ContentPresenter" Grid.Row="2" Content="{Binding CurrentStep.Content, RelativeSource={RelativeSource TemplatedParent}}" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="controls:PivotViewEx">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:PivotViewEx">
+                    <Grid RowSpacing="8">
+                        <ItemsControl x:Name="PART_HeaderRepeater">
+                            <ItemsControl.ItemsPanel><ItemsPanelTemplate><ItemsStackPanel Orientation="Horizontal" /></ItemsPanelTemplate></ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate><DataTemplate><Button Content="{Binding Title}" Padding="12,8" /></DataTemplate></ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                        <ContentPresenter x:Name="PART_ContentPresenter" Grid.Row="1" />
+                        <Border x:Name="PART_Indicator" Grid.Row="2" Height="2" Background="{ThemeResource AccentFillColorDefaultBrush}" HorizontalAlignment="Left" Width="48" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="controls:SemanticZoomView">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:SemanticZoomView">
+                    <Grid x:Name="PART_Viewport">
+                        <ItemsControl x:Name="PART_ZoomedInView" />
+                        <ItemsControl x:Name="PART_ZoomedOutView" Visibility="Collapsed" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="controls:TabbedShell">
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:TabbedShell">
+                    <Grid x:Name="PART_Root" RowSpacing="8">
+                        <Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition Height="*" /></Grid.RowDefinitions>
+                        <ListView x:Name="PART_TabList" SelectionMode="Single" IsItemClickEnabled="False"
+                                  ItemsSource="{Binding Items, RelativeSource={RelativeSource TemplatedParent}}"
+                                  HorizontalContentAlignment="Stretch">
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate><ItemsStackPanel Orientation="Horizontal" /></ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Border MinWidth="150" Padding="8,6">
+                                        <Grid ColumnSpacing="8">
+                                        <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                                        <StackPanel Orientation="Horizontal" Spacing="6">
+                                            <TextBlock Text="{Binding IconGlyph}" FontFamily="Segoe Fluent Icons" />
+                                            <TextBlock Text="{Binding Header}" TextTrimming="CharacterEllipsis" />
+                                        </StackPanel>
+                                        <Button x:Name="PART_CloseButton" Grid.Column="1" Content="×" Padding="4,0" MinWidth="28" MinHeight="28"
+                                                Visibility="{Binding CanClose, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                                Tag="{Binding}" AutomationProperties.Name="Close tab" />
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                        <ContentPresenter x:Name="PART_ContentPresenter" Grid.Row="1"
+                                          Content="{Binding SelectedItem.Content, RelativeSource={RelativeSource TemplatedParent}}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="ContentStates">
+                                <VisualState x:Name="Empty" />
+                                <VisualState x:Name="HasSelection" />
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="controls:ColorPickerEx">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:ColorPickerEx">
+                    <StackPanel Spacing="8">
+                        <TextBox Text="{TemplateBinding HexText}" PlaceholderText="#AARRGGBB" />
+                        <Border Height="44" CornerRadius="8"><Border.Background><SolidColorBrush Color="{Binding Color, RelativeSource={RelativeSource TemplatedParent}}" /></Border.Background></Border>
+                        <TextBlock Text="{Binding ValidationError, RelativeSource={RelativeSource TemplatedParent}}" Foreground="{ThemeResource SystemFillColorCritical}" TextWrapping="Wrap" />
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="controls:FontPicker">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:FontPicker">
+                    <Grid RowSpacing="8">
+                        <Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition Height="*" /><RowDefinition Height="Auto" /></Grid.RowDefinitions>
+                        <TextBox PlaceholderText="Search fonts" Text="{TemplateBinding SearchText}" />
+                        <ListView Grid.Row="1" ItemsSource="{Binding VisibleOptions, RelativeSource={RelativeSource TemplatedParent}}" SelectionMode="Single">
+                            <ListView.ItemTemplate><DataTemplate><StackPanel Padding="8,6"><TextBlock Text="{Binding DisplayName}" FontSize="16" /><TextBlock Text="{Binding FamilyName}" Opacity="0.65" FontSize="12" /></StackPanel></DataTemplate></ListView.ItemTemplate>
+                        </ListView>
+                        <TextBlock Grid.Row="2" Text="{TemplateBinding PreviewText}" FontSize="22" TextWrapping="Wrap" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="controls:IconPicker">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:IconPicker">
+                    <Grid RowSpacing="8">
+                        <TextBox x:Name="PART_SearchBox" PlaceholderText="Search Fluent icons" Text="{TemplateBinding SearchText}" />
+                        <ItemsControl Grid.Row="1" ItemsSource="{Binding VisibleIcons, RelativeSource={RelativeSource TemplatedParent}}">
+                            <ItemsControl.ItemsPanel><ItemsPanelTemplate><ItemsWrapGrid MaximumRowsOrColumns="8" /></ItemsPanelTemplate></ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate><DataTemplate><Border Padding="8" Margin="4" MinWidth="72" MinHeight="72" CornerRadius="8" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"><StackPanel HorizontalAlignment="Center" Spacing="4"><TextBlock Text="{Binding Glyph}" FontFamily="Segoe Fluent Icons" FontSize="24" HorizontalAlignment="Center" /><TextBlock Text="{Binding Name}" FontSize="10" TextTrimming="CharacterEllipsis" /></StackPanel></Border></DataTemplate></ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                        <VisualStateManager.VisualStateGroups><VisualStateGroup x:Name="PickerStates"><VisualState x:Name="Loading" /><VisualState x:Name="Ready" /><VisualState x:Name="Empty" /></VisualStateGroup></VisualStateManager.VisualStateGroups>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="controls:DragOverlay">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:DragOverlay">
+                    <Canvas IsHitTestVisible="False">
+                        <Border x:Name="PART_Preview" Padding="10" CornerRadius="8" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"><ContentPresenter Content="{TemplateBinding Preview}" /></Border>
+                        <TextBlock x:Name="PART_Caption" Canvas.Left="16" Canvas.Top="16" Margin="0,80,0,0" />
+                        <TextBlock x:Name="PART_Badge" Canvas.Left="16" Canvas.Top="16" Foreground="{ThemeResource SystemFillColorCritical}" />
+                    </Canvas>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="controls:CommandRibbon">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:CommandRibbon">
+                    <Grid RowSpacing="6">
+                        <ItemsControl ItemsSource="{Binding VisibleCommands, RelativeSource={RelativeSource TemplatedParent}}">
+                            <ItemsControl.ItemsPanel><ItemsPanelTemplate><ItemsStackPanel Orientation="Horizontal" /></ItemsPanelTemplate></ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate><DataTemplate><Button Padding="10,8" Margin="2"><StackPanel HorizontalAlignment="Center"><TextBlock Text="{Binding IconGlyph}" FontFamily="Segoe Fluent Icons" FontSize="20" HorizontalAlignment="Center" /><TextBlock Text="{Binding Label}" FontSize="11" /></StackPanel></Button></DataTemplate></ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                        <ItemsControl Grid.Row="1" ItemsSource="{Binding OverflowCommands, RelativeSource={RelativeSource TemplatedParent}}" Visibility="Collapsed">
+                            <ItemsControl.ItemTemplate><DataTemplate><Button Content="{Binding Label}" Padding="10,6" /></DataTemplate></ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                        <VisualStateManager.VisualStateGroups><VisualStateGroup x:Name="RibbonStates"><VisualState x:Name="Expanded" /><VisualState x:Name="Minimized" /><VisualState x:Name="NoOverflow" /><VisualState x:Name="Overflow" /></VisualStateGroup></VisualStateManager.VisualStateGroups>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="controls:WidgetsBoard">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:WidgetsBoard">
+                    <ItemsControl ItemsSource="{Binding Items, RelativeSource={RelativeSource TemplatedParent}}">
+                        <ItemsControl.ItemsPanel><ItemsPanelTemplate><ItemsWrapGrid MaximumRowsOrColumns="4" /></ItemsPanelTemplate></ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate><DataTemplate><Border Padding="14" Margin="6" MinWidth="180" MinHeight="100" CornerRadius="10" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"><StackPanel><TextBlock Text="{Binding Title}" FontWeight="SemiBold" /><ContentPresenter Content="{Binding Content}" /></StackPanel></Border></DataTemplate></ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="controls:FocusSession">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:FocusSession">
+                    <Grid RowSpacing="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="Focus session" Style="{StaticResource SubtitleTextBlockStyle}" />
+                        <ProgressBar Grid.Row="1" Minimum="0" Maximum="1" Value="{Binding Snapshot.Progress, RelativeSource={RelativeSource TemplatedParent}}" />
+                        <StackPanel Grid.Row="2" Orientation="Horizontal" Spacing="12">
+                            <TextBlock Text="{Binding Phase, RelativeSource={RelativeSource TemplatedParent}}" />
+                            <TextBlock Text="{Binding Remaining, RelativeSource={RelativeSource TemplatedParent}}" />
+                            <TextBlock Text="{Binding State, RelativeSource={RelativeSource TemplatedParent}}" />
+                        </StackPanel>
+                        <ItemsControl Grid.Row="3" ItemsSource="{Binding Tasks, RelativeSource={RelativeSource TemplatedParent}}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Title}" />
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="SessionStates">
+                                <VisualState x:Name="Idle" />
+                                <VisualState x:Name="Running" />
+                                <VisualState x:Name="Paused" />
+                                <VisualState x:Name="Break" />
+                                <VisualState x:Name="Completed" />
+                                <VisualState x:Name="Cancelled" />
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="controls:ImmersiveReader">
+        <Setter Property="FontScale" Value="1" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:ImmersiveReader">
+                    <Grid x:Name="PART_Root" RowSpacing="8">
+                        <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto">
+                            <ItemsRepeater x:Name="PART_ItemsRepeater">
+                                <ItemsRepeater.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Text}" Margin="0,6" TextWrapping="WrapWholeWords" FontSize="18" />
+                                    </DataTemplate>
+                                </ItemsRepeater.ItemTemplate>
+                            </ItemsRepeater>
+                        </ScrollViewer>
+                        <TextBlock x:Name="PART_LiveRegion" Grid.Row="1" Opacity="0" IsHitTestVisible="False"
+                                   AutomationProperties.LiveSetting="Polite" />
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="ContentStates"><VisualState x:Name="Empty" /><VisualState x:Name="Ready" /></VisualStateGroup>
+                            <VisualStateGroup x:Name="ReadingStates"><VisualState x:Name="Idle" /><VisualState x:Name="Reading" /></VisualStateGroup>
+                            <VisualStateGroup x:Name="FocusStates"><VisualState x:Name="None" /><VisualState x:Name="Paragraph" /><VisualState x:Name="Sentence" /></VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="controls:WidgetBoard">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:WidgetBoard">
+                    <ItemsControl ItemsSource="{Binding Items, RelativeSource={RelativeSource TemplatedParent}}">
+                        <ItemsControl.ItemsPanel><ItemsPanelTemplate><ItemsWrapGrid MaximumRowsOrColumns="4" /></ItemsPanelTemplate></ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate><DataTemplate><Border Padding="14" Margin="6" MinWidth="180" MinHeight="100" CornerRadius="10" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"><StackPanel><TextBlock Text="{Binding Title}" FontWeight="SemiBold" /><ContentPresenter Content="{Binding Content}" /></StackPanel></Border></DataTemplate></ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="controls:DynamicTileBoard">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:DynamicTileBoard">
+                    <ItemsControl ItemsSource="{Binding Tiles, RelativeSource={RelativeSource TemplatedParent}}">
+                        <ItemsControl.ItemsPanel><ItemsPanelTemplate><ItemsWrapGrid MaximumRowsOrColumns="4" /></ItemsPanelTemplate></ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate><DataTemplate><ContentPresenter Content="{Binding}" /></DataTemplate></ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="controls:EditorCanvas">
+        <Setter Property="Background" Value="{ThemeResource CardBackgroundFillColorDefaultBrush}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:EditorCanvas">
+                    <Grid x:Name="PART_Root" Background="{TemplateBinding Background}">
+                        <Canvas x:Name="PART_Grid" IsHitTestVisible="False" Opacity="0.18">
+                            <Rectangle Width="2000" Height="2000" Stroke="{ThemeResource SeniorCanvasGridBrush}" StrokeThickness="1" />
+                        </Canvas>
+                        <Canvas x:Name="PART_Surface" />
+                        <Canvas x:Name="PART_SelectionAdorner" IsHitTestVisible="False" />
+                        <Border HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12" Padding="8,4" CornerRadius="6" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" Opacity="0.9">
+                            <TextBlock Text="EditorCanvas · wheel zoom · middle-drag pan · arrows move · Delete removes · Ink accepts pen pressure" Style="{StaticResource CaptionTextBlockStyle}" />
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="controls:BigTitle">
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:BigTitle">
+                    <Border MinHeight="72" Padding="0,8">
+                        <Grid>
+                            <TextBlock x:Name="PART_TitlePresenter" FontWeight="Light" TextWrapping="NoWrap" VerticalAlignment="Center" />
+                            <TextBlock x:Name="PART_CompactPresenter" FontWeight="SemiBold" TextWrapping="NoWrap" VerticalAlignment="Center" />
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="controls:HubPanorama">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:HubPanorama">
+                    <Grid RowSpacing="10">
+                        <Grid.RowDefinitions><RowDefinition Height="*" /><RowDefinition Height="Auto" /></Grid.RowDefinitions>
+                        <ScrollViewer x:Name="PART_ScrollViewer" HorizontalScrollBarVisibility="Hidden" HorizontalScrollMode="Enabled" VerticalScrollMode="Disabled" ZoomMode="Disabled">
+                            <ItemsRepeater x:Name="PART_Repeater">
+                                <ItemsRepeater.ItemsPanel><ItemsPanelTemplate><ItemsStackPanel Orientation="Horizontal" /></ItemsPanelTemplate></ItemsRepeater.ItemsPanel>
+                                <ItemsRepeater.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border Width="720" MinHeight="300" Margin="0,0,20,0" Padding="24" CornerRadius="14" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                                            <StackPanel Spacing="12">
+                                                <TextBlock Text="{Binding Header}" Style="{StaticResource TitleTextBlockStyle}" />
+                                                <ItemsControl ItemsSource="{Binding Items}" />
+                                            </StackPanel>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsRepeater.ItemTemplate>
+                            </ItemsRepeater>
+                        </ScrollViewer>
+                        <ListView x:Name="PART_Indicator" Grid.Row="1" SelectionMode="Single" IsItemClickEnabled="False" MaxHeight="40" HorizontalAlignment="Center">
+                            <ListView.ItemsPanel><ItemsPanelTemplate><ItemsStackPanel Orientation="Horizontal" /></ItemsPanelTemplate></ListView.ItemsPanel>
+                            <ListView.ItemTemplate><DataTemplate><Border Width="10" Height="10" Margin="4" CornerRadius="5" Background="{ThemeResource SeniorCanvasGridBrush}" /></DataTemplate></ListView.ItemTemplate>
+                        </ListView>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="controls:PeopleCard">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:PeopleCard">
+                    <Border x:Name="PART_Root" Padding="16" CornerRadius="12" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                        <Grid ColumnSpacing="12" RowSpacing="10">
+                            <Grid.ColumnDefinitions><ColumnDefinition Width="56" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+                            <ContentPresenter x:Name="PART_Avatar" Width="56" Height="56" />
+                            <StackPanel Grid.Column="1" Spacing="3">
+                                <TextBlock x:Name="PART_DisplayName" FontWeight="SemiBold" FontSize="18" />
+                                <TextBlock x:Name="PART_Presence" Opacity="0.72" />
+                                <ItemsControl x:Name="PART_Fields">
+                                    <ItemsControl.ItemTemplate><DataTemplate><StackPanel Orientation="Horizontal" Spacing="6"><TextBlock Text="{Binding Key}" FontWeight="SemiBold" /><TextBlock Text="{Binding Value}" /></StackPanel></DataTemplate></ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </StackPanel>
+                            <ItemsControl x:Name="PART_Actions" Grid.Row="1" Grid.ColumnSpan="2">
+                                <ItemsControl.ItemsPanel><ItemsPanelTemplate><ItemsStackPanel Orientation="Horizontal" /></ItemsPanelTemplate></ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate><DataTemplate><Button Content="{Binding Label}" Tag="{Binding Id}" IsEnabled="{Binding IsEnabled}" Margin="0,0,8,0" /></DataTemplate></ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="controls:FileCard">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:FileCard">
+                    <Border x:Name="PART_Root" Padding="14" CornerRadius="12" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                        <Grid RowSpacing="8">
+                            <ContentPresenter x:Name="PART_Thumbnail" Height="120" />
+                            <StackPanel Grid.Row="1" Spacing="2">
+                                <TextBlock x:Name="PART_Name" FontWeight="SemiBold" TextWrapping="Wrap" />
+                                <TextBlock x:Name="PART_Metadata" Opacity="0.72" TextWrapping="Wrap" />
+                                <TextBlock x:Name="PART_Sharing" Opacity="0.72" />
+                            </StackPanel>
+                            <ItemsControl x:Name="PART_Actions" Grid.Row="2">
+                                <ItemsControl.ItemsPanel><ItemsPanelTemplate><ItemsStackPanel Orientation="Horizontal" /></ItemsPanelTemplate></ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate><DataTemplate><Button Content="{Binding Label}" Tag="{Binding Id}" IsEnabled="{Binding IsEnabled}" Margin="0,0,8,0" /></DataTemplate></ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="controls:AchievementToast">
+        <Setter Property="HorizontalAlignment" Value="Right" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="Margin" Value="24" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:AchievementToast">
+                    <Border x:Name="PART_Root" Padding="16" MinWidth="320" MaxWidth="460" CornerRadius="12"
+                            Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                            BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1">
+                        <Grid ColumnSpacing="12" RowSpacing="6">
+                            <ContentPresenter x:Name="PART_Icon" Width="44" Height="44" VerticalAlignment="Top" />
+                            <StackPanel Grid.Column="1" Spacing="3">
+                                <TextBlock x:Name="PART_Title" FontWeight="SemiBold" TextWrapping="Wrap" />
+                                <TextBlock x:Name="PART_Description" Opacity="0.78" TextWrapping="Wrap" />
+                                <ProgressBar x:Name="PART_Progress" Minimum="0" Maximum="1" Height="4" Margin="0,4,0,0" />
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="controls:OverlayMenu">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:OverlayMenu">
+                    <Grid>
+                        <Rectangle x:Name="PART_Scrim" Fill="#99000000" IsHitTestVisible="True" />
+                        <Border x:Name="PART_Panel" HorizontalAlignment="Right" Padding="20"
+                                Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1">
+                            <Grid RowSpacing="12">
+                                <Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition Height="*" /></Grid.RowDefinitions>
+                                <Button x:Name="PART_BackButton" Content="← Back" HorizontalAlignment="Left" />
+                                <ItemsControl x:Name="PART_Items" Grid.Row="1">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Button Tag="{Binding Id}" IsEnabled="{Binding IsEnabled}" HorizontalContentAlignment="Left" Margin="0,0,0,8">
+                                                <StackPanel Orientation="Horizontal" Spacing="10">
+                                                    <ContentPresenter Content="{Binding Icon}" Width="20" />
+                                                    <TextBlock Text="{Binding Header}" />
+                                                </StackPanel>
+                                            </Button>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="controls:MixviewExperience">
+        <Setter Property="Background" Value="{ThemeResource CardBackgroundFillColorDefaultBrush}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:MixviewExperience">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                            BorderThickness="1" CornerRadius="16" Padding="8">
+                        <Grid>
+                            <Canvas x:Name="PART_Surface" MinHeight="420" />
+                            <TextBlock x:Name="PART_LiveRegion"
+                                       AutomationProperties.LiveSetting="Polite"
+                                       Opacity="0" IsHitTestVisible="False" />
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="controls:GuideMenuExperience">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:GuideMenuExperience">
+                    <Grid x:Name="PART_Root" HorizontalAlignment="Left" Width="360">
+                        <Border x:Name="PART_Scrim" Background="#99000000" HorizontalAlignment="Stretch" />
+                        <Border Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1"
+                                CornerRadius="0,14,14,0" Padding="16">
+                            <Grid RowSpacing="12">
+                                <ItemsControl x:Name="PART_Breadcrumb" />
+                                <ItemsControl x:Name="PART_Nodes" Grid.Row="1">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Button Tag="{Binding Id}" HorizontalContentAlignment="Left" Margin="0,0,0,8" MinHeight="48">
+                                                <StackPanel Orientation="Horizontal" Spacing="10">
+                                                    <ContentPresenter Content="{Binding Icon}" Width="20" />
+                                                    <TextBlock Text="{Binding Label}" TextWrapping="Wrap" />
+                                                </StackPanel>
+                                            </Button>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 </ResourceDictionary>

@@ -3,7 +3,7 @@
     "id":  "controls.semantic-zoom-view",
     "display_name":  "SemanticZoomView",
     "kind":  "control",
-    "status":  "proposed",
+    "status":  "in-progress",
     "maturity":  "lab",
     "priority":  "P1",
     "package":  "WinUI3.Senior.Controls",
@@ -11,7 +11,8 @@
     "gallery_route":  "/controls/semantic-zoom-view",
     "source_language":  "zh-CN",
     "owned_paths":  [
-                        "catalog/Controls/Navigation/SemanticZoomView"
+                        "catalog/Controls/Navigation/SemanticZoomView",
+                        "src/WinUI3.Senior.Controls/Navigation/SemanticZoomView"
                     ],
     "depends_on":  [
                        "foundation.input-system"

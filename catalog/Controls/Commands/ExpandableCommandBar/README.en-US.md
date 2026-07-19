@@ -4,7 +4,7 @@ Specification work item for ExpandableCommandBar.
 
 ## Status
 
-proposed / lab / P2. Not eligible for implementation.
+in-progress / lab / P2. Implementation is active; final acceptance is pending.
 
 ## Documents
 
@@ -18,4 +18,4 @@ proposed / lab / P2. Not eligible for implementation.
 catalog/Controls/Commands/ExpandableCommandBar
 
 ## Implementation readiness
-Expandable bottom primary/secondary command bar; lock drag threshold before Ready.
+The current code provides explicit expand/collapse state, narrow-width auto-collapse, F10/keyboard semantics, and contextual state. Drag threshold and final theme acceptance remain.

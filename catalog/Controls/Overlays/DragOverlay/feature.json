@@ -3,7 +3,7 @@
     "id":  "controls.drag-overlay",
     "display_name":  "DragOverlay",
     "kind":  "control",
-    "status":  "proposed",
+    "status":  "in-progress",
     "maturity":  "lab",
     "priority":  "P2",
     "package":  "WinUI3.Senior.Controls",
@@ -11,13 +11,16 @@
     "gallery_route":  "/controls/drag-overlay",
     "source_language":  "zh-CN",
     "owned_paths":  [
-                        "catalog/Controls/Overlays/DragOverlay"
+                        "catalog/Controls/Overlays/DragOverlay",
+                        "src/WinUI3.Senior.Controls/Overlays/DragOverlay"
                     ],
     "depends_on":  [
                        "foundation.input-system"
                    ],
     "provides":  [
-                     "control:controls.drag-overlay"
+                     "WinUI3.Senior.Controls.DragOverlay",
+                     "WinUI3.Senior.Controls.DragOverlayOperations",
+                     "WinUI3.Senior.Controls.DragOverlayDropRequestedEventArgs"
                  ],
     "archaeology_refs":  [
 

@@ -1,0 +1,27 @@
+<Page
+    x:Class="WinUI3_Senior_Gallery.Pages.AchievementToastPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:WinUI3.Senior.Controls">
+    <Grid Margin="28" RowSpacing="16">
+        <Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /><RowDefinition Height="*" /></Grid.RowDefinitions>
+        <StackPanel Spacing="5">
+            <TextBlock Text="AchievementToast" Style="{StaticResource TitleTextBlockStyle}" />
+            <TextBlock Text="Window-local FIFO celebration queue" Style="{StaticResource SubtitleTextBlockStyle}" />
+            <TextBlock Text="只使用本地合成请求；不调用系统通知、不创建窗口、不保存成就历史。" Opacity="0.7" />
+        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Spacing="8">
+            <Button Content="Show achievement" Click="OnShowClick" />
+            <Button Content="Queue three" Click="OnQueueClick" />
+            <Button Content="Dismiss" Click="OnDismissClick" />
+            <TextBlock x:Name="StatusText" VerticalAlignment="Center" Margin="8,0,0,0" Opacity="0.7" />
+        </StackPanel>
+        <Border Grid.Row="2" Padding="20" CornerRadius="12" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+            <StackPanel Spacing="8">
+                <TextBlock Text="Queue semantics" Style="{StaticResource SubtitleTextBlockStyle}" />
+                <TextBlock Text="每个控件实例只展示一条，后续请求 FIFO 排队；超时后自动推进，Dispose/宿主卸载会以 HostDestroyed 结束等待项。" TextWrapping="Wrap" />
+            </StackPanel>
+        </Border>
+        <controls:AchievementToast x:Name="Toast" Grid.RowSpan="3" />
+    </Grid>
+</Page>

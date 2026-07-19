@@ -1,10 +1,10 @@
 ﻿# BigTitle
 
-这是中文规范源。当前为 proposed backlog，不允许进入实现。
+这是中文规范源。当前为 in-progress lab，已具备滚动驱动的大标题收缩逻辑和双呈现器模板。
 
 ## Status
 
-proposed / lab / P2
+in-progress / lab / P2
 
 ## Documents
 
@@ -18,4 +18,4 @@ proposed / lab / P2
 catalog/Controls/Layout/BigTitle
 
 ## 实现准备
-提供随滚动折叠的大标题，不承担页面导航。进入 ready 前以文本缩放原型确定最小折叠高度。
+`ScrollSource` 由宿主显式提供；VerticalOffset 按 CollapseDistance 映射 0..1，Expanded/Collapsing/Collapsed 三态只影响标题视觉，不接管导航。

@@ -3,22 +3,26 @@
     "id":  "experiences.captions-translation",
     "display_name":  "CaptionsTranslationExperience",
     "kind":  "experience",
-    "status":  "proposed",
+    "status":  "in-progress",
     "maturity":  "lab",
     "priority":  "P2",
-    "package":  "WinUI3.Senior.Archaeology",
-    "namespace":  "WinUI3.Senior.Archaeology",
+    "package":  "WinUI3.Senior.Media",
+    "namespace":  "WinUI3.Senior.Media",
     "gallery_route":  "/experiences/captions-translation",
     "source_language":  "zh-CN",
     "owned_paths":  [
-                        "catalog/Experiences/CaptionsTranslationExperience"
+                        "catalog/Experiences/CaptionsTranslationExperience",
+                        "src/WinUI3.Senior.Media/CaptionsTranslation/CaptionsTranslationExperience.cs",
+                        "src/WinUI3.Senior.Media/Themes/Generic.xaml",
+                        "src/WinUI3.Senior.Gallery/Pages/CaptionsTranslationPage.xaml",
+                        "src/WinUI3.Senior.Gallery/Pages/CaptionsTranslationPage.xaml.cs"
                     ],
     "depends_on":  [
                        "media.timed-text-view",
                        "future.captions-abstractions"
                    ],
     "provides":  [
-                     "experience:experiences.captions-translation"
+                     "WinUI3.Senior.Media.CaptionsTranslationExperience"
                  ],
     "archaeology_refs":  [
 

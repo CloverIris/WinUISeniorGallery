@@ -2,27 +2,27 @@
 
 ## Goal
 
-Define reusable responsibilities, state, and boundaries.
+Provide a horizontal content rail owning selection, keyboard/touch direction semantics, and adjacent-peek parameters; the host owns item data, See All navigation, and business actions.
 
 ## Non-goals
 
-No implementation while proposed.
+No network loading, image cache, global navigation, or persisted scroll position.
 
 ## Public API
 
-Not locked.
+Inherits `ItemsSource`/`ItemTemplate`; exposes `Header`, `ItemWidth`, `ItemSpacing`, `PeekWidth`, `IsSnapEnabled`, `SeeAllCommand`, `PageSize`, and `IsWrapNavigationEnabled`; methods `MoveSelection`, `ScrollNext`, `ScrollPrevious`, `ScrollToIndex`, and `InvokeSeeAll`.
 
 ## State model
 
-Not locked.
+An empty collection has no selection. PageSize=0 moves one item; RTL mirrors Left/Right; wrapping cycles ends, otherwise boundaries clamp. Enter/Space raises ItemInvoked and SeeAllCommand receives Header.
 
 ## Template parts and visual tree
 
-Not locked.
+`PART_Repeater`/`PART_ScrollView` are optional theme parts; missing parts retain the ListView default layout and keyboard logic. Adjacent peeks are expressed by item-container width and spacing.
 
 ## Behavior and failure modes
 
-Follow referenced contracts.
+Vertical wheel input bubbles to the parent; touch/Shift+wheel/direction keys use the same selection state machine. Replacing ItemsSource repairs an out-of-range selection, and unload retains no timer or event subscription.
 
 ## Open Decisions
 

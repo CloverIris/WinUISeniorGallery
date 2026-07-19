@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Page
+    x:Class="WinUI3_Senior_Gallery.Pages.ImmersiveReaderPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:WinUI3.Senior.Controls">
+    <ScrollViewer Padding="32,24,32,40" VerticalScrollBarVisibility="Auto">
+        <StackPanel MaxWidth="1000" Spacing="16">
+            <StackPanel Spacing="5">
+                <TextBlock Text="Immersive Reader" Style="{StaticResource TitleTextBlockStyle}" />
+                <TextBlock Text="阅读聚焦、缩放和宿主中立的朗读请求" Opacity="0.7" />
+                <TextBlock Text="Route: /experiences/immersive-reader" Opacity="0.6" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Spacing="12">
+                <Button Content="Read focused block" Click="OnReadClick" />
+                <ToggleSwitch x:Name="LineFocusSwitch" Header="Line focus" Toggled="OnLineFocusToggled" />
+                <Slider x:Name="ScaleSlider" Header="Text scale" Minimum="0.8" Maximum="2.5" Value="1" Width="220" ValueChanged="OnScaleChanged" />
+            </StackPanel>
+            <Border Padding="16" CornerRadius="12" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                <controls:ImmersiveReader x:Name="Reader" MinHeight="360" BlockInvoked="OnBlockInvoked" SpeechRequested="OnSpeechRequested" />
+            </Border>
+            <TextBlock x:Name="StatusText" Text="Select a paragraph." TextWrapping="Wrap" Opacity="0.7" />
+        </StackPanel>
+    </ScrollViewer>
+</Page>

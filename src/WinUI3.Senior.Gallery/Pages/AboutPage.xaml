@@ -1,21 +1,72 @@
 <Page
     x:Class="WinUI3_Senior_Gallery.Pages.AboutPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled">
+        <StackPanel MaxWidth="960" Padding="32,28,32,48" Spacing="20">
+            <StackPanel Spacing="6">
+                <TextBlock Text="About" Style="{StaticResource TitleTextBlockStyle}" />
+                <TextBlock Text="WinUI 3 Senior Gallery" Style="{StaticResource SubtitleTextBlockStyle}" />
+                <TextBlock Text="/about · specification-driven open-source project" Opacity="0.65" />
+            </StackPanel>
 
-    <ScrollViewer Padding="32">
-        <StackPanel Spacing="12">
-            <TextBlock Style="{StaticResource TitleTextBlockStyle}" Text="About" />
-            <TextBlock TextWrapping="Wrap" Text="Development placeholder for WinUI 3 Senior Gallery project information, licenses, contribution links, and the non-Microsoft-official-project statement." />
-            <InfoBar
-                IsOpen="True"
-                IsClosable="False"
-                Severity="Informational"
-                Title="Catalog route"
-                Message="/pages/about" />
+            <InfoBar IsOpen="True" IsClosable="False" Severity="Informational"
+                     Title="非微软官方项目"
+                     Message="本项目由社区独立设计和实现，不代表 Microsoft、Windows、Zune、Xbox 或 Microsoft 365 产品团队。历史产品名称仅用于设计研究。" />
+
+            <Border Padding="22" CornerRadius="14" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                <StackPanel Spacing="12">
+                    <TextBlock Text="项目定位" Style="{StaticResource SubtitleTextBlockStyle}" />
+                    <TextBlock Text="为 WinUI 3 提供现代消费级应用常用的高级复合控件、可运行实验页，以及 Windows 设计遗产的现代化重制。" TextWrapping="Wrap" />
+                    <TextBlock Text="技术栈：C# · .NET 10 LTS · Windows App SDK 2.2 · WinUI 3 · 未打包 Debug Gallery" Opacity="0.7" TextWrapping="Wrap" />
+                    <TextBlock Text="许可证：MIT（历史素材、商标与原始资产不随仓库分发）" Opacity="0.7" TextWrapping="Wrap" />
+                </StackPanel>
+            </Border>
+
+            <TextBlock Text="当前实现快照" Style="{StaticResource SubtitleTextBlockStyle}" />
+            <Grid ColumnSpacing="12" RowSpacing="12">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Border Padding="16" CornerRadius="10" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                    <StackPanel Spacing="5">
+                        <TextBlock Text="CarouselView" Style="{StaticResource SubtitleTextBlockStyle}" />
+                        <TextBlock Text="P0 · in-progress" />
+                        <TextBlock Text="虚拟化、循环、Slide/Fade/CoverFlow、多输入。" Opacity="0.7" TextWrapping="Wrap" />
+                    </StackPanel>
+                </Border>
+                <Border Grid.Column="1" Padding="16" CornerRadius="10" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                    <StackPanel Spacing="5">
+                        <TextBlock Text="Media P0" Style="{StaticResource SubtitleTextBlockStyle}" />
+                        <TextBlock Text="in-progress · 本地实验室" />
+                        <TextBlock Text="播放契约、时间线、定时文本与本地文件调试。" Opacity="0.7" TextWrapping="Wrap" />
+                    </StackPanel>
+                </Border>
+                <Border Grid.Row="1" Padding="16" CornerRadius="10" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                    <StackPanel Spacing="5">
+                        <TextBlock Text="Documentation" Style="{StaticResource SubtitleTextBlockStyle}" />
+                        <TextBlock Text="中文规范源 + English translation" />
+                        <TextBlock Text="每个功能目录都包含 SPEC、DESIGN、INTEGRATION、ACCEPTANCE。" Opacity="0.7" TextWrapping="Wrap" />
+                    </StackPanel>
+                </Border>
+                <Border Grid.Row="1" Grid.Column="1" Padding="16" CornerRadius="10" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                    <StackPanel Spacing="5">
+                        <TextBlock Text="Assets" Style="{StaticResource SubtitleTextBlockStyle}" />
+                        <TextBlock Text="本地合成数据与占位视觉" />
+                        <TextBlock Text="不提交受版权保护的截图、声音、壁纸或微软原始素材。" Opacity="0.7" TextWrapping="Wrap" />
+                    </StackPanel>
+                </Border>
+            </Grid>
+
+            <Expander Header="贡献边界" IsExpanded="False">
+                <StackPanel Spacing="8" Padding="0,10,0,0">
+                    <TextBlock Text="一次领取完整功能目录，并只修改 owned_paths。" TextWrapping="Wrap" />
+                    <TextBlock Text="公共契约不足时标记 blocked，不在局部发明兼容性不明的 API。" TextWrapping="Wrap" />
+                    <TextBlock Text="Gallery 页面拥有实验体验，不拥有公共控件 API。" TextWrapping="Wrap" />
+                </StackPanel>
+            </Expander>
+            <TextBlock x:Name="AboutStatus" Text="欢迎使用 WinUI 3 Senior Gallery。" Opacity="0.7" />
         </StackPanel>
     </ScrollViewer>
 </Page>

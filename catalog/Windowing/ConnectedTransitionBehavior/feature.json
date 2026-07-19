@@ -3,7 +3,7 @@
     "id":  "windowing.connected-transition-behavior",
     "display_name":  "ConnectedTransitionBehavior",
     "kind":  "behavior",
-    "status":  "proposed",
+    "status":  "in-progress",
     "maturity":  "lab",
     "priority":  "P2",
     "package":  "WinUI3.Senior.Windowing",
@@ -11,7 +11,8 @@
     "gallery_route":  "/windowing/connected-transition-behavior",
     "source_language":  "zh-CN",
     "owned_paths":  [
-                        "catalog/Windowing/ConnectedTransitionBehavior"
+                        "catalog/Windowing/ConnectedTransitionBehavior",
+                        "src/WinUI3.Senior.Windowing/ConnectedTransitionBehavior.cs"
                     ],
     "depends_on":  [
                        "contracts.motion"

@@ -4,7 +4,7 @@ Provide composable XAML title-bar layout that generates drag/interactive regions
 
 ## Status and Scope
 
-- Status: proposed / lab / P1
+- Status: in-progress / lab / P1
 - Dependency: contracts.windowing
 - Not eligible for implementation; candidate API/part names are review vocabulary only.
 
@@ -15,4 +15,3 @@ Own title-bar visuals and region descriptions only, not AppWindow creation/closu
 ## Agent Ownership
 
 Only catalog/Windowing/TitleBarHost; SPEC/DESIGN/INTEGRATION/ACCEPTANCE lock responsibility, visuals, platform lifecycle, and acceptance.
-

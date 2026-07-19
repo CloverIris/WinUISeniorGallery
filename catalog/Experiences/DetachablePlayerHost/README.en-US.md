@@ -1,21 +1,15 @@
-﻿# DetachablePlayerHost
+# DetachablePlayerHost
 
-Specification work item for DetachablePlayerHost.
+The Chinese document is normative. This `in-progress` lab implements Inline/Detached lifecycle coordination and a local fake-host demo.
 
 ## Status
 
-proposed / lab / P1. Not eligible for implementation.
+in-progress / lab / P1
 
-## Documents
+## Scope
 
-- SPEC.en-US.md
-- DESIGN.en-US.md
-- INTEGRATION.en-US.md
-- ACCEPTANCE.en-US.md
+The control emits floating-host requests and owns serialization, cancellation, stale-response filtering, and owner-close fallback. It never creates a window, migrates a MediaPlayer, or owns a playback session.
 
-## Agent ownership
+## Ownership
 
-catalog/Experiences/DetachablePlayerHost
-
-## Scenario readiness
-Moves one playback session across inline/detached/compact windows; Ready after two-window closure/ownership prototype.
+Implementation: `src/WinUI3.Senior.Windowing/DetachablePlayerHost.cs`; demo: `src/WinUI3.Senior.Gallery/Pages/DetachablePlayerHostPage.xaml*`.

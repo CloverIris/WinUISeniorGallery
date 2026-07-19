@@ -3,7 +3,7 @@
     "id":  "windowing.compact-overlay-host",
     "display_name":  "CompactOverlayHost",
     "kind":  "service",
-    "status":  "proposed",
+    "status":  "in-progress",
     "maturity":  "lab",
     "priority":  "P1",
     "package":  "WinUI3.Senior.Windowing",
@@ -11,7 +11,9 @@
     "gallery_route":  "/windowing/compact-overlay-host",
     "source_language":  "zh-CN",
     "owned_paths":  [
-                        "catalog/Windowing/CompactOverlayHost"
+                        "catalog/Windowing/CompactOverlayHost",
+                        "src/WinUI3.Senior.Windowing/CompactOverlayHost.cs",
+                        "src/WinUI3.Senior.Windowing/WindowingContracts.cs"
                     ],
     "depends_on":  [
                        "contracts.windowing"

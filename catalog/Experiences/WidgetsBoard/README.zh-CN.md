@@ -1,10 +1,10 @@
 ﻿# WidgetsBoard
 
-这是中文规范源。当前为 proposed backlog，不允许进入实现。
+这是中文规范源。当前为 in-progress，已完成网格碰撞、编辑拖放、固定/折叠、快照恢复和取消式刷新逻辑；视觉模板仍由宿主负责。
 
 ## Status
 
-proposed / lab / P1
+in-progress / lab / P1
 
 ## Documents
 

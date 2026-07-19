@@ -1,0 +1,22 @@
+<Page
+    x:Class="WinUI3_Senior_Gallery.Pages.MediaCenterExperiencePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:media="using:WinUI3.Senior.Media">
+    <Grid Margin="28" RowSpacing="16">
+        <Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /><RowDefinition Height="*" /></Grid.RowDefinitions>
+        <StackPanel Spacing="5">
+            <TextBlock Text="MediaCenterExperience" Style="{StaticResource TitleTextBlockStyle}" />
+            <TextBlock Text="Ten-foot category browse, detail overlay, and host-owned playback intent" Style="{StaticResource SubtitleTextBlockStyle}" />
+            <TextBlock Text="Synthetic local catalog. Selecting an item opens details; Play only raises SelectionRequested and never starts a player." Opacity="0.72" TextWrapping="Wrap" />
+        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Spacing="8">
+            <Button Content="Movies" Click="OnMoviesClick" />
+            <Button Content="Music" Click="OnMusicClick" />
+            <TextBlock x:Name="StatusText" VerticalAlignment="Center" Margin="8,0,0,0" Opacity="0.7" />
+        </StackPanel>
+        <Border Grid.Row="2" CornerRadius="12" Padding="12" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+            <media:MediaCenterExperience x:Name="Experience" SelectionRequested="OnSelectionRequested" DetailsClosed="OnDetailsClosed" MinHeight="480" />
+        </Border>
+    </Grid>
+</Page>

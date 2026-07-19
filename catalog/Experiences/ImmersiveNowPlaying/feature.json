@@ -3,7 +3,7 @@
     "id":  "experiences.immersive-now-playing",
     "display_name":  "ImmersiveNowPlaying",
     "kind":  "experience",
-    "status":  "proposed",
+    "status":  "in-progress",
     "maturity":  "lab",
     "priority":  "P1",
     "package":  "WinUI3.Senior.Archaeology",
@@ -11,7 +11,10 @@
     "gallery_route":  "/experiences/immersive-now-playing",
     "source_language":  "zh-CN",
     "owned_paths":  [
-                        "catalog/Experiences/ImmersiveNowPlaying"
+                        "catalog/Experiences/ImmersiveNowPlaying",
+                        "src/WinUI3.Senior.Gallery/Pages/ImmersiveNowPlayingPage.xaml",
+                        "src/WinUI3.Senior.Gallery/Pages/ImmersiveNowPlayingPage.xaml.cs",
+                        "src/WinUI3.Senior.Media/NowPlaying"
                     ],
     "depends_on":  [
                        "media.media-player-chrome",

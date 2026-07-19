@@ -1,10 +1,10 @@
 ﻿# TreeDataGrid
 
-这是中文规范源。当前为 proposed backlog，不允许进入实现。
+这是中文规范源。当前为 in-progress 实现工作单元；实现仍需后续模板、视觉验收与测试收尾。
 
 ## Status
 
-proposed / lab / P2
+in-progress / lab / P2
 
 ## Documents
 
@@ -18,4 +18,4 @@ proposed / lab / P2
 catalog/Controls/Data/TreeDataGrid
 
 ## 实现准备
-层级展开与列式数据网格；进入 Ready 前锁定选择/虚拟化模型，默认行选择+扁平可见列表。
+当前实现包含节点异步加载、展开/折叠、筛选、排序、单/多/扩展选择、键盘导航、编辑事件和带缓冲区的视口行模型。模板、视觉列渲染和自动化测试仍待收尾。

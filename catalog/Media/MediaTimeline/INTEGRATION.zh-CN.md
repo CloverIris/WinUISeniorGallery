@@ -2,7 +2,7 @@
 
 ## 全局契约
 
-采用 `contracts/MediaPlayback` 的统一时间域与播放状态语义，并使用 Theme、Motion、Input、Accessibility、Localization 和 Resources Contract。`MediaPlayerChrome` 可组合此控件，但 `MediaTimeline` 不反向依赖 Chrome。
+采用 `contracts/MediaPlayback` 的统一时间域与播放状态语义，并使用 Theme、Motion、Input、Accessibility、Localization 和 Resources Contract。`BufferedRanges` 与 `DisabledRanges` 使用 `WinUI3.Senior.Core.MediaPlaybackTimeRange`；MediaTimeline 不拥有第二套公开时间范围类型。`MediaPlayerChrome` 可组合此控件，但 `MediaTimeline` 不反向依赖 Chrome。
 
 ## 数据流
 

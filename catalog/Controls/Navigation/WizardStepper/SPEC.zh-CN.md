@@ -29,4 +29,4 @@ Follow referenced contracts.
 API, template parts, defaults, and performance budgets require specification review.
 
 ## Proposed implementation baseline
-`Steps`, `CurrentIndex`, `Orientation=Horizontal`, `NavigationMode=Linear`, `Next/Back/CancelCommand`, async `ValidateStep`; states `Idle/Validating/Invalid/Complete`, parts `PART_StepRepeater`, `PART_ContentPresenter`, command buttons. 验证期间防重入，失败留在原步。
+`Steps`, `CurrentIndex`, `Orientation=Horizontal`, `NavigationMode=Linear`, `Next/Back/CancelCommand`, async `ValidateStep`; states `Idle/Validating/Invalid/Complete`, parts `PART_StepRepeater`, `PART_ContentPresenter`, command buttons。目标步骤必须 `IsEnabled`；验证期间防重入，失败留在原步。末步完成事件在一次流程中只发布一次；`Reset` 或返回非末步后重新武装完成事件。

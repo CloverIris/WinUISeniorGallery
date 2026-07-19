@@ -3,7 +3,7 @@
     "id":  "controls.dynamic-tile",
     "display_name":  "DynamicTile",
     "kind":  "control",
-    "status":  "proposed",
+    "status":  "in-progress",
     "maturity":  "lab",
     "priority":  "P1",
     "package":  "WinUI3.Senior.Controls",
@@ -11,7 +11,8 @@
     "gallery_route":  "/controls/dynamic-tile",
     "source_language":  "zh-CN",
     "owned_paths":  [
-                        "catalog/Controls/Collections/DynamicTile"
+                        "catalog/Controls/Collections/DynamicTile",
+                        "src/WinUI3.Senior.Controls/Experiences/DynamicTile"
                     ],
     "depends_on":  [
                        "foundation.motion-system"

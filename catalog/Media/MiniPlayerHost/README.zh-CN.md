@@ -4,9 +4,9 @@
 
 ## 状态与范围
 
-- 状态：proposed / lab / P1
+- 状态：in-progress / lab / P1
 - 依赖：media.media-player-chrome
-- 不允许实现；候选 API 和模板名仅用于评审。
+- 当前已提供不创建窗口的紧凑宿主、播放/暂停、恢复与关闭请求；主题和最终验收仍在推进。
 
 ## 宿主边界
 
@@ -14,4 +14,4 @@
 
 ## 文档与 Agent 所有权
 
-SPEC 定义晋级门禁，DESIGN 覆盖视觉/输入，INTEGRATION 覆盖生命周期，ACCEPTANCE 给出 Given/When/Then。Agent 仅拥有 catalog/Media/MiniPlayerHost。
+SPEC 定义晋级门禁，DESIGN 覆盖视觉/输入，INTEGRATION 覆盖生命周期，ACCEPTANCE 给出 Given/When/Then。实现位于 `src/WinUI3.Senior.Media/MediaPlayerChrome/MiniPlayerHost.cs`。

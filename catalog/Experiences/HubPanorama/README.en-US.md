@@ -4,7 +4,7 @@ Specification work item for HubPanorama.
 
 ## Status
 
-proposed / lab / P1. Not eligible for implementation.
+in-progress / lab / P1. Horizontal sections, selection, keyboard/RTL semantics, and host content templates are implemented locally.
 
 ## Documents
 
@@ -18,4 +18,4 @@ proposed / lab / P1. Not eligible for implementation.
 catalog/Experiences/HubPanorama
 
 ## Scenario readiness
-Horizontal exploration across heterogeneous sections; Ready after virtualization/narrow vertical fallback passes focus testing.
+`HubPanorama` owns section selection and scroll coordination; the host owns items, background assets, and routing. It does not duplicate Pivot APIs, read network assets, or create windows.

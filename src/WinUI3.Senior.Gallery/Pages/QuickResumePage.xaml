@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Page
+    x:Class="WinUI3_Senior_Gallery.Pages.QuickResumePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:media="using:WinUI3.Senior.Media">
+    <ScrollViewer Padding="32,24,32,40" VerticalScrollBarVisibility="Auto">
+        <StackPanel MaxWidth="1120" Spacing="16">
+            <StackPanel Spacing="5">
+                <TextBlock Text="Quick Resume" Style="{StaticResource TitleTextBlockStyle}" />
+                <TextBlock Text="Windows/Xbox-style recent-session picker with a host-owned restore boundary" Opacity="0.7" />
+                <TextBlock Text="Route: /experiences/quick-resume" Opacity="0.6" />
+            </StackPanel>
+            <InfoBar IsOpen="True" IsClosable="False" Severity="Informational"
+                     Title="Synthetic data only"
+                     Message="Cards are deterministic in-memory entries. The control does not persist paths, thumbnails or session state." />
+            <StackPanel Orientation="Horizontal" Spacing="8">
+                <Button Content="Resume selected" Click="OnResumeClick" />
+                <Button Content="Remove selected" Click="OnRemoveClick" />
+                <TextBlock x:Name="StatusText" VerticalAlignment="Center" Text="Select a card." />
+            </StackPanel>
+            <Border Padding="12" CornerRadius="12" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                <media:QuickResumePicker x:Name="Picker" MinHeight="260"
+                                         ItemInvoked="OnItemInvoked"
+                                         RemoveRequested="OnRemoveRequested" />
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

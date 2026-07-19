@@ -1,12 +1,12 @@
-﻿# CaptionsTranslationExperience Acceptance
+# CaptionsTranslationExperience Acceptance
 
 ## Current gate
 
-Proposed work items must not be implemented. Chinese and English heading structures, stable IDs, and API names remain synchronized. APIs, state, errors, and performance budgets must be locked before ready.
-
-## Common matrix
-
-Light, Dark, High Contrast, DPI, keyboard, mouse, touch, Narrator, Reduced Motion, Chinese, English, and RTL.
+The item is `in-progress`; the Gallery uses synthetic text and intentionally contains no provider, ASR, or translation implementation.
 
 ## Given / When / Then
-Given ASR works/translation fails, source continues Degraded; stale revisions drop; target partial≤500 ms/final≤2 s and measurable.
+
+- Given current Revision=2, When Revision=1 is applied, Then it returns false and document/state do not roll back.
+- Given Source and Translation tracks, When a newer revision is applied, Then TimedTextView can enter Bilingual with both tracks.
+- Given an ErrorCode, When a revision is applied, Then state is Degraded and the last accepted text remains visible.
+- Given missing template parts, When the control runs, Then pure revision logic still applies and only visual projection degrades.

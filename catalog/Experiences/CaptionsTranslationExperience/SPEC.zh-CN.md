@@ -1,32 +1,17 @@
-﻿# CaptionsTranslationExperience Specification
+# CaptionsTranslationExperience Specification
 
 ## Goal
 
-目标：定义可复用职责、状态和边界。正式 API、模板部件、失败模式和性能预算尚未锁定；完成专项评审后方可进入 ready。
+为 `TimedTextView` 提供宿主字幕 Revision 合并层，保证 Revision 单调、翻译轨回退和错误降级。
 
 ## Non-goals
 
-No implementation while proposed.
+不识别语音、不翻译、不解析字幕文件、不联网、不创建 Provider 实例。
 
 ## Public API
 
-Not locked.
+`CaptionsTranslationRevision(Revision, Source, Translation, IsFinal, ErrorCode)`；`State`（Idle/Listening/Translating/Degraded/Error）、`DisplayMode`、`IsAutoFollowEnabled`、`ApplyRevision`、`SetPosition`、`SetError`。Revision 小于等于当前值必须拒绝且不改变呈现。
 
-## State model
+## Projection
 
-Not locked.
-
-## Template parts and visual tree
-
-Not locked.
-
-## Behavior and failure modes
-
-Follow referenced contracts.
-
-## Open Decisions
-
-API, template parts, defaults, and performance budgets require specification review.
-
-## 场景、数据与视觉树
-模型 Session→Track→MutableSegment→Word/Translation；树 `SourceSelector→TimedTextView→Status/Controls`；状态 Idle/Listening/Translating/Degraded/Error，Revision按单调序号替换。
+必须部件 `PART_TimedTextView` 和 `PART_Status`。Source 与 Translation 的轨合并为不可变文档；重复轨 ID 保留首个。错误 Revision 显示降级状态，但仍可呈现最后一个可接受文档。卸载/Provider 生命周期由宿主控制。

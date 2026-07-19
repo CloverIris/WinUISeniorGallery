@@ -31,3 +31,9 @@
 ## 自动化
 
 单元测试归一化、时间边界、重叠选择、Revision、轨道回退和翻译回退；UI 测试虚拟化、滚动暂停、焦点锚定、模板降级和 AutomationPeer；使用虚拟时钟和不可变假文档。
+
+## 实现证据
+
+- 2026-07-16：Media Release x64、Gallery Debug/Release x64 构建成功；Media 自动化测试通过 9/9。
+- Gallery 使用明确标记的合成 Document 与虚拟位置控制；不解析、上传或保存字幕内容。
+- 10,000 项、辅助技术与主题/RTL/DPI 矩阵待 review 手工验收，保持 `in-progress`。

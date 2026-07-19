@@ -1,21 +1,15 @@
-﻿# CaptionsTranslationExperience
+# CaptionsTranslationExperience
 
-这是中文规范源。当前为 proposed backlog，不允许进入实现。
+中文规范源。当前为 `in-progress` lab，只实现宿主提供的字幕/翻译 Revision 合并、回退和 `TimedTextView` 投影。
 
 ## Status
 
-proposed / lab / P2
+in-progress / lab / P2
 
-## Documents
+## Boundary
 
-- SPEC.zh-CN.md
-- DESIGN.zh-CN.md
-- INTEGRATION.zh-CN.md
-- ACCEPTANCE.zh-CN.md
+不实现 ASR、翻译 Provider、SRT/VTT/LRC 解析、网络或真实媒体字幕声明；这些能力由未来 Provider 抽象和宿主负责。
 
-## Agent ownership
+## Ownership
 
-catalog/Experiences/CaptionsTranslationExperience
-
-## 场景准备度
-实时ASR字幕与翻译编排；Ready 条件：抽象、Provider错误/隐私/延迟矩阵签字。
+实现：`src/WinUI3.Senior.Media/CaptionsTranslation/CaptionsTranslationExperience.cs`；演示：`src/WinUI3.Senior.Gallery/Pages/CaptionsTranslationPage.xaml*`。

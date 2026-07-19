@@ -1,21 +1,15 @@
-﻿# CaptionsTranslationExperience
+# CaptionsTranslationExperience
 
-Specification work item for CaptionsTranslationExperience.
+The Chinese document is normative. This `in-progress` lab implements only host-provided caption/translation revision merging, fallback, and `TimedTextView` projection.
 
 ## Status
 
-proposed / lab / P2. Not eligible for implementation.
+in-progress / lab / P2
 
-## Documents
+## Boundary
 
-- SPEC.en-US.md
-- DESIGN.en-US.md
-- INTEGRATION.en-US.md
-- ACCEPTANCE.en-US.md
+No ASR, translation provider, SRT/VTT/LRC parsing, network access, or claim that displayed text belongs to real media. Providers and hosts own those capabilities.
 
-## Agent ownership
+## Ownership
 
-catalog/Experiences/CaptionsTranslationExperience
-
-## Scenario readiness
-Real-time ASR captions and translation orchestration; Ready after abstraction/provider error/privacy/latency matrix approval.
+Implementation: `src/WinUI3.Senior.Media/CaptionsTranslation/CaptionsTranslationExperience.cs`; demo: `src/WinUI3.Senior.Gallery/Pages/CaptionsTranslationPage.xaml*`.

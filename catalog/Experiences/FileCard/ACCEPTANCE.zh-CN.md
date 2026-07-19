@@ -2,11 +2,11 @@
 
 ## Current gate
 
-验收门禁：proposed 工作单元不得实现。中英文标题结构、稳定 ID 和 API 名称必须同步；API、状态、错误和性能预算锁定后才可进入 ready。
+验收门禁：当前为 in-progress lab，允许本地实现但尚未稳定；中英文标题、稳定 ID 和 API 名称必须同步。
 
 ## Common matrix
 
 Light, Dark, High Contrast, DPI, keyboard, mouse, touch, Narrator, Reduced Motion, Chinese, English, and RTL.
 
 ## Given / When / Then
-Given 权限撤销/文件删除/缩略图失败 Then 清除敏感预览并显示可重试状态；1000卡虚拟化，无句柄泄漏。
+Given 合成 Descriptor When 页面加载 Then 不打开文件；Given Thumbnail null When 渲染 Then 元数据和动作仍可用；Given PreviewRequested When 宿主 Handled=false Then 控件不自行读取；Given disabled action When InvokeAction Then 无事件；Given Light/Dark/High Contrast/RTL/200% DPI Then 名称、SizeText 和动作可读可达。

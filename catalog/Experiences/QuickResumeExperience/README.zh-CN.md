@@ -1,10 +1,10 @@
 ﻿# QuickResumeExperience
 
-这是中文规范源。当前为 proposed backlog，不允许进入实现。
+这是中文规范源。当前为 `in-progress`，已实现宿主中立的最近会话选择器。
 
 ## Status
 
-proposed / lab / P2
+in-progress / lab / P2
 
 ## Documents
 
@@ -17,5 +17,7 @@ proposed / lab / P2
 
 catalog/Experiences/QuickResumeExperience
 
+实现路径：`src/WinUI3.Senior.Media/QuickResume`。
+
 ## 场景准备度
-以状态缩略图快速恢复最近会话；Ready 条件：快照隐私/失效/恢复协议评审。
+支持按最近活动时间去重、数量上限、十英尺方向键、恢复和移除请求。缩略图隐私、持久化、失效清理和真实恢复仍由宿主负责。

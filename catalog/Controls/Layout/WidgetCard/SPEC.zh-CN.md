@@ -2,19 +2,19 @@
 
 ## Goal
 
-目标：定义可复用职责、状态和边界。正式 API、模板部件、失败模式和性能预算尚未锁定；完成专项评审后方可进入 ready。
+目标：提供带 Loading/Error 生命周期、宿主刷新 Provider、自动刷新暂停和可折叠内容的 Dashboard 卡片。
 
 ## Non-goals
 
-No implementation while proposed.
+不负责持久化、网络访问、窗口创建或替宿主解释刷新数据。
 
 ## Public API
 
-Not locked.
+除 Header/Footer/Content 外，提供 `RefreshProvider`、`RefreshAsync`、`IsAutoRefreshEnabled`、`RefreshInterval`、`IsHostVisible`、`IsHostWindowActive`、`PauseReason`、`SetPauseReason` 和 RefreshStarted/Completed/Failed 事件。设置或替换 `RefreshProvider` 会重新计算自动刷新计时器；刷新结果过期、取消或控件已释放时不得覆盖新状态。
 
 ## State model
 
-Not locked.
+`Expanded/Collapsed/Loading/Error`；不可见、窗口失活或 Host 暂停时停止自动刷新，恢复后重新等待完整间隔。
 
 ## Template parts and visual tree
 
@@ -22,7 +22,7 @@ Not locked.
 
 ## Behavior and failure modes
 
-Follow referenced contracts.
+模板缺失时 ContentControl 仍可承载内容；刷新失败保留旧内容并设置 ErrorMessage，Retry 重新走同一 Provider。
 
 ## Open Decisions
 

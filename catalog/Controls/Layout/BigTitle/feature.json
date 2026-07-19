@@ -3,7 +3,7 @@
     "id":  "controls.big-title",
     "display_name":  "BigTitle",
     "kind":  "control",
-    "status":  "proposed",
+    "status":  "in-progress",
     "maturity":  "lab",
     "priority":  "P2",
     "package":  "WinUI3.Senior.Controls",
@@ -11,13 +11,18 @@
     "gallery_route":  "/controls/big-title",
     "source_language":  "zh-CN",
     "owned_paths":  [
-                        "catalog/Controls/Layout/BigTitle"
+                        "catalog/Controls/Layout/BigTitle",
+                        "src/WinUI3.Senior.Controls/Layout/BigTitle/BigTitle.cs",
+                        "src/WinUI3.Senior.Controls/Themes/Generic.xaml",
+                        "src/WinUI3.Senior.Gallery/Pages/BigTitlePage.xaml",
+                        "src/WinUI3.Senior.Gallery/Pages/BigTitlePage.xaml.cs"
                     ],
     "depends_on":  [
                        "foundation.theme-system"
                    ],
     "provides":  [
-                     "control:controls.big-title"
+                     "control:controls.big-title",
+                     "WinUI3.Senior.Controls.BigTitle"
                  ],
     "archaeology_refs":  [
 

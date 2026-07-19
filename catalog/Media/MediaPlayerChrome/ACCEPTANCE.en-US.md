@@ -31,3 +31,9 @@
 ## Automation
 
 Unit-test state mapping, command serialization, session detach, and request events. UI-test missing-part degradation, responsive modes, keyboard paths, and AutomationPeer behavior. Use fake sessions with no network or real-media dependency.
+
+## Implementation Evidence
+
+- 2026-07-16: Media Release x64 and Gallery Debug/Release x64 builds succeeded; Media automation tests passed 9/9.
+- Gallery provides an unpackaged FileOpenPicker; cancellation retains the session, load failure is in-page, and paths are not persisted.
+- Real-media, keyboard/gamepad, and visual-matrix checks remain manual review work; the item remains `in-progress`.

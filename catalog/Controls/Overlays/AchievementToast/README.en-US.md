@@ -4,7 +4,7 @@ Specification work item for AchievementToast.
 
 ## Status
 
-proposed / lab / P2. Not eligible for implementation.
+in-progress / lab / P2. Local FIFO, timed dismissal, and template binding are implemented.
 
 ## Documents
 
@@ -18,4 +18,4 @@ proposed / lab / P2. Not eligible for implementation.
 catalog/Controls/Overlays/AchievementToast
 
 ## Implementation readiness
-Celebratory queued toast with progress; before Ready decide Snackbar reuse, default separate per-window queue.
+Each window owns an independent FIFO queue. `ShowAsync` accepts an immutable request and displays icon, title, description, progress, and rarity. Pending requests resolve as `HostDestroyed` when the host is disposed. It does not reuse Snackbar or create a window.

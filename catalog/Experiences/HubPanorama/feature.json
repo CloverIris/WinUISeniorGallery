@@ -3,21 +3,26 @@
     "id":  "experiences.hub-panorama",
     "display_name":  "HubPanorama",
     "kind":  "experience",
-    "status":  "proposed",
+    "status":  "in-progress",
     "maturity":  "lab",
     "priority":  "P1",
-    "package":  "WinUI3.Senior.Archaeology",
-    "namespace":  "WinUI3.Senior.Archaeology",
+    "package":  "WinUI3.Senior.Controls",
+    "namespace":  "WinUI3.Senior.Controls",
     "gallery_route":  "/experiences/hub-panorama",
     "source_language":  "zh-CN",
     "owned_paths":  [
-                        "catalog/Experiences/HubPanorama"
+                        "catalog/Experiences/HubPanorama",
+                        "src/WinUI3.Senior.Controls/Experiences/HubPanorama/HubPanorama.cs",
+                        "src/WinUI3.Senior.Controls/Themes/Generic.xaml",
+                        "src/WinUI3.Senior.Gallery/Pages/HubPanoramaPage.xaml",
+                        "src/WinUI3.Senior.Gallery/Pages/HubPanoramaPage.xaml.cs"
                     ],
     "depends_on":  [
                        "controls.pivot-view"
                    ],
     "provides":  [
-                     "experience:experiences.hub-panorama"
+                     "experience:experiences.hub-panorama",
+                     "WinUI3.Senior.Controls.HubPanorama"
                  ],
     "archaeology_refs":  [
 

@@ -2,7 +2,7 @@
 
 ## Global Contracts
 
-Use the unified time domain and playback semantics from `contracts/MediaPlayback`, plus Theme, Motion, Input, Accessibility, Localization, and Resources contracts. `MediaPlayerChrome` may compose this control; `MediaTimeline` never depends back on Chrome.
+Use the unified time domain and playback semantics from `contracts/MediaPlayback`, plus Theme, Motion, Input, Accessibility, Localization, and Resources contracts. `BufferedRanges` and `DisabledRanges` consume `WinUI3.Senior.Core.MediaPlaybackTimeRange`; MediaTimeline owns no second public range type. `MediaPlayerChrome` may compose this control; `MediaTimeline` never depends back on Chrome.
 
 ## Data Flow
 

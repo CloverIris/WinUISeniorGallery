@@ -3,7 +3,7 @@
     "id":  "experiences.widgets-board",
     "display_name":  "WidgetsBoard",
     "kind":  "experience",
-    "status":  "proposed",
+    "status":  "in-progress",
     "maturity":  "lab",
     "priority":  "P1",
     "package":  "WinUI3.Senior.Archaeology",
@@ -11,7 +11,8 @@
     "gallery_route":  "/experiences/widgets-board",
     "source_language":  "zh-CN",
     "owned_paths":  [
-                        "catalog/Experiences/WidgetsBoard"
+                        "catalog/Experiences/WidgetsBoard",
+                        "src/WinUI3.Senior.Controls/Experiences/WidgetsBoard"
                     ],
     "depends_on":  [
                        "controls.widget-card",

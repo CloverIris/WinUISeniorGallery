@@ -3,7 +3,7 @@
     "id":  "windowing.floating-widget-host",
     "display_name":  "FloatingWidgetHost",
     "kind":  "service",
-    "status":  "proposed",
+    "status":  "in-progress",
     "maturity":  "lab",
     "priority":  "P1",
     "package":  "WinUI3.Senior.Windowing",
@@ -11,7 +11,9 @@
     "gallery_route":  "/windowing/floating-widget-host",
     "source_language":  "zh-CN",
     "owned_paths":  [
-                        "catalog/Windowing/FloatingWidgetHost"
+                        "catalog/Windowing/FloatingWidgetHost",
+                        "src/WinUI3.Senior.Windowing/FloatingWidgetHost.cs",
+                        "src/WinUI3.Senior.Windowing/WindowingContracts.cs"
                     ],
     "depends_on":  [
                        "contracts.windowing"

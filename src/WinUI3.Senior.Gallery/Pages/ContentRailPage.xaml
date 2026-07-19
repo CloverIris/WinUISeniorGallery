@@ -1,0 +1,23 @@
+<Page
+    x:Class="WinUI3_Senior_Gallery.Pages.ContentRailPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:WinUI3.Senior.Controls">
+    <Grid Margin="28" RowSpacing="16">
+        <Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /><RowDefinition Height="*" /></Grid.RowDefinitions>
+        <StackPanel Spacing="4">
+            <TextBlock Text="ContentRail" Style="{StaticResource TitleTextBlockStyle}" />
+            <TextBlock Text="Horizontal content rail with peeks and host-owned See All" Style="{StaticResource SubtitleTextBlockStyle}" />
+        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Spacing="8">
+            <Button Content="Previous" Click="OnPreviousClick" />
+            <Button Content="Next" Click="OnNextClick" />
+            <Button Content="See all" Click="OnSeeAllClick" />
+            <ToggleButton x:Name="WrapToggle" Content="Wrap" Checked="OnWrapChanged" Unchecked="OnWrapChanged" />
+            <TextBlock x:Name="StatusText" VerticalAlignment="Center" Margin="8,0,0,0" Opacity="0.7" />
+        </StackPanel>
+        <Border Grid.Row="2" Padding="12" CornerRadius="12" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+            <controls:ContentRail x:Name="Rail" Header="All content" PageSize="2" ItemWidth="240" />
+        </Border>
+    </Grid>
+</Page>

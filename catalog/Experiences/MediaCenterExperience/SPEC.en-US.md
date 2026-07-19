@@ -1,32 +1,17 @@
-﻿# MediaCenterExperience Specification
+# MediaCenterExperience Specification
 
 ## Goal
 
-Define reusable responsibilities, state, and boundaries.
+Compose `MediaCenterGrid` and a details overlay for Category → Item browsing with an explicit Playback intent event.
 
 ## Non-goals
 
-No implementation while proposed.
+No player creation, media-file access, navigation, network access, or persisted category/playback state.
 
 ## Public API
 
-Not locked.
+`MediaCenterItem`, `MediaCenterCategory`, `Categories`, `SelectedCategoryIndex`, `SelectedCategory`, `SelectedItem`, `IsDetailsOpen`, `State`, `SetCategories`, `SelectCategory`, `SelectItem`, `CloseDetails`, and `RequestPlayback`. `SelectionRequested` is used for both detail selection and playback intent; the host distinguishes the context.
 
-## State model
+## Behavior and visual tree
 
-Not locked.
-
-## Template parts and visual tree
-
-Not locked.
-
-## Behavior and failure modes
-
-Follow referenced contracts.
-
-## Open Decisions
-
-API, template parts, defaults, and performance budgets require specification review.
-
-## Scenario, data, and visual tree
-Category→MediaItem; tree `Shell→MediaCenterGrid→DetailOverlay`; Loading/Browse/Details/Playback/Error; selection emits navigation intent only.
+`PART_Grid` shows the active category. Selecting an item opens Details; Play raises the event and enters Playback; Close returns Browse. Empty categories are Empty, duplicate IDs are de-duplicated, and unknown IDs return false.

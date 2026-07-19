@@ -33,3 +33,9 @@
 ## 自动化
 
 单元测试归一化、禁用范围修正、节流尾值、最终提交和 Live Edge；UI 测试模板降级、ToolTip、焦点、RTL 与 AutomationPeer；测试使用虚拟时钟保证确定性。
+
+## 实现证据
+
+- 2026-07-16：Media Release x64、Gallery Debug/Release x64 构建成功；Media 自动化测试通过 9/9。
+- Gallery 提供 VOD、Live 与 Live DVR 的本地确定性会话和禁用区间、章节、标记演示。
+- 触摸、笔、手柄、RTL 与性能帧预算待 review 手工验收，保持 `in-progress`。

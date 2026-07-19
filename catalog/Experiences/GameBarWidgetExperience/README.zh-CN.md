@@ -1,21 +1,15 @@
-﻿# GameBarWidgetExperience
+# GameBarWidgetExperience
 
-这是中文规范源。当前为 proposed backlog，不允许进入实现。
+中文规范源。当前为 `in-progress` lab，提供宿主拥有的浮动 Widget 生命周期和可恢复的点击穿透交互模式。
 
 ## Status
 
-proposed / lab / P2
+in-progress / lab / P2
 
-## Documents
+## Scope
 
-- SPEC.zh-CN.md
-- DESIGN.zh-CN.md
-- INTEGRATION.zh-CN.md
-- ACCEPTANCE.zh-CN.md
+控件管理 Interactive、ClickThrough、Minimized 和 Closed 状态，要求点击穿透始终带恢复热键并获得宿主确认；它不修改命中测试、不创建窗口。
 
-## Agent ownership
+## Ownership
 
-catalog/Experiences/GameBarWidgetExperience
-
-## 场景准备度
-置顶半透明浮动小部件场景；Ready 条件：点击穿透/置顶安全与多屏DPI矩阵通过。
+实现：`src/WinUI3.Senior.Windowing/GameBarWidgetExperience.cs`；演示：`src/WinUI3.Senior.Gallery/Pages/GameBarWidgetPage.xaml*`。

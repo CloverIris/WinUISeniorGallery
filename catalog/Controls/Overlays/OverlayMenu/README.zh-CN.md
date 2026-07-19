@@ -1,10 +1,10 @@
 ﻿# OverlayMenu
 
-这是中文规范源。当前为 proposed backlog，不允许进入实现。
+这是中文规范源。当前为 in-progress lab，已具备层级导航、模态遮罩和 Esc/Back 语义实现。
 
 ## Status
 
-proposed / lab / P2
+in-progress / lab / P2
 
 ## Documents
 
@@ -18,4 +18,4 @@ proposed / lab / P2
 catalog/Controls/Overlays/OverlayMenu
 
 ## 实现准备
-不离开上下文的层级覆盖菜单；进入 Ready 前锁定模态默认值，默认Modal。
+层级覆盖菜单默认 Modal、Right placement；Esc 优先返回父级，再关闭根菜单；非模态菜单选择项不会自动关闭。宿主拥有菜单数据和动作。

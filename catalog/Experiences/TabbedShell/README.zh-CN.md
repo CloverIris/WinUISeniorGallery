@@ -1,10 +1,10 @@
 ﻿# TabbedShell
 
-这是中文规范源。当前为 proposed backlog，不允许进入实现。
+这是中文规范源。当前为 `in-progress`，已开始实现宿主中立的标签容器。
 
 ## Status
 
-proposed / lab / P1
+in-progress / lab / P1
 
 ## Documents
 
@@ -17,5 +17,7 @@ proposed / lab / P1
 
 catalog/Experiences/TabbedShell
 
+实现路径：`src/WinUI3.Senior.Controls/Navigation/TabbedShell`。
+
 ## 场景准备度
-标签内容、拖出和多窗口恢复；Ready 条件：标签生命周期与崩溃恢复状态图签字。
+已覆盖标签选择、关闭前取消、重排、键盘快捷键和显式拖出请求。窗口创建、多窗口恢复和崩溃恢复仍由宿主负责。

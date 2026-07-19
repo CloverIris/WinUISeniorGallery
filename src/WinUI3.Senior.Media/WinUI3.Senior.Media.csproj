@@ -14,4 +14,11 @@
     <ProjectReference Include="..\WinUI3.Senior.Core\WinUI3.Senior.Core.csproj" />
     <ProjectReference Include="..\WinUI3.Senior.Controls\WinUI3.Senior.Controls.csproj" />
   </ItemGroup>
+
+  <!-- WinUI 3 resolves control types in a library template only from the direct Generic.xaml pass. -->
+  <ItemGroup>
+    <Page Remove="MediaPlayerChrome\Themes\MediaPlayerChrome.xaml" />
+    <Page Remove="MediaTimeline\Themes\MediaTimeline.xaml" />
+    <Page Remove="TimedTextView\TimedTextView.xaml" />
+  </ItemGroup>
 </Project>

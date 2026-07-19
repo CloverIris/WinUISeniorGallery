@@ -43,11 +43,14 @@ Defines player-independent sessions, playback state, commands, timeline, Live DV
 
 ## Minimum surface
 
+Implementation ownership, exact signatures, and acceptance scenarios are in [Foundation MediaPlayback](../../catalog/Foundation/MediaPlayback/README.en-US.md). This document defines cross-module semantics; Core is the sole code owner.
+
 ### Interfaces and models
 
-- `IMediaPlaybackSession`: Pause.
-- `MediaPlaybackSnapshot`: Immutable monotonic-revision snapshot.
-- `HostPresentationRequested`: Host request carrying SessionId.
+- `IMediaPlaybackSession`: `CurrentSnapshot`, `SnapshotChanged`, and six cancellable commands: `PlayAsync`, `PauseAsync`, `StopAsync`, `SeekAsync`, `SetVolumeAsync`, and `SetPlaybackRateAsync`.
+- `MediaPlaybackSnapshot`: Immutable monotonic-revision snapshot containing session identity, state, mode, capabilities, media time, ranges, volume, rate, and stable error code.
+- `MediaPlaybackTimeRange`: The shared closed media-time range for every consumer; Timeline must not duplicate a second public range type.
+- `MediaPlaybackCommandResult`: An observable `Success`, `Rejected`, `Cancelled`, or `Failed` command result.
 
 - Public values MUST be immutable snapshots or explicitly documented commands.
 - Commands MUST return an observable result: success, rejected, cancelled, or failed.

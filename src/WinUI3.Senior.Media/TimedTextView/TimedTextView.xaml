@@ -1,0 +1,89 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:media="using:WinUI3.Senior.Media">
+
+    <SolidColorBrush x:Key="TimedTextPrimaryForegroundBrush" Color="{ThemeResource TextFillColorPrimary}" />
+    <SolidColorBrush x:Key="TimedTextSecondaryForegroundBrush" Color="{ThemeResource TextFillColorSecondary}" />
+    <SolidColorBrush x:Key="TimedTextInactiveForegroundBrush" Color="{ThemeResource TextFillColorTertiary}" />
+    <SolidColorBrush x:Key="TimedTextHighlightBrush" Color="{ThemeResource AccentFillColorDefault}" />
+    <SolidColorBrush x:Key="TimedTextInterimForegroundBrush" Color="{ThemeResource TextFillColorSecondary}" />
+    <SolidColorBrush x:Key="TimedTextCaptionBackgroundBrush" Color="{ThemeResource LayerFillColorDefault}" />
+    <CornerRadius x:Key="TimedTextCornerRadius">8</CornerRadius>
+    <x:Double x:Key="TimedTextLineSpacing">8</x:Double>
+    <Duration x:Key="TimedTextScrollDuration">0:0:0.22</Duration>
+    <x:Double x:Key="TimedTextMaxTextWidth">960</x:Double>
+
+    <Style TargetType="media:TimedTextView">
+        <Setter Property="Foreground" Value="{ThemeResource TimedTextPrimaryForegroundBrush}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="media:TimedTextView">
+                    <Grid x:Name="PART_RootGrid" MaxWidth="{ThemeResource TimedTextMaxTextWidth}">
+                        <Border Background="{ThemeResource TimedTextCaptionBackgroundBrush}"
+                                CornerRadius="{ThemeResource TimedTextCornerRadius}"
+                                Padding="16">
+                            <Grid>
+                                <TextBlock x:Name="PART_SingleLinePresenter"
+                                           Foreground="{TemplateBinding Foreground}"
+                                           TextAlignment="Center"
+                                           TextWrapping="WrapWholeWords" />
+                                <TextBlock x:Name="PART_KaraokePresenter"
+                                           Foreground="{ThemeResource TimedTextHighlightBrush}"
+                                           TextAlignment="Center"
+                                           TextWrapping="WrapWholeWords"
+                                           Visibility="Collapsed" />
+                                <StackPanel x:Name="PART_BilingualPanel" Visibility="Collapsed" Spacing="6">
+                                    <TextBlock x:Name="PART_PrimaryTextPresenter" Foreground="{TemplateBinding Foreground}" TextAlignment="Center" TextWrapping="WrapWholeWords" />
+                                    <TextBlock x:Name="PART_TranslationTextPresenter" Foreground="{ThemeResource TimedTextSecondaryForegroundBrush}" TextAlignment="Center" TextWrapping="WrapWholeWords" />
+                                </StackPanel>
+                                <ScrollViewer x:Name="PART_ScrollViewer" Visibility="Collapsed" VerticalScrollBarVisibility="Auto">
+                                    <ItemsRepeater x:Name="PART_ItemsRepeater">
+                                        <ItemsRepeater.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding Text}"
+                                                           AutomationProperties.Name="{Binding AutomationName}"
+                                                           Foreground="{ThemeResource TimedTextPrimaryForegroundBrush}"
+                                                           Margin="0,4"
+                                                           TextWrapping="WrapWholeWords" />
+                                            </DataTemplate>
+                                        </ItemsRepeater.ItemTemplate>
+                                    </ItemsRepeater>
+                                </ScrollViewer>
+                                <TextBlock x:Name="PART_EmptyPresenter" Text="No timed text is available." Foreground="{ThemeResource TimedTextInactiveForegroundBrush}" TextAlignment="Center" />
+                                <TextBlock x:Name="PART_LiveRegion" AutomationProperties.LiveSetting="Polite" Opacity="0" IsHitTestVisible="False" />
+                            </Grid>
+                        </Border>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="DisplayModeStates">
+                                <VisualState x:Name="SingleLine" />
+                                <VisualState x:Name="ScrollingLyrics">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_SingleLinePresenter" Storyboard.TargetProperty="Visibility"><DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed" /></ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_ScrollViewer" Storyboard.TargetProperty="Visibility"><DiscreteObjectKeyFrame KeyTime="0" Value="Visible" /></ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Karaoke">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_SingleLinePresenter" Storyboard.TargetProperty="Visibility"><DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed" /></ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_KaraokePresenter" Storyboard.TargetProperty="Visibility"><DiscreteObjectKeyFrame KeyTime="0" Value="Visible" /></ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Bilingual">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_SingleLinePresenter" Storyboard.TargetProperty="Visibility"><DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed" /></ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_BilingualPanel" Storyboard.TargetProperty="Visibility"><DiscreteObjectKeyFrame KeyTime="0" Value="Visible" /></ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="ContentStates"><VisualState x:Name="Empty" /><VisualState x:Name="Ready" /></VisualStateGroup>
+                            <VisualStateGroup x:Name="RevisionStates"><VisualState x:Name="Interim" /><VisualState x:Name="Final" /></VisualStateGroup>
+                            <VisualStateGroup x:Name="AutoScrollStates"><VisualState x:Name="AutoScrollEnabled" /><VisualState x:Name="AutoScrollSuspended" /></VisualStateGroup>
+                            <VisualStateGroup x:Name="CommonStates"><VisualState x:Name="Normal" /><VisualState x:Name="Disabled" /></VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

@@ -3,54 +3,100 @@
     x:Class="WinUI3_Senior_Gallery.Pages.HomePage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <ScrollViewer>
-        <StackPanel MaxWidth="1200" Padding="32,24,32,40" Spacing="20">
-            <StackPanel Spacing="6">
-                <TextBlock Text="WinUI 3 Senior Gallery" Style="{StaticResource TitleTextBlockStyle}" />
-                <TextBlock Text="面向现代 Windows 应用的高级复合组件、体验模式与设计考古。" Style="{StaticResource SubtitleTextBlockStyle}" />
-                <TextBlock Text="Catalog route: /" Opacity="0.68" />
-            </StackPanel>
-
-            <InfoBar IsOpen="True" IsClosable="False" Severity="Informational"
-                     Title="开发中的 Gallery 主机"
-                     Message="各个入口先连接到其规格和占位页面；只有状态为 ready 的工作单元才会进入正式控件实现。" />
-
-            <TextBlock Text="探索入口" Style="{StaticResource SubtitleTextBlockStyle}" />
-            <Grid ColumnSpacing="16" RowSpacing="16">
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled">
+        <StackPanel MaxWidth="1240" Padding="32,28,32,48" Spacing="24">
+            <Grid ColumnSpacing="24">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="2*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Border Padding="20" CornerRadius="12" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
-                    <StackPanel Spacing="8">
-                        <TextBlock Text="Controls" Style="{StaticResource SubtitleTextBlockStyle}" />
-                        <TextBlock Text="可复用的高级控件：集合、导航、布局、浮层、命令、输入与数据编辑。" TextWrapping="Wrap" />
-                        <TextBlock Text="/controls" Opacity="0.68" />
+                <StackPanel Spacing="10">
+                    <TextBlock Text="WinUI 3 Senior Gallery" Style="{StaticResource TitleTextBlockStyle}" />
+                    <TextBlock Text="面向现代 Windows 应用的高级复合控件、体验套件与设计考古。" Style="{StaticResource SubtitleTextBlockStyle}" TextWrapping="Wrap" />
+                    <TextBlock Text="规格驱动 · 本地可调试 · 非微软官方项目" Opacity="0.7" />
+                    <StackPanel Orientation="Horizontal" Spacing="10" Margin="0,12,0,0">
+                        <Button Content="打开 Playground" Click="OnOpenPlaygroundClick" />
+                        <Button Content="查看项目进度" Click="OnOpenAboutClick" />
                     </StackPanel>
-                </Border>
-                <Border Grid.Column="1" Padding="20" CornerRadius="12" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                </StackPanel>
+                <Border Grid.Column="1" Padding="20" CornerRadius="14" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
                     <StackPanel Spacing="8">
-                        <TextBlock Text="Media &amp; Windowing" Style="{StaticResource SubtitleTextBlockStyle}" />
-                        <TextBlock Text="媒体播放、时间文本、浮窗和窗口托管体验的实现入口。" TextWrapping="Wrap" />
-                        <TextBlock Text="/media · /windowing" Opacity="0.68" />
-                    </StackPanel>
-                </Border>
-                <Border Grid.Column="2" Padding="20" CornerRadius="12" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
-                    <StackPanel Spacing="8">
-                        <TextBlock Text="Design archaeology" Style="{StaticResource SubtitleTextBlockStyle}" />
-                        <TextBlock Text="重访 Windows、Zune、Media Center、Xbox 与 Microsoft 365 的优秀交互遗产。" TextWrapping="Wrap" />
-                        <TextBlock Text="/archaeology" Opacity="0.68" />
+                        <TextBlock Text="当前工作区" Style="{StaticResource SubtitleTextBlockStyle}" />
+                        <TextBlock Text="本地确定性数据" />
+                        <TextBlock Text="Gallery Debug / x64" Opacity="0.7" />
+                        <ProgressBar Value="36" Maximum="100" Height="6" Margin="0,8,0,0" />
+                        <TextBlock Text="4 个 P0 工作项正在实现" Opacity="0.7" />
                     </StackPanel>
                 </Border>
             </Grid>
 
-            <Border Padding="20" CornerRadius="12" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
-                <StackPanel Spacing="8">
-                    <TextBlock Text="当前进度" Style="{StaticResource SubtitleTextBlockStyle}" />
-                    <TextBlock Text="CarouselView 是第一项 P0 实施工作。其余页面此时提供稳定的导航落点与规格可见性，而不是伪装为已完成的产品体验。" TextWrapping="Wrap" />
-                </StackPanel>
-            </Border>
+            <InfoBar IsOpen="True" IsClosable="False" Severity="Informational"
+                     Title="这是一个可运行的规格实验室"
+                     Message="页面中的数据、播放会话和诊断状态都由 Gallery 本地生成；不会联网、上传媒体或保存用户文件路径。" />
+
+            <Grid ColumnSpacing="12">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="220" />
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="FeatureSearchBox" PlaceholderText="搜索控件、体验或分类" TextChanged="OnFeatureSearchChanged" />
+                <ComboBox x:Name="FeatureFilterComboBox" Grid.Column="1" SelectedIndex="0" SelectionChanged="OnFeatureCategoryChanged">
+                    <ComboBoxItem Content="全部分类" />
+                    <ComboBoxItem Content="Controls" />
+                    <ComboBoxItem Content="Media" />
+                    <ComboBoxItem Content="Windowing" />
+                    <ComboBoxItem Content="Archaeology" />
+                </ComboBox>
+            </Grid>
+            <TextBlock x:Name="FeatureCountText" Text="快速入口" Style="{StaticResource SubtitleTextBlockStyle}" />
+            <ItemsControl ItemsSource="{Binding VisibleFeatures}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Button HorizontalContentAlignment="Stretch" Margin="0,0,0,10" Padding="16" Tag="{Binding Route}" Click="OnFeatureClick">
+                            <Grid ColumnSpacing="16">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Border Width="42" Height="42" CornerRadius="21" Background="{ThemeResource AccentFillColorDefaultBrush}">
+                                    <TextBlock Text="{Binding Category}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="11" />
+                                </Border>
+                                <StackPanel Grid.Column="1" Spacing="3">
+                                    <TextBlock Text="{Binding Title}" Style="{StaticResource SubtitleTextBlockStyle}" />
+                                    <TextBlock Text="{Binding Description}" TextWrapping="Wrap" />
+                                    <TextBlock Text="{Binding Status}" Opacity="0.65" Style="{StaticResource CaptionTextBlockStyle}" />
+                                </StackPanel>
+                                <TextBlock Grid.Column="2" Text="›" FontSize="28" VerticalAlignment="Center" Opacity="0.65" />
+                            </Grid>
+                        </Button>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+            <TextBlock Text="Dashboard 快照" Style="{StaticResource SubtitleTextBlockStyle}" />
+            <ItemsControl ItemsSource="{Binding Widgets}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border Padding="16" Margin="0,0,0,10" CornerRadius="12" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
+                            <Grid ColumnSpacing="14">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Spacing="3">
+                                    <TextBlock Text="{Binding Title}" Style="{StaticResource SubtitleTextBlockStyle}" />
+                                    <TextBlock Text="{Binding Summary}" Opacity="0.7" />
+                                    <TextBlock Text="{Binding RefreshDescription}" Opacity="0.6" Style="{StaticResource CaptionTextBlockStyle}" />
+                                </StackPanel>
+                                <TextBlock Grid.Column="1" Text="{Binding Value}" VerticalAlignment="Center" FontSize="18" />
+                                <Button Grid.Column="2" Content="刷新" Tag="{Binding}" Click="OnWidgetRefreshClick" VerticalAlignment="Center" />
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
         </StackPanel>
     </ScrollViewer>
 </Page>

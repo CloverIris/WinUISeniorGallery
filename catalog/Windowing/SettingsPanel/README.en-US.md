@@ -4,7 +4,7 @@ Provide an in-window settings side panel with hierarchical navigation, back, and
 
 ## Status and Scope
 
-- Status: proposed / lab / P2
+- Status: in-progress / lab / P2
 - Dependency: contracts.windowing
 - Not eligible for implementation; candidate API/part names are review vocabulary only.
 
@@ -15,4 +15,3 @@ Create no settings window, persist no settings, and decide no identity/permissio
 ## Agent Ownership
 
 Only catalog/Windowing/SettingsPanel; SPEC/DESIGN/INTEGRATION/ACCEPTANCE lock responsibility, visuals, platform lifecycle, and acceptance.
-

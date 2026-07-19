@@ -1,21 +1,15 @@
-﻿# GuideMenuExperience
+# GuideMenuExperience
 
-Specification work item for GuideMenuExperience.
+The Chinese document is normative. This `in-progress` lab implements host-neutral layered Guide navigation and a Gallery experiment page.
 
 ## Status
 
-proposed / lab / P2. Not eligible for implementation.
+in-progress / lab / P2
 
-## Documents
+## Scope
 
-- SPEC.en-US.md
-- DESIGN.en-US.md
-- INTEGRATION.en-US.md
-- ACCEPTANCE.en-US.md
+The host supplies a `GuideNode` tree. The control owns open, enter, back, Escape close, and leaf events, but never performs navigation, window changes, or command side effects.
 
-## Agent ownership
+## Ownership
 
-catalog/Experiences/GuideMenuExperience
-
-## Scenario readiness
-Multilevel side guide over immersive content; Ready after 10-level focus/Back model.
+Implementation: `src/WinUI3.Senior.Controls/Experiences/GuideMenu/GuideMenuExperience.cs`; demo: `src/WinUI3.Senior.Gallery/Pages/GuideMenuPage.xaml*`.

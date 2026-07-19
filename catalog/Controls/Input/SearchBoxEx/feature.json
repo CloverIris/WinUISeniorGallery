@@ -3,7 +3,7 @@
     "id":  "controls.search-box-ex",
     "display_name":  "SearchBoxEx",
     "kind":  "control",
-    "status":  "proposed",
+    "status":  "in-progress",
     "maturity":  "lab",
     "priority":  "P2",
     "package":  "WinUI3.Senior.Controls",
@@ -11,7 +11,8 @@
     "gallery_route":  "/controls/search-box-ex",
     "source_language":  "zh-CN",
     "owned_paths":  [
-                        "catalog/Controls/Input/SearchBoxEx"
+                        "catalog/Controls/Input/SearchBoxEx",
+                        "src/WinUI3.Senior.Controls/Input/SearchBoxEx"
                     ],
     "depends_on":  [
                        "foundation.accessibility-system"

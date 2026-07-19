@@ -3,7 +3,7 @@
     "id":  "windowing.tab-tear-out-behavior",
     "display_name":  "TabTearOutBehavior",
     "kind":  "behavior",
-    "status":  "proposed",
+    "status":  "in-progress",
     "maturity":  "lab",
     "priority":  "P2",
     "package":  "WinUI3.Senior.Windowing",
@@ -11,7 +11,9 @@
     "gallery_route":  "/windowing/tab-tear-out-behavior",
     "source_language":  "zh-CN",
     "owned_paths":  [
-                        "catalog/Windowing/TabTearOutBehavior"
+                        "catalog/Windowing/TabTearOutBehavior",
+                        "src/WinUI3.Senior.Windowing/TabTearOutBehavior.cs",
+                        "src/WinUI3.Senior.Windowing/WindowingContracts.cs"
                     ],
     "depends_on":  [
                        "contracts.windowing"
